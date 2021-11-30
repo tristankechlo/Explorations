@@ -1,0 +1,15 @@
+{
+	"name": "explorations:underground_temple/shafts",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"location": "explorations:underground_temple/shaft_down_small",
+				"processors": "minecraft:empty",
+				"projection": "rigid",
+				"element_type": "minecraft:single_pool_element"
+			}
+		}
+	]
+}
