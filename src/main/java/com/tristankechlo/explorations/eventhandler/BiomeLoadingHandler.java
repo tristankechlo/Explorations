@@ -4,7 +4,7 @@ import com.tristankechlo.explorations.init.ConfiguredStructures;
 import com.tristankechlo.explorations.structures.ForgottenWellStructure;
 import com.tristankechlo.explorations.structures.JungleTempleStructure;
 
-import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,7 +25,7 @@ public class BiomeLoadingHandler {
 		}
 
 		// add undergrounde temple to all overworld biomes
-		if (event.getCategory() != Category.NETHER && event.getCategory() != Category.THEEND) {
+		if (event.getCategory() != BiomeCategory.NETHER && event.getCategory() != BiomeCategory.THEEND) {
 			event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);
 		}
 

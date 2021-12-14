@@ -8,19 +8,19 @@ import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructures;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.FlatChunkGenerator;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.settings.DimensionStructuresSettings;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.StructureSettings;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 public class WorldLoadingHandler {
 
@@ -29,10 +29,10 @@ public class WorldLoadingHandler {
 	@SuppressWarnings("resource")
 	@SubscribeEvent(priority = EventPriority.NORMAL)
 	public void addDimensionalSpacing(final WorldEvent.Load event) {
-		if (!(event.getWorld() instanceof ServerWorld)) {
+		if (!(event.getWorld() instanceof ServerLevel)) {
 			return;
 		}
-		ServerWorld serverWorld = (ServerWorld) event.getWorld();
+		ServerLevel serverWorld = (ServerLevel) event.getWorld();
 
 		// do not add when worldtype is terraforged
 		if (isTerraForged(serverWorld)) {
@@ -40,22 +40,23 @@ public class WorldLoadingHandler {
 		}
 
 		// do not add when worldtype is SuperFlat
-		if (serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator
-				&& serverWorld.dimension().equals(World.OVERWORLD)) {
+		if (serverWorld.getChunkSource().getGenerator() instanceof FlatLevelSource
+				&& serverWorld.dimension().equals(Level.OVERWORLD)) {
 			return;
 		}
 
 		// add structures
-		Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(
+		Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(
 				serverWorld.getChunkSource().generator.getSettings().structureConfig());
 		tempMap.putIfAbsent(ModStructures.FORGOTTEN_WELL.get(), getSettings(ModStructures.FORGOTTEN_WELL.get()));
 		tempMap.putIfAbsent(ModStructures.JUNGLE_TEMPLE.get(), getSettings(ModStructures.JUNGLE_TEMPLE.get()));
-		tempMap.putIfAbsent(ModStructures.UNDERGROUND_TEMPLE.get(), getSettings(ModStructures.UNDERGROUND_TEMPLE.get()));
+		tempMap.putIfAbsent(ModStructures.UNDERGROUND_TEMPLE.get(),
+				getSettings(ModStructures.UNDERGROUND_TEMPLE.get()));
 		serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
 	}
 
 	@SuppressWarnings("resource")
-	private boolean isTerraForged(ServerWorld serverWorld) {
+	private boolean isTerraForged(ServerLevel serverWorld) {
 		try {
 			if (GETCODEC_METHOD == null) {
 				GETCODEC_METHOD = ObfuscationReflectionHelper.findMethod(ChunkGenerator.class, "func_230347_a_");
@@ -73,8 +74,8 @@ public class WorldLoadingHandler {
 		return false;
 	}
 
-	private StructureSeparationSettings getSettings(Structure<?> structure) {
-		return DimensionStructuresSettings.DEFAULTS.get(structure);
+	private StructureFeatureConfiguration getSettings(StructureFeature<?> structure) {
+		return StructureSettings.DEFAULTS.get(structure);
 	}
 
 }

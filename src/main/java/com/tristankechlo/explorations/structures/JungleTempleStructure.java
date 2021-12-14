@@ -7,62 +7,63 @@ import java.util.Random;
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.math.vector.Vector3i;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.GenerationStage.Decoration;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
-import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
-import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructureManager;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.structure.StructureStart;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Vec3i;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
-public class JungleTempleStructure extends Structure<NoFeatureConfig> {
+public class JungleTempleStructure extends StructureFeature<NoneFeatureConfiguration> {
 
 	public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
 
-	public JungleTempleStructure(Codec<NoFeatureConfig> codec) {
+	public JungleTempleStructure(Codec<NoneFeatureConfiguration> codec) {
 		super(codec);
 	}
 
 	@Override
-	public IStartFactory<NoFeatureConfig> getStartFactory() {
+	public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
 		return JungleTempleStructure.Start::new;
 	}
 
 	@Override
 	public Decoration step() {
-		return GenerationStage.Decoration.SURFACE_STRUCTURES;
+		return Decoration.SURFACE_STRUCTURES;
 	}
 
 	@Override
-	protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed,
-			SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos,
-			NoFeatureConfig featureConfig) {
-		BlockPos centerOfChunk = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+	protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed,
+			WorldgenRandom random, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos2,
+			NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
+		BlockPos centerOfChunk = chunkPos1.getWorldPosition();
 		int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(),
-				Heightmap.Type.WORLD_SURFACE_WG);
-		IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
+				Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
+		NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(),
+				heightLimitView);
 		BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
 		return topBlock.getFluidState().isEmpty() && landHeight <= 80;
 	}
@@ -79,54 +80,54 @@ public class JungleTempleStructure extends Structure<NoFeatureConfig> {
 		return biomes;
 	}
 
-	public static class Start extends StructureStart<NoFeatureConfig> {
+	public static class Start extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
 
 		private static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID,
 				"jungle_temple/jungle_temple_start");
 
-		public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ,
-				MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+		public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos, int referenceIn,
+				long seedIn) {
+			super(structureIn, chunkPos, referenceIn, seedIn);
 		}
 
 		@Override
-		public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator,
-				TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
+		public void generatePieces(RegistryAccess dynamicRegistryAccess, ChunkGenerator chunkGenerator,
+				StructureManager structureManager, ChunkPos chunkPos, Biome biomeIn, NoneFeatureConfiguration config,
+				LevelHeightAccessor heightLimitView) {
 
-			int x = chunkX * 16;
-			int z = chunkZ * 16;
-			BlockPos centerPos = new BlockPos(x - this.random.nextInt(10), 0, z - this.random.nextInt(10));
+			BlockPos structureBlockPos = new BlockPos(chunkPos.getMinBlockX(), 0, chunkPos.getMinBlockZ());
 			final int maxDepth = 5;
 			final boolean placeAtHeightMap = true;
 			final boolean intersecting = false;
-			JigsawManager.addPieces(dynamicRegistryManager,
-					new VillageConfig(() -> getJigsawPattern(dynamicRegistryManager), maxDepth),
-					AbstractVillagePiece::new, chunkGenerator, templateManagerIn, centerPos, this.pieces, this.random,
-					intersecting, placeAtHeightMap);
+			JigsawPlacement.addPieces(dynamicRegistryAccess,
+					new JigsawConfiguration(() -> getJigsawPattern(dynamicRegistryAccess), maxDepth),
+					PoolElementStructurePiece::new, chunkGenerator, structureManager, structureBlockPos, this,
+					this.random, intersecting, placeAtHeightMap, heightLimitView);
+
 			// move pieces to fit into land
 			this.pieces.forEach(piece -> piece.move(0, 1, 0));
-//			this.pieces.forEach(piece -> piece.getBoundingBox().y0 -= 1);
 
-			Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
-			int xOffset = centerPos.getX() - structureCenter.getX();
-			int zOffset = centerPos.getZ() - structureCenter.getZ();
+			// center at start pos
+			Vec3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
+			int xOffset = structureBlockPos.getX() - structureCenter.getX();
+			int zOffset = structureBlockPos.getZ() - structureCenter.getZ();
 			this.pieces.forEach(piece -> piece.move(xOffset, 0, zOffset));
-			this.calculateBoundingBox();
+			this.getBoundingBox();
 		}
 
 		@Override
-		public void placeInChunk(ISeedReader seedReader, StructureManager manager, ChunkGenerator chunkGenerator,
-				Random random, MutableBoundingBox boundingBox, ChunkPos pos) {
-			super.placeInChunk(seedReader, manager, chunkGenerator, random, boundingBox, pos);
+		public void placeInChunk(WorldGenLevel level, StructureFeatureManager manager, ChunkGenerator chunkGenerator,
+				Random random, BoundingBox boundingBox, ChunkPos chunkPos) {
+			super.placeInChunk(level, manager, chunkGenerator, random, boundingBox, chunkPos);
 
-			// place stone bricks under the structure
-			int i = this.boundingBox.y0;
-			for (int j = boundingBox.x0; j <= boundingBox.x1; ++j) {
-				for (int k = boundingBox.z0; k <= boundingBox.z1; ++k) {
+			int i = this.getBoundingBox().minY();
+			for (int j = boundingBox.minX(); j <= boundingBox.maxX(); ++j) {
+				for (int k = boundingBox.minZ(); k <= boundingBox.maxZ(); ++k) {
+
 					BlockPos blockpos = new BlockPos(j, i, k);
-					if (!seedReader.isEmptyBlock(blockpos) && this.boundingBox.isInside(blockpos)) {
-						boolean flag = false;
+					if (!level.isEmptyBlock(blockpos) && this.getBoundingBox().isInside(blockpos)) {
 
+						boolean flag = false;
 						for (StructurePiece structurepiece : this.pieces) {
 							if (structurepiece.getBoundingBox().isInside(blockpos)) {
 								flag = true;
@@ -137,24 +138,25 @@ public class JungleTempleStructure extends Structure<NoFeatureConfig> {
 						if (flag) {
 							for (int l = i - 1; l > 1; --l) {
 								BlockPos blockpos1 = new BlockPos(j, l, k);
-								if (!seedReader.isEmptyBlock(blockpos1)
-										&& !seedReader.getBlockState(blockpos1).getMaterial().isLiquid()) {
+								if (level.isEmptyBlock(blockpos1)
+										|| level.getBlockState(blockpos1).getMaterial().isLiquid()) {
 									break;
 								}
 
 								if (random.nextFloat() < 0.3F) {
-									seedReader.setBlock(blockpos1, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
+									level.setBlock(blockpos1, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
 								} else {
-									seedReader.setBlock(blockpos1, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+									level.setBlock(blockpos1, Blocks.STONE_BRICKS.defaultBlockState(), 2);
 								}
 							}
 						}
 					}
 				}
 			}
+
 		}
 
-		private JigsawPattern getJigsawPattern(DynamicRegistries dynamicRegistryManager) {
+		private StructureTemplatePool getJigsawPattern(RegistryAccess dynamicRegistryManager) {
 			return dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL);
 		}
 
