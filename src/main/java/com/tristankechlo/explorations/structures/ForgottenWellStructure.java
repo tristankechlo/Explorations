@@ -1,47 +1,38 @@
 package com.tristankechlo.explorations.structures;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
+import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.Vec3i;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.PostPlacementProcessor;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 
-public class ForgottenWellStructure extends StructureFeature<NoneFeatureConfiguration> {
+public class ForgottenWellStructure extends StructureFeature<JigsawConfiguration> {
 
-	public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
+	public static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID,
+			"forgotten_well_start_pool");
 
-	public ForgottenWellStructure(Codec<NoneFeatureConfiguration> codec) {
-		super(codec);
-	}
-
-	@Override
-	public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-		return ForgottenWellStructure.Start::new;
+	public ForgottenWellStructure(Codec<JigsawConfiguration> codec) {
+		super(codec, ForgottenWellStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
 	}
 
 	@Override
@@ -49,70 +40,56 @@ public class ForgottenWellStructure extends StructureFeature<NoneFeatureConfigur
 		return GenerationStep.Decoration.SURFACE_STRUCTURES;
 	}
 
-	@Override
-	protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed,
-			WorldgenRandom random, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos2,
-			NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
-		BlockPos blockPos = chunkPos1.getWorldPosition();
-		int landHeight = chunkGenerator.getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(),
-				Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-		NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(blockPos.getX(), blockPos.getZ(), heightLimitView);
-		BlockState topBlock = columnOfBlocks.getBlockState(blockPos.above(landHeight));
-		return topBlock.getFluidState().isEmpty();
-	}
-
-	private static List<String> getDefaultSpawnBiomes() {
-		List<String> biomes = new ArrayList<>();
-		biomes.add(Biomes.FOREST.location().toString());
-		biomes.add(Biomes.BIRCH_FOREST.location().toString());
-		biomes.add(Biomes.BIRCH_FOREST_HILLS.location().toString());
-		biomes.add(Biomes.DARK_FOREST.location().toString());
-		biomes.add(Biomes.DARK_FOREST_HILLS.location().toString());
-		biomes.add(Biomes.TALL_BIRCH_FOREST.location().toString());
-		biomes.add(Biomes.FLOWER_FOREST.location().toString());
+	public static ImmutableSet<ResourceKey<Biome>> getDefaultSpawnBiomes() {
+		ImmutableSet<ResourceKey<Biome>> biomes = ImmutableSet.<ResourceKey<Biome>>builder().add(Biomes.FOREST)
+				.add(Biomes.BIRCH_FOREST).add(Biomes.OLD_GROWTH_BIRCH_FOREST).add(Biomes.DARK_FOREST)
+				.add(Biomes.FLOWER_FOREST).build();
 		return biomes;
 	}
 
-	public static class Start extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
+	private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+		BlockPos blockPos = context.chunkPos().getWorldPosition();
+		int landHeight = context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(),
+				Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+		NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(blockPos.getX(), blockPos.getZ(),
+				context.heightAccessor());
+		BlockState topBlock = columnOfBlocks.getBlock(landHeight);
+		return topBlock.getFluidState().isEmpty();
+	}
 
-		public static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID,
-				"forgotten_well_start_pool");
+	public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(
+			PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
 
-		public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos, int referenceIn,
-				long seedIn) {
-			super(structureIn, chunkPos, referenceIn, seedIn);
+		// skip generation when chunk is not a feature chunk
+		if (!ForgottenWellStructure.isFeatureChunk(context)) {
+			return Optional.empty();
 		}
 
-		@Override
-		public void generatePieces(RegistryAccess dynamicRegistryAccess, ChunkGenerator chunkGenerator,
-				StructureManager structureManager, ChunkPos chunkPos, Biome biomeIn, NoneFeatureConfiguration config,
-				LevelHeightAccessor heightLimitView) {
+		final int maxDepth = 5;
+		JigsawConfiguration config = new JigsawConfiguration(() -> getJigsawPattern(context.registryAccess()),
+				maxDepth);
 
-			BlockPos structureBlockPos = new BlockPos(chunkPos.getMinBlockX(), 0, chunkPos.getMinBlockZ());
-			final int maxDepth = 10;
-			final boolean intersecting = false;
-			final boolean placeAtHeightMap = true;
-			JigsawPlacement.addPieces(dynamicRegistryAccess,
-					new JigsawConfiguration(() -> getJigsawPattern(dynamicRegistryAccess), maxDepth),
-					PoolElementStructurePiece::new, chunkGenerator, structureManager, structureBlockPos, this,
-					this.random, intersecting, placeAtHeightMap, heightLimitView);
+		PieceGeneratorSupplier.Context<JigsawConfiguration> newContext = new PieceGeneratorSupplier.Context<>(
+				context.chunkGenerator(), context.biomeSource(), context.seed(), context.chunkPos(), config,
+				context.heightAccessor(), context.validBiome(), context.structureManager(), context.registryAccess());
 
-			// move pieces to fit into land
-			this.pieces.forEach(piece -> piece.move(0, -2, 0));
+		BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(0);
+		int landHeight = context.chunkGenerator().getFirstOccupiedHeight(blockpos.getX(), blockpos.getZ(),
+				Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
 
-			// center piece at start pos
-			Vec3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
-			int xOffset = structureBlockPos.getX() - structureCenter.getX();
-			int zOffset = structureBlockPos.getZ() - structureCenter.getZ();
-			this.pieces.forEach(piece -> piece.move(xOffset, 0, zOffset));
+		final boolean intersecting = false;
+		final boolean placeAtHeightMap = false;
+		Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator = JigsawPlacement.addPieces(newContext,
+				PoolElementStructurePiece::new, blockpos.atY(landHeight - 1), intersecting, placeAtHeightMap);
 
-			this.getBoundingBox();
-		}
+		// TODO move pieces to fit into land
 
-		private StructureTemplatePool getJigsawPattern(RegistryAccess dynamicRegistryManager) {
-			return dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL);
-		}
+		return structurePiecesGenerator;
 
+	}
+
+	private static StructureTemplatePool getJigsawPattern(RegistryAccess dynamicRegistryManager) {
+		return dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL);
 	}
 
 }

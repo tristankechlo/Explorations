@@ -4,18 +4,19 @@ import com.tristankechlo.explorations.Explorations;
 
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.PlainVillagePools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 
 public class ConfiguredStructures {
 
 	public static ConfiguredStructureFeature<?, ?> CONFIGURED_FORGOTTEN_WELL = ModStructures.FORGOTTEN_WELL.get()
-			.configured(NoneFeatureConfiguration.INSTANCE);
+			.configured(new JigsawConfiguration(() -> PlainVillagePools.START, 0));
 	public static ConfiguredStructureFeature<?, ?> CONFIGURED_JUNGLE_TEMPLE = ModStructures.JUNGLE_TEMPLE.get()
-			.configured(NoneFeatureConfiguration.INSTANCE);
+			.configured(new JigsawConfiguration(() -> PlainVillagePools.START, 0));
 	public static ConfiguredStructureFeature<?, ?> CONFIGURED_UNDERGROUND_TEMPLE = ModStructures.UNDERGROUND_TEMPLE
-			.get().configured(NoneFeatureConfiguration.INSTANCE);
+			.get().configured(new JigsawConfiguration(() -> PlainVillagePools.START, 0));
 
 	public static void registerConfiguredStructures() {
 		Registry<ConfiguredStructureFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -26,9 +27,5 @@ public class ConfiguredStructures {
 		Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_underground_temple"),
 				CONFIGURED_UNDERGROUND_TEMPLE);
 
-//		FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.FORGOTTEN_WELL.get(), CONFIGURED_FORGOTTEN_WELL);
-//		FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.JUNGLE_TEMPLE.get(), CONFIGURED_JUNGLE_TEMPLE);
-//		FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.UNDERGROUND_TEMPLE.get(),
-//				CONFIGURED_UNDERGROUND_TEMPLE);
 	}
 }

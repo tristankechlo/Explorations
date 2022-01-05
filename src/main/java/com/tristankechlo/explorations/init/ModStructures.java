@@ -13,23 +13,23 @@ import com.tristankechlo.explorations.structures.UnderGroundTempleStructure;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.levelgen.StructureSettings;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModStructures {
 
 	public static final DeferredRegister<StructureFeature<?>> STRUCTURES = DeferredRegister
 			.create(ForgeRegistries.STRUCTURE_FEATURES, Explorations.MOD_ID);
 
-	public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> FORGOTTEN_WELL = STRUCTURES
-			.register("forgotten_well", () -> (new ForgottenWellStructure(NoneFeatureConfiguration.CODEC)));
-	public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> JUNGLE_TEMPLE = STRUCTURES
-			.register("jungle_temple", () -> (new JungleTempleStructure(NoneFeatureConfiguration.CODEC)));
-	public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> UNDERGROUND_TEMPLE = STRUCTURES
-			.register("underground_temple", () -> (new UnderGroundTempleStructure(NoneFeatureConfiguration.CODEC)));
+	public static final RegistryObject<StructureFeature<JigsawConfiguration>> FORGOTTEN_WELL = STRUCTURES
+			.register("forgotten_well", () -> (new ForgottenWellStructure(JigsawConfiguration.CODEC)));
+	public static final RegistryObject<StructureFeature<JigsawConfiguration>> JUNGLE_TEMPLE = STRUCTURES
+			.register("jungle_temple", () -> (new JungleTempleStructure(JigsawConfiguration.CODEC)));
+	public static final RegistryObject<StructureFeature<JigsawConfiguration>> UNDERGROUND_TEMPLE = STRUCTURES
+			.register("underground_temple", () -> (new UnderGroundTempleStructure(JigsawConfiguration.CODEC)));
 
 	public static void setupStructures() {
 		setupMapSpacingAndLand(FORGOTTEN_WELL.get(), new StructureFeatureConfiguration(10, 5, 2147413647), false);
@@ -39,6 +39,7 @@ public class ModStructures {
 
 	private static <F extends StructureFeature<?>> void setupMapSpacingAndLand(F structure,
 			StructureFeatureConfiguration structureSeparationSettings, boolean transformSurroundingLand) {
+
 		StructureFeature.STRUCTURES_REGISTRY.put(structure.getRegistryName().toString(), structure);
 
 		if (transformSurroundingLand) {
