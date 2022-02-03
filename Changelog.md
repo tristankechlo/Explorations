@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.18.1 - 1.0.1
+ - fix game crashing in the end
+ - fix game crashing in modded dimensions
+
 ### Version 1.18.1 - 1.0.0
  - add forgotten well structure
  - add jungle temple structure

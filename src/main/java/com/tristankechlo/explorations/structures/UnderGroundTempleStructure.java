@@ -18,6 +18,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
+import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
@@ -56,7 +57,7 @@ public class UnderGroundTempleStructure extends StructureFeature<JigsawConfigura
 
 	private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
 		Random random = new Random(context.seed());
-		return random.nextDouble() < 0.6;
+		return context.validBiomeOnTop(Types.WORLD_SURFACE_WG) && random.nextDouble() < 0.6;
 	}
 
 	public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(

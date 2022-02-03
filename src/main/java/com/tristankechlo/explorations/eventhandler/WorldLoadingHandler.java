@@ -22,12 +22,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.FlatLevelSource;
 import net.minecraft.world.level.levelgen.StructureSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -59,11 +61,15 @@ public class WorldLoadingHandler {
 		addToSomeBiomes(serverWorld, STStructureToMultiMap, ConfiguredStructures.CONFIGURED_JUNGLE_TEMPLE,
 				JungleTempleStructure.getDefaultSpawnBiomes());
 		addToAllOverworldBiomes(serverWorld, STStructureToMultiMap, ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);
-		
-        ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = ImmutableMap.builder();
-        worldStructureConfig.configuredStructures.entrySet().stream().filter(entry -> !STStructureToMultiMap.containsKey(entry.getKey())).forEach(tempStructureToMultiMap::put);
-        STStructureToMultiMap.forEach((key, value) -> tempStructureToMultiMap.put(key, ImmutableMultimap.copyOf(value)));
-        worldStructureConfig.configuredStructures = tempStructureToMultiMap.build();
+
+		ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = ImmutableMap
+				.builder();
+		worldStructureConfig.configuredStructures.entrySet().stream()
+				.filter(entry -> !STStructureToMultiMap.containsKey(entry.getKey()))
+				.forEach(tempStructureToMultiMap::put);
+		STStructureToMultiMap
+				.forEach((key, value) -> tempStructureToMultiMap.put(key, ImmutableMultimap.copyOf(value)));
+		worldStructureConfig.configuredStructures = tempStructureToMultiMap.build();
 
 		// do not add when worldtype is terraforged
 		if (isTerraForged(serverWorld, chunkGenerator)) {
@@ -84,12 +90,11 @@ public class WorldLoadingHandler {
 			HashMap<StructureFeature<?>, HashMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> STStructureToMultiMap,
 			ConfiguredStructureFeature<?, ?> configuredFeature) {
 
-		for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : serverWorld.registryAccess()
-				.ownedRegistryOrThrow(Registry.BIOME_REGISTRY).entrySet()) {
-			Biome.BiomeCategory biomeCategory = biomeEntry.getValue().getBiomeCategory();
-			if (biomeCategory != Biome.BiomeCategory.OCEAN && biomeCategory != Biome.BiomeCategory.THEEND
-					&& biomeCategory != Biome.BiomeCategory.NETHER && biomeCategory != Biome.BiomeCategory.NONE) {
-				associateBiomeToConfiguredStructure(STStructureToMultiMap, configuredFeature, biomeEntry.getKey());
+		for (ResourceKey<Biome> biomeEntry : BiomeDictionary.getBiomes(BiomeDictionary.Type.OVERWORLD)) {
+			BiomeCategory biomeCategory = serverWorld.registryAccess().ownedRegistryOrThrow(Registry.BIOME_REGISTRY)
+					.get(biomeEntry).getBiomeCategory();
+			if (biomeCategory != BiomeCategory.OCEAN && biomeCategory != BiomeCategory.NONE) {
+				associateBiomeToConfiguredStructure(STStructureToMultiMap, configuredFeature, biomeEntry);
 			}
 		}
 	}
@@ -104,7 +109,7 @@ public class WorldLoadingHandler {
 	private boolean isTerraForged(ServerLevel serverWorld, ChunkGenerator chunkGenerator) {
 		try {
 			if (GETCODEC_METHOD == null) {
-				GETCODEC_METHOD = ObfuscationReflectionHelper.findMethod(ChunkGenerator.class, "codec"); //func_230347_a_
+				GETCODEC_METHOD = ObfuscationReflectionHelper.findMethod(ChunkGenerator.class, "codec"); // func_230347_a_
 			}
 			@SuppressWarnings("unchecked")
 			ResourceLocation cgRL = Registry.CHUNK_GENERATOR
