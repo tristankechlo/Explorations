@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[40,)"
 license="CC BY-NC-ND 4.0"
 showAsResourcePack=false
 
 [[mods]]
 modId="explorations"
-version="1.18.1 - 1.0.1"
+version="1.18.2 - 1.1.0"
 displayName="Explorations+"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/explorations"
 #logoFile="examplemod.png"
@@ -16,13 +16,13 @@ description='''adds more vanilla style structures to the game'''
 [[dependencies.explorations]]
     modId="forge"
     mandatory=true
-    versionRange="[39,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 	
 [[dependencies.explorations]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

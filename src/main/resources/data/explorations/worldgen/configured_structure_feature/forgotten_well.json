@@ -1,0 +1,11 @@
+{
+	"type": "explorations:forgotten_well",
+	"config": {
+		"start_pool": "explorations:forgotten_well_start",
+		"size": 1
+	},
+	"biomes": "#explorations:has_structure/forgotten_well",
+	"adapt_noise": false,
+	"spawn_overrides": {
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:forgotten_well",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 2147413647,
+		"spacing": 10,
+		"separation": 5,
+		"type": "minecraft:random_spread"
+	}
+}
