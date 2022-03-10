@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:floating_island",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1701811218,
+		"spacing": 16,
+		"separation": 8,
+		"type": "minecraft:random_spread"
+	}
+}
