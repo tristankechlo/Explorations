@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:large_oak_tree",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1684511628,
+		"spacing": 10,
+		"separation": 5,
+		"type": "minecraft:random_spread"
+	}
+}
