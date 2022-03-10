@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:shrine",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1759717125,
+		"spacing": 16,
+		"separation": 8,
+		"type": "minecraft:random_spread"
+	}
+}

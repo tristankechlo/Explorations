@@ -1,0 +1,15 @@
+{
+	"name": "explorations:shrine_start",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"location": "explorations:shrine",
+				"processors": "explorations:randomize_stonebrick",
+				"projection": "rigid",
+				"element_type": "minecraft:single_pool_element"
+			}
+		}
+	]
+}
