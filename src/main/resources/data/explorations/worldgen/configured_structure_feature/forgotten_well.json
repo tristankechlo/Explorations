@@ -1,11 +1,11 @@
 {
-	"type": "explorations:forgotten_well",
+	"type": "minecraft:village",
 	"config": {
 		"start_pool": "explorations:forgotten_well_start",
 		"size": 1
 	},
 	"biomes": "#explorations:has_structure/forgotten_well",
-	"adapt_noise": false,
+	"adapt_noise": true,
 	"spawn_overrides": {
 	}
 }

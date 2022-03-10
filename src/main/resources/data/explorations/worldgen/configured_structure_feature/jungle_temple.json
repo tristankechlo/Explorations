@@ -1,5 +1,5 @@
 {
-	"type": "explorations:jungle_temple",
+	"type": "minecraft:village",
 	"config": {
 		"start_pool": "explorations:jungle_temple/jungle_temple_start",
 		"size": 3
