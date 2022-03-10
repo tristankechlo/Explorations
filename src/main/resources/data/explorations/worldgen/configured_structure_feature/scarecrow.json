@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "explorations:scarecrow_start",
+		"size": 1
+	},
+	"biomes": "#explorations:has_structure/scarecrow",
+	"adapt_noise": true,
+	"spawn_overrides": {
+	}
+}
