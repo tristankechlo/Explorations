@@ -1,5 +1,8 @@
 # Changelog
 
+### Version 1.18.2 - 1.1.1
+ - fix game crashing in the end (again)
+
 ### Version 1.18.2 - 1.1.0
  - update to 1.18.2
  - fix existing structure spawning

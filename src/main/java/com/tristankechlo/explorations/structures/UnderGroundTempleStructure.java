@@ -33,14 +33,17 @@ public class UnderGroundTempleStructure extends StructureFeature<JigsawConfigura
 	public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(
 			PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
 
-		// skip generation when chunk is not a feature chunk
+		// skip generation when the chunk is not a feature chunk
 		if (!UnderGroundTempleStructure.isFeatureChunk(context)) {
 			return Optional.empty();
 		}
 
 		int sealevel = context.chunkGenerator().getSeaLevel();
+		if (sealevel <= 30) {
+			return Optional.empty();
+		}
 		Random random = new Random(context.seed());
-		BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(random.nextInt(0, sealevel) - 20);
+		BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(random.nextInt(0, sealevel) - 15);
 
 		final boolean intersecting = false;
 		final boolean placeAtHeightMap = false;
