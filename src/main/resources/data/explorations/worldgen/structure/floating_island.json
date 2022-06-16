@@ -1,0 +1,13 @@
+{
+	"type": "explorations:floating_island",
+	"start_pool": "explorations:floating_island_start",
+	"size": 1,
+	"biomes": "#explorations:has_structure/floating_island",
+	"step": "surface_structures",
+	"start_height": {
+		"absolute": 60
+	},
+	"project_start_to_heightmap": "WORLD_SURFACE_WG",
+	"spawn_overrides": {
+	}
+}

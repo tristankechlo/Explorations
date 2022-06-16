@@ -1,5 +1,8 @@
 # Changelog
 
+### Version 1.19 - 1.1.1
+ - port to 1.19
+
 ### Version 1.18.2 - 1.1.1
  - fix game crashing in the end (again)
 
