@@ -42,7 +42,7 @@ public class UndergroundTempleStructure extends Structure {
 
 	private static boolean isFeatureChunk(Structure.GenerationContext context) {
 		Random random = new Random(context.seed());
-		return random.nextDouble() < 0.6;
+		return random.nextDouble() < 0.5;
 	}
 
 	@Override
