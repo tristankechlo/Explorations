@@ -3,10 +3,11 @@
 ### Version 1.19 - 1.1.2
  - port to 1.19
  - descreased spawnrate of the underground temple
- - increased spawnrates of large oak trees
+ - increased spawnrate of large oak trees
  - updated structures to use structure void instead of stone/air, this will blend them better in the environment during worldgeneration
      - underground temple
      - forgotten well
+ - add new scarecrow variant `mangrove`
 
 ### Version 1.18.2 - 1.1.1
  - fix game crashing in the end (again)
