@@ -1,12 +1,12 @@
 {
 	"structures": [
 		{
-			"structure": "explorations:scarecrow",
+			"structure": "explorations:scarecrow_birch",
 			"weight": 1
 		}
 	],
 	"placement": {
-		"salt": 1471374876,
+		"salt": 1978175908,
 		"spacing": 10,
 		"separation": 5,
 		"type": "minecraft:random_spread"

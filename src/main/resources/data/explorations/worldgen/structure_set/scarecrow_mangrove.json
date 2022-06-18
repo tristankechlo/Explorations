@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:scarecrow_mangrove",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1362089678,
+		"spacing": 10,
+		"separation": 5,
+		"type": "minecraft:random_spread"
+	}
+}

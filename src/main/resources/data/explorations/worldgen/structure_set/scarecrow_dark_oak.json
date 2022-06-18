@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:scarecrow_dark_oak",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1837986521,
+		"spacing": 10,
+		"separation": 5,
+		"type": "minecraft:random_spread"
+	}
+}

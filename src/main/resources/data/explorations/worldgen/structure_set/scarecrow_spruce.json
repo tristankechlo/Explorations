@@ -1,0 +1,14 @@
+{
+	"structures": [
+		{
+			"structure": "explorations:scarecrow_spruce",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 1531328273,
+		"spacing": 10,
+		"separation": 5,
+		"type": "minecraft:random_spread"
+	}
+}

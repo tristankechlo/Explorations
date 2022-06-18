@@ -8,6 +8,7 @@
      - underground temple
      - forgotten well
  - add new scarecrow variant `mangrove`
+ - scarecrows now generate only in their respective biome
 
 ### Version 1.18.2 - 1.1.1
  - fix game crashing in the end (again)
