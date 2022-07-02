@@ -20,7 +20,7 @@ public class CaveVineDecorator extends TreeDecorator {
 			return decorator.startProbability;
 		}), Codec.floatRange(0.0F, 1.0F).fieldOf("berry_chance").forGetter((decorator) -> {
 			return decorator.berrySpawnChance;
-		}), Codec.intRange(1, 10).optionalFieldOf("max_vine_length", 4).forGetter((decorator) -> {
+		}), Codec.intRange(0, 10).optionalFieldOf("max_vine_length", 4).forGetter((decorator) -> {
 			return decorator.maxVineLength;
 		}), Codec.BOOL.optionalFieldOf("only_outer_leaves", true).forGetter((decorator) -> {
 			return decorator.onlyOuterLeaves;

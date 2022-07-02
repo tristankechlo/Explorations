@@ -29,7 +29,7 @@ public class LanternDecorator extends TreeDecorator {
 			return decorator.probability;
 		}), IntProvider.codec(0, 10).fieldOf("lantern_count").orElse(ConstantInt.of(3)).forGetter((decorator) -> {
 			return decorator.count;
-		}), IntProvider.codec(1, 10).fieldOf("chain_length").orElse(ConstantInt.of(1)).forGetter((decorator) -> {
+		}), IntProvider.codec(0, 10).fieldOf("chain_length").orElse(ConstantInt.of(1)).forGetter((decorator) -> {
 			return decorator.chainLength;
 		})).apply(builder, LanternDecorator::new);
 	});
@@ -54,20 +54,21 @@ public class LanternDecorator extends TreeDecorator {
 	@Override
 	public void place(Context context) {
 		RandomSource random = context.random();
-		if (random.nextFloat() < this.probability) {
-			final int count = this.count.sample(random);
-			List<BlockPos> possible = getLeavesShuffled(context, count);
-			for (int i = 0; i < possible.size(); i++) {
-				int length = this.chainLength.sample(random);
-				BlockPos blockpos;
-				// set all chains
-				for (blockpos = possible.get(i); context.isAir(blockpos) && length > 0; --length) {
-					context.setBlock(blockpos, chain);
-					blockpos = blockpos.below();
-				}
-				// set the lantern below
-				context.setBlock(blockpos, lantern);
+		if (random.nextFloat() > this.probability) {
+			return;
+		}
+		final int count = this.count.sample(random);
+		List<BlockPos> possible = getLeavesShuffled(context, count);
+		for (int i = 0; i < possible.size(); i++) {
+			int length = this.chainLength.sample(random);
+			BlockPos blockpos;
+			// set all chains
+			for (blockpos = possible.get(i); context.isAir(blockpos) && length > 0; --length) {
+				context.setBlock(blockpos, chain);
+				blockpos = blockpos.below();
 			}
+			// set the lantern below
+			context.setBlock(blockpos, lantern);
 		}
 	}
 
