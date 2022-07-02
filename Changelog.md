@@ -1,5 +1,11 @@
 # Changelog
 
+### Version 1.19 - 1.2
+ - add new custom tree decorator `explorations:cave_vines`
+     - can be used for tree features to add hanging cave vines to the tree
+ - add new custom tree decorator `explorations:lantern`
+     - can be used for tree features to add lantern to the tree
+
 ### Version 1.19 - 1.1.2
  - port to 1.19
  - descreased spawnrate of the underground temple

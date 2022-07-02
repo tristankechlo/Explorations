@@ -27,10 +27,10 @@ public class CaveVineDecorator extends TreeDecorator {
 		})).apply(builder, CaveVineDecorator::new);
 	});
 
-	private final float startProbability;
-	private final float berrySpawnChance;
-	private final int maxVineLength;
-	private final boolean onlyOuterLeaves;
+	private final float startProbability; // chance for the leave to have cave_vines
+	private final float berrySpawnChance; // chance for the vines to generate with berries
+	private final int maxVineLength; // maximum length of the vines
+	private final boolean onlyOuterLeaves; // whether or not only the outer leaves of the tree should have vines
 
 	public CaveVineDecorator(float startProbability, float berrySpawnChance, int maxVineLength,
 			boolean onlyOuterLeaves) {
