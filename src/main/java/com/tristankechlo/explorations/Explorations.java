@@ -3,6 +3,7 @@ package com.tristankechlo.explorations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.tristankechlo.explorations.init.ModFeatures;
 import com.tristankechlo.explorations.init.ModStructures;
 import com.tristankechlo.explorations.init.ModTreeDecorators;
 
@@ -20,6 +21,7 @@ public class Explorations {
 	public Explorations() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		ModStructures.STRUCTURES.register(modEventBus);
+		ModFeatures.FEATURES.register(modEventBus);
 		ModTreeDecorators.TREE_DECORATORS.register(modEventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
