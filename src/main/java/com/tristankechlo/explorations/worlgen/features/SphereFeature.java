@@ -29,7 +29,7 @@ public class SphereFeature extends Feature<SphereFeatureConfig> {
 		BlockPos origin = context.origin().above(offset);
 
 		ShapeGenerator.makeSphere(origin, radius, (pos) -> {
-			if (canBeReplaced(level, pos, config.replace())) {
+			if (canBeReplaced(level, pos, config.forceReplace())) {
 				BlockState state = config.stateProvider().getState(random, origin);
 				level.setBlock(pos, state, 3);
 			}

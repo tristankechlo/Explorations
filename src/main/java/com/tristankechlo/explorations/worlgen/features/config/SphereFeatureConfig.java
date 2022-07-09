@@ -8,20 +8,19 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-public record SphereFeatureConfig(IntProvider radius, IntProvider offset, BlockStateProvider stateProvider,
-		boolean replace) implements FeatureConfiguration {
+public record SphereFeatureConfig(IntProvider radius, IntProvider offset, BlockStateProvider stateProvider, boolean forceReplace) implements FeatureConfiguration {
 
 	public static final Codec<SphereFeatureConfig> CODEC = RecordCodecBuilder.create((builder) -> {
-		return builder
-				.group(IntProvider.codec(0, 10).fieldOf("radius").orElse(ConstantInt.of(3)).forGetter((config) -> {
-					return config.radius; // radius of the sphere
-				}), IntProvider.codec(0, 10).fieldOf("offset").orElse(ConstantInt.of(3)).forGetter((config) -> {
-					return config.offset; // y offset of the sphere
-				}), BlockStateProvider.CODEC.fieldOf("state_provider").forGetter((config) -> {
-					return config.stateProvider; // blockstates from which the sphere will be build
-				}), Codec.BOOL.optionalFieldOf("replace", Boolean.FALSE).forGetter((config) -> {
-					return config.replace; // whether or not the sphere can replace other blocks
-				})).apply(builder, SphereFeatureConfig::new);
+		return builder.group(
+				// radius of the sphere
+				IntProvider.codec(0, 10).fieldOf("radius").orElse(ConstantInt.of(3)).forGetter(SphereFeatureConfig::radius),
+				// y offset of the sphere
+				IntProvider.codec(0, 10).fieldOf("offset").orElse(ConstantInt.of(3)).forGetter(SphereFeatureConfig::offset),
+				// blockstates from which the sphere will be build
+				BlockStateProvider.CODEC.fieldOf("state_provider").forGetter(SphereFeatureConfig::stateProvider),
+				// whether or not the sphere can replace other blocks
+				Codec.BOOL.optionalFieldOf("force_place", Boolean.FALSE).forGetter(SphereFeatureConfig::forceReplace)
+		).apply(builder, SphereFeatureConfig::new);
 	});
 
 }
