@@ -5,6 +5,8 @@
      - can be used for tree features to add hanging cave vines to the tree
  - add new custom tree decorator `explorations:lantern`
      - can be used for tree features to add lantern to the tree
+ - dark forests now generate with large mushrooms in it
+     - mushrooms can generate with lantern attached to them
 
 ### Version 1.19 - 1.1.2
  - port to 1.19

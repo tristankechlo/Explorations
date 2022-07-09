@@ -1,8 +1,17 @@
 {
-    "pack": {
-        "description": "Explorations Ressources",
-        "pack_format": 9,
-        "forge:resource_pack_format": 9,
-        "forge:data_pack_format": 10
-    }
+	"pack": {
+		"description": [
+			{
+				"text": "Exploration Ressources",
+				"color": "aqua"
+			},
+			{
+				"text": "Author: Buecher_wurm",
+				"color": "aqua"
+			}
+		],
+		"pack_format": 9,
+		"forge:resource_pack_format": 9,
+		"forge:data_pack_format": 10
+	}
 }
