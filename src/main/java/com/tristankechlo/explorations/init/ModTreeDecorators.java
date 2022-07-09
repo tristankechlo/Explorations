@@ -1,8 +1,8 @@
 package com.tristankechlo.explorations.init;
 
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.treedecorators.CaveVineDecorator;
-import com.tristankechlo.explorations.treedecorators.LanternDecorator;
+import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
+import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
 
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;

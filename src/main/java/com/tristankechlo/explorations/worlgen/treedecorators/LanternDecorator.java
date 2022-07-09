@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.treedecorators;
+package com.tristankechlo.explorations.worlgen.treedecorators;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.init;
 
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.structures.UndergroundTempleStructure;
+import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
 
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.structure.StructureType;

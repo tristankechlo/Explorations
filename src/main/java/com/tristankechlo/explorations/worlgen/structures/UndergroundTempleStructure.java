@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.structures;
+package com.tristankechlo.explorations.worlgen.structures;
 
 import java.util.Optional;
 import java.util.Random;
