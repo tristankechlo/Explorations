@@ -1,6 +1,6 @@
 {
 	"type": "forge:add_features",
-	"biomes": "minecraft:dark_forest",
+	"biomes": "#explorations:has_feature/large_mushroom",
 	"features": "explorations:large_mushroom",
 	"step": "vegetal_decoration"
 }
