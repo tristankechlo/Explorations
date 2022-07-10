@@ -17,5 +17,6 @@ public class ModFeatures {
 	public static final DeferredRegister<Feature<? extends FeatureConfiguration>> FEATURES = DeferredRegister.create(Registry.FEATURE_REGISTRY, Explorations.MOD_ID);
 
 	public static final RegistryObject<Feature<SphereFeatureConfig>> SPHERE = FEATURES.register("sphere", () -> new SphereFeature(SphereFeatureConfig.CODEC));
+	public static final RegistryObject<Feature<ScarecrowFeatureConfig>> SCARECROW = FEATURES.register("scarecrow", () -> new ScarecrowFeature(ScarecrowFeatureConfig.CODEC));
 
 }
