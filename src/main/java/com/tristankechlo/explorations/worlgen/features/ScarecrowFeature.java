@@ -1,11 +1,13 @@
 package com.tristankechlo.explorations.worlgen.features;
 
 import com.mojang.serialization.Codec;
+import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,6 +35,11 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
 		BlockPos posHead = posLeg.above(2);
 		BlockPos posLeftArm = posLeg.above().relative(facingArmLeft);
 		BlockPos posRightArm = posLeg.above().relative(facingArmRight);
+
+		// check if allowed to place scarecrow here
+		if (!canBePlaced(level, context.config().forcePlace(), posLeg, posBody, posHead, posLeftArm, posRightArm)) {
+			return false;
+		}
 
 		BlockState stateHead = createHead(context.config().head().getState(random, posHead), facingHead);
 		BlockState stateBody = context.config().body().getState(random, posBody);
@@ -71,6 +78,23 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
 			headState = headState.setValue(BlockStateProperties.FACING, facing);
 		}
 		return headState;
+	}
+
+	/** check if the scarecrow can be placed at the pos */
+	private static boolean canBePlaced(WorldGenLevel level, boolean forceReplace, BlockPos... positions) {
+		Explorations.LOGGER.info("Anzahl {}", positions.length);
+		for (BlockPos pos : positions) {
+			if (level.isOutsideBuildHeight(pos) || level.getBlockState(pos).is(BlockTags.FEATURES_CANNOT_REPLACE)) {
+				return false;
+			}
+			BlockState state = level.getBlockState(pos);
+			boolean replaceable = forceReplace || level.isEmptyBlock(pos) || state.getMaterial().isLiquid()
+					|| state.getMaterial().isReplaceable();
+			if (!replaceable) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
