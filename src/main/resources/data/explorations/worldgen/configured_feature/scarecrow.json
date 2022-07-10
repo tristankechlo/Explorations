@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:simple_random_selector",
+	"config": {
+		"features": [
+			"explorations:scarecrow_acacia",
+			"explorations:scarecrow_birch",
+			"explorations:scarecrow_dark_oak",
+			"explorations:scarecrow_jungle",
+			"explorations:scarecrow_mangrove",
+			"explorations:scarecrow_oak",
+			"explorations:scarecrow_spruce"
+		]
+	}
+}

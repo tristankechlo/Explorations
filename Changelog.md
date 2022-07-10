@@ -7,6 +7,9 @@
      - can be used for tree features to add lantern to the tree
  - dark forests now generate with large mushrooms in it
      - mushrooms can generate with lantern attached to them
+ - scarecrows moved from structures to features
+     - can now generate more frequently
+     - mods/datapacks can add custom scarecrows with modded blocks
 
 ### Version 1.19 - 1.1.2
  - port to 1.19

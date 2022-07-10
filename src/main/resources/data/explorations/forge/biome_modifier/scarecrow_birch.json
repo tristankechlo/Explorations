@@ -1,0 +1,6 @@
+{
+	"type": "forge:add_features",
+	"biomes": "#explorations:has_feature/scarecrow/birch",
+	"features": "explorations:scarecrow_birch",
+	"step": "vegetal_decoration"
+}
