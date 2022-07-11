@@ -1,0 +1,35 @@
+{
+	"type": "minecraft:simple_random_selector",
+	"config": {
+		"features": [
+			{
+				"feature": "explorations:scarecrow_acacia",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_birch",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_dark_oak",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_jungle",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_mangrove",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_oak",
+				"placement": []
+			},
+			{
+				"feature": "explorations:scarecrow_spruce",
+				"placement": []
+			}
+		]
+	}
+}
