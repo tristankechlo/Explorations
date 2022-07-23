@@ -16,7 +16,7 @@ description='''adds more vanilla style structures to the game'''
 [[dependencies.explorations]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[41.0.95,)"
     ordering="NONE"
     side="BOTH"
 	
