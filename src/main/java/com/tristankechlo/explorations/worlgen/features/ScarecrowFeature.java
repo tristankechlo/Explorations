@@ -1,7 +1,6 @@
 package com.tristankechlo.explorations.worlgen.features;
 
 import com.mojang.serialization.Codec;
-import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
 
 import net.minecraft.core.BlockPos;
@@ -82,7 +81,6 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
 
 	/** check if the scarecrow can be placed at the pos */
 	private static boolean canBePlaced(WorldGenLevel level, boolean forceReplace, BlockPos... positions) {
-		Explorations.LOGGER.info("Anzahl {}", positions.length);
 		for (BlockPos pos : positions) {
 			if (level.isOutsideBuildHeight(pos) || level.getBlockState(pos).is(BlockTags.FEATURES_CANNOT_REPLACE)) {
 				return false;
