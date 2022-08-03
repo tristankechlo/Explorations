@@ -1,14 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "explorations:forgotten_well",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"salt": 1199356161,
-		"spacing": 10,
-		"separation": 5,
-		"type": "minecraft:random_spread"
-	}
+    "structures": [
+        {
+            "structure": "explorations:forgotten_well",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1199356161,
+        "spacing": 10,
+        "separation": 5,
+        "type": "minecraft:random_spread"
+    }
 }

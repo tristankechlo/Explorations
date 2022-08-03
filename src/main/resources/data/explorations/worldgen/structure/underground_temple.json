@@ -1,32 +1,32 @@
 {
-	"type": "explorations:underground_temple",
-	"start_pool": "explorations:underground_temple/underground_temple_start",
-	"size": 6,
-	"biomes": "#explorations:has_structure/underground_temple",
-	"step": "underground_structures",
-	"spawn_overrides": {
-		"monster": {
-			"bounding_box": "piece",
-			"spawns": [
-				{
-					"type": "minecraft:illusioner",
-					"weight": 100,
-					"minCount": 4,
-					"maxCount": 9
-				},
-				{
-					"type": "minecraft:pillager",
-					"weight": 100,
-					"minCount": 4,
-					"maxCount": 9
-				},
-				{
-					"type": "minecraft:vindicator",
-					"weight": 100,
-					"minCount": 4,
-					"maxCount": 9
-				}
-			]
-		}
-	}
+    "type": "explorations:underground_temple",
+    "start_pool": "explorations:underground_temple/underground_temple_start",
+    "size": 6,
+    "biomes": "#explorations:has_structure/underground_temple",
+    "step": "underground_structures",
+    "spawn_overrides": {
+        "monster": {
+            "bounding_box": "piece",
+            "spawns": [
+                {
+                    "type": "minecraft:illusioner",
+                    "weight": 100,
+                    "minCount": 4,
+                    "maxCount": 9
+                },
+                {
+                    "type": "minecraft:pillager",
+                    "weight": 100,
+                    "minCount": 4,
+                    "maxCount": 9
+                },
+                {
+                    "type": "minecraft:vindicator",
+                    "weight": 100,
+                    "minCount": 4,
+                    "maxCount": 9
+                }
+            ]
+        }
+    }
 }

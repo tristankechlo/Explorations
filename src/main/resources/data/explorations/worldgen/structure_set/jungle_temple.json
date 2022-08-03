@@ -1,14 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "explorations:jungle_temple",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"salt": 1801628764,
-		"spacing": 17,
-		"separation": 6,
-		"type": "minecraft:random_spread"
-	}
+    "structures": [
+        {
+            "structure": "explorations:jungle_temple",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1801628764,
+        "spacing": 17,
+        "separation": 6,
+        "type": "minecraft:random_spread"
+    }
 }

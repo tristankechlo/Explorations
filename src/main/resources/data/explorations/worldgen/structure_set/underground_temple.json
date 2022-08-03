@@ -1,14 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "explorations:underground_temple",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"salt": 1827065916,
-		"spacing": 15,
-		"separation": 6,
-		"type": "minecraft:random_spread"
-	}
+    "structures": [
+        {
+            "structure": "explorations:underground_temple",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1827065916,
+        "spacing": 15,
+        "separation": 6,
+        "type": "minecraft:random_spread"
+    }
 }

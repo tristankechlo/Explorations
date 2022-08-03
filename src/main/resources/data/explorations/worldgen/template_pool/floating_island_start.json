@@ -1,15 +1,15 @@
 {
-	"name": "explorations:floating_island_start",
-	"fallback": "minecraft:empty",
-	"elements": [
-		{
-			"weight": 1,
-			"element": {
-				"location": "explorations:floating_island_1",
-				"processors": "explorations:randomize_stone",
-				"projection": "rigid",
-				"element_type": "minecraft:single_pool_element"
-			}
-		}
-	]
+    "name": "explorations:floating_island_start",
+    "fallback": "minecraft:empty",
+    "elements": [
+        {
+            "weight": 1,
+            "element": {
+                "location": "explorations:floating_island_1",
+                "processors": "explorations:randomize_stone",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        }
+    ]
 }

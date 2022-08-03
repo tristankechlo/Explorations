@@ -1,8 +1,8 @@
 {
-	"replace": false,
-	"values": [
-		"#minecraft:is_taiga",
-		"minecraft:windswept_hills",
-		"minecraft:grove"
-	]
+    "replace": false,
+    "values": [
+        "#minecraft:is_taiga",
+        "minecraft:windswept_hills",
+        "minecraft:grove"
+    ]
 }

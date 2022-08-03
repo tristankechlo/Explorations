@@ -1,6 +1,6 @@
 {
-	"type": "forge:add_features",
-	"biomes": "#explorations:has_feature/scarecrow/oak",
-	"features": "explorations:scarecrow_oak",
-	"step": "vegetal_decoration"
+    "type": "forge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/oak",
+    "features": "explorations:scarecrow_oak",
+    "step": "vegetal_decoration"
 }

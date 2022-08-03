@@ -1,14 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "explorations:logs",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"salt": 2105923705,
-		"spacing": 10,
-		"separation": 5,
-		"type": "minecraft:random_spread"
-	}
+    "structures": [
+        {
+            "structure": "explorations:logs",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 2105923705,
+        "spacing": 10,
+        "separation": 5,
+        "type": "minecraft:random_spread"
+    }
 }

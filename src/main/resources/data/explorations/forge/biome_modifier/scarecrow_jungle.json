@@ -1,6 +1,6 @@
 {
-	"type": "forge:add_features",
-	"biomes": "#explorations:has_feature/scarecrow/jungle",
-	"features": "explorations:scarecrow_jungle",
-	"step": "vegetal_decoration"
+    "type": "forge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/jungle",
+    "features": "explorations:scarecrow_jungle",
+    "step": "vegetal_decoration"
 }

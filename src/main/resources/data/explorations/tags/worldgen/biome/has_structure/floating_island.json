@@ -1,7 +1,7 @@
 {
-	"replace": false,
-	"values": [
-		"#minecraft:is_ocean",
-		"#minecraft:is_deep_ocean"
-	]
+    "replace": false,
+    "values": [
+        "#minecraft:is_ocean",
+        "#minecraft:is_deep_ocean"
+    ]
 }
