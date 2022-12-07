@@ -7,8 +7,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
-public record ScarecrowFeatureConfig(BlockStateProvider arms, BlockStateProvider legs, BlockStateProvider body,
-                                     BlockStateProvider head, boolean forcePlace) implements FeatureConfiguration {
+public record ScarecrowFeatureConfig(BlockStateProvider arms, BlockStateProvider legs, BlockStateProvider body, BlockStateProvider head, boolean forcePlace) implements FeatureConfiguration {
 
     public static final Codec<ScarecrowFeatureConfig> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(

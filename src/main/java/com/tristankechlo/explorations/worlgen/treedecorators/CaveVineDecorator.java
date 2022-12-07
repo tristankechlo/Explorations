@@ -3,7 +3,7 @@ package com.tristankechlo.explorations.worlgen.treedecorators;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.tristankechlo.explorations.init.ModTreeDecorators;
+import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
@@ -28,8 +28,7 @@ public class CaveVineDecorator extends TreeDecorator {
     private final int maxVineLength; // maximum length of the vines
     private final boolean onlyOuterLeaves; // whether or not only the outer leaves of the tree should have vines
 
-    public CaveVineDecorator(float startProbability, float berrySpawnChance, int maxVineLength,
-                             boolean onlyOuterLeaves) {
+    public CaveVineDecorator(float startProbability, float berrySpawnChance, int maxVineLength, boolean onlyOuterLeaves) {
         this.startProbability = startProbability;
         this.berrySpawnChance = berrySpawnChance;
         this.maxVineLength = maxVineLength;
@@ -38,7 +37,7 @@ public class CaveVineDecorator extends TreeDecorator {
 
     @Override
     protected TreeDecoratorType<?> type() {
-        return ModTreeDecorators.CAVE_VINES.get();
+        return ModRegistry.CAVE_VINES.get();
     }
 
     @Override

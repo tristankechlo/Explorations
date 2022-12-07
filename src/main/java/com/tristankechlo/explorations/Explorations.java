@@ -1,8 +1,6 @@
 package com.tristankechlo.explorations;
 
-import com.tristankechlo.explorations.init.ModFeatures;
-import com.tristankechlo.explorations.init.ModStructures;
-import com.tristankechlo.explorations.init.ModTreeDecorators;
+import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -18,9 +16,9 @@ public class Explorations {
 
     public Explorations() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModStructures.STRUCTURES.register(modEventBus);
-        ModFeatures.FEATURES.register(modEventBus);
-        ModTreeDecorators.TREE_DECORATORS.register(modEventBus);
+        ModRegistry.STRUCTURES.register(modEventBus);
+        ModRegistry.FEATURES.register(modEventBus);
+        ModRegistry.TREE_DECORATORS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

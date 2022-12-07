@@ -2,7 +2,7 @@ package com.tristankechlo.explorations.worlgen.structures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.tristankechlo.explorations.init.ModStructures;
+import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -16,16 +16,12 @@ import java.util.Random;
 
 public class UndergroundTempleStructure extends Structure {
 
-    public static final Codec<UndergroundTempleStructure> CODEC = RecordCodecBuilder
-            .<UndergroundTempleStructure>mapCodec(instance -> instance
-                    .group(UndergroundTempleStructure.settingsCodec(instance),
-                            StructureTemplatePool.CODEC.fieldOf("start_pool")
-                                    .forGetter(structure -> structure.startPool),
-                            ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name")
-                                    .forGetter(structure -> structure.startJigsawName),
-                            Codec.intRange(0, 30).fieldOf("size").forGetter(structure -> structure.size))
-                    .apply(instance, UndergroundTempleStructure::new))
-            .codec();
+    public static final Codec<UndergroundTempleStructure> CODEC = RecordCodecBuilder.<UndergroundTempleStructure>mapCodec(instance -> instance
+            .group(UndergroundTempleStructure.settingsCodec(instance),
+                    StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(structure -> structure.startPool),
+                    ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(structure -> structure.startJigsawName),
+                    Codec.intRange(0, 30).fieldOf("size").forGetter(structure -> structure.size))
+            .apply(instance, UndergroundTempleStructure::new)).codec();
 
     private final int size;
     private final Holder<StructureTemplatePool> startPool;
@@ -67,7 +63,7 @@ public class UndergroundTempleStructure extends Structure {
 
     @Override
     public StructureType<?> type() {
-        return ModStructures.UNDERGROUND_TEMPLE.get();
+        return ModRegistry.UNDERGROUND_TEMPLE.get();
     }
 
 }

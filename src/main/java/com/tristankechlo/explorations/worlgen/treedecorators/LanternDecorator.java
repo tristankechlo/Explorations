@@ -2,7 +2,7 @@ package com.tristankechlo.explorations.worlgen.treedecorators;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.tristankechlo.explorations.init.ModTreeDecorators;
+import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.util.RandomSource;
@@ -45,7 +45,7 @@ public class LanternDecorator extends TreeDecorator {
 
     @Override
     protected TreeDecoratorType<?> type() {
-        return ModTreeDecorators.LANTERN.get();
+        return ModRegistry.LANTERN.get();
     }
 
     @Override
