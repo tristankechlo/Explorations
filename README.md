@@ -16,3 +16,7 @@
 
 
 ### checkout the [wiki](https://github.com/tristankechlo/Explorations/wiki) for more information about the structures
+
+
+### Project setup
+This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from jaredlll08

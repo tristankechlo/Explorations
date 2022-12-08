@@ -1,7 +1,8 @@
 # Changelog
 
-### Version 1.19.1 - 1.2
- - port to 1.19.1
+### Version 1.19.1 - 1.3
+ - port to 1.19.2
+ - port to fabric
 
 ### Version 1.19 - 1.2
  - add new custom tree decorator `explorations:cave_vines`
