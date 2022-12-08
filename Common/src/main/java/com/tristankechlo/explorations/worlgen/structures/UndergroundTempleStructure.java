@@ -36,13 +36,11 @@ public class UndergroundTempleStructure extends Structure {
     }
 
     private static boolean isFeatureChunk(Structure.GenerationContext context) {
-        Random random = new Random(context.seed());
-        return random.nextDouble() < 0.5;
+        return context.random().nextDouble() < 0.5;
     }
 
     @Override
     public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
-
         // skip generation when the chunk is not a feature chunk
         if (!UndergroundTempleStructure.isFeatureChunk(context)) {
             return Optional.empty();

@@ -1,2 +1,0 @@
-Forge
- - Underground Temple not spawning
