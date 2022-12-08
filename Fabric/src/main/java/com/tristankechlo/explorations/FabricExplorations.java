@@ -4,12 +4,14 @@ import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.init.ModTags;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.data.BuiltinRegistries;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public final class FabricExplorations implements ModInitializer {
 
@@ -37,12 +39,12 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(SCARECROW_MANGROVE, ModTags.HAS_FEATURE_SCARECROW_MANGROVE);
     }
 
-    private static void addFeature(ResourceLocation key, TagKey<Biome> tag) {
-        BuiltinRegistries.PLACED_FEATURE.getOptional(key).ifPresent(placedFeature -> {
-            BuiltinRegistries.PLACED_FEATURE.getResourceKey(placedFeature).ifPresent(placedFeatureKey -> {
-                BiomeModifications.addFeature(BiomeSelectors.tag(tag), GenerationStep.Decoration.VEGETAL_DECORATION, placedFeatureKey);
-            });
-        });
+    private static void addFeature(ResourceLocation location, TagKey<Biome> tag) {
+        GenerationStep.Decoration step = GenerationStep.Decoration.VEGETAL_DECORATION;
+        ResourceKey<PlacedFeature> featureKey = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, location);
+        BiomeModifications.create(location).add(ModificationPhase.ADDITIONS,
+                (context) -> context.hasTag(tag),
+                (context) -> context.getGenerationSettings().addFeature(step, featureKey));
     }
 
 }

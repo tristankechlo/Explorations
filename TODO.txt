@@ -1,7 +1,2 @@
 Forge
  - Underground Temple not spawning
-
-Fabric
- - Features not spawning
-    - large mushroom
-    - scarecrows
