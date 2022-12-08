@@ -26,8 +26,8 @@
         </tr>
         <tr>
             <td><img src="https://i.ibb.co/0cKmPqp/underground-temple.png" alt="underground temple" width="250" height="250" /></td>
-            <td><img src="https://i.ibb.co/0cKmPqp/underground-temple-2.png" alt="underground temple" width="250" height="250" /></td>
-            <td><img src="https://i.ibb.co/0cKmPqp/underground-temple-3.png" alt="underground temple" width="250" height="250" /></td>
+            <td><img src="https://i.ibb.co/3SLhq9h/underground-temple-2.png" alt="underground temple" width="250" height="250" /></td>
+            <td><img src="https://i.ibb.co/3CfqXrz/underground-temple-3.png" alt="underground temple" width="250" height="250" /></td>
         </tr>
         <tr>
             <td><b>Floating Island</b></td>
