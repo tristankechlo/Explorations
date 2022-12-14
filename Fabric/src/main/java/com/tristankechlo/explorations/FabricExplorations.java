@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -41,7 +42,7 @@ public final class FabricExplorations implements ModInitializer {
 
     private static void addFeature(ResourceLocation location, TagKey<Biome> tag) {
         GenerationStep.Decoration step = GenerationStep.Decoration.VEGETAL_DECORATION;
-        ResourceKey<PlacedFeature> featureKey = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, location);
+        ResourceKey<PlacedFeature> featureKey = ResourceKey.create(Registries.PLACED_FEATURE, location);
         BiomeModifications.create(location).add(ModificationPhase.ADDITIONS,
                 (context) -> context.hasTag(tag),
                 (context) -> context.getGenerationSettings().addFeature(step, featureKey));

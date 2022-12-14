@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.init;
 
 import com.tristankechlo.explorations.Explorations;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -18,7 +18,7 @@ public final class ModTags {
     public static final TagKey<Biome> HAS_FEATURE_SCARECROW_MANGROVE = getTagKey("has_feature/scarecrow/mangrove");
 
     private static TagKey<Biome> getTagKey(String id) {
-        return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Explorations.MOD_ID, id));
+        return TagKey.create(Registries.BIOME, new ResourceLocation(Explorations.MOD_ID, id));
     }
 
 }
