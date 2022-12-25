@@ -1,5 +1,8 @@
 import os
 
+# this scripts will delete all zip files in the current directory
+
+
 def delete_all_zips():
     # get current directory
     current_dir = os.path.dirname(__file__)
@@ -13,6 +16,7 @@ def delete_all_zips():
         # delete the zip file
         os.remove(folder)
         print(f'Deleted datapack {folder}')
+
 
 if __name__ == '__main__':
     delete_all_zips()

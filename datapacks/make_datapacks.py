@@ -1,6 +1,8 @@
 import shutil
 import os
 
+# this scripts will make all folders in the current directory into zip files
+
 
 def make_datapacks():
     # get current directory
