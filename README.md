@@ -46,6 +46,18 @@
 
 <hr>
 
+### Available Data Packs:
+there is currently 1 pre-made datapack available for this mod:
+
+| Name                  | Description                                | MC-Version        | Direct Download                                                                                        |
+|-----------------------|--------------------------------------------|-------------------|--------------------------------------------------------------------------------------------------------|
+| NoMoreFloatingIslands | will stop Floating Islands from generating | 1.18.2 and 1.19.X | [Download](https://github.com/tristankechlo/Explorations/raw/1.19/datapacks/NoMoreFloatingIslands.zip) |
+
+You can find them in this [folder](./datapacks), the `*.zip` files are ready to use.  
+The datapacks are not guaranteed to be up to date, you might need to adjust things.
+
+<hr>
+
 ### Project setup
 
 This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from
