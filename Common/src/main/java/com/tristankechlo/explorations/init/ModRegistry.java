@@ -9,9 +9,7 @@ import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureCo
 import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
 import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
 import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.structure.StructureType;
