@@ -1,5 +1,8 @@
 # Changelog
 
+### Version 1.19.3 - 1.3.1
+ - reduced spawn chance of the scarecrows
+
 ### Version 1.19.3 - 1.3
  - port to 1.19.3
 
@@ -20,7 +23,7 @@
 
 ### Version 1.19 - 1.1.2
  - port to 1.19
- - descreased spawnrate of the underground temple
+ - decreased spawnrate of the underground temple
  - increased spawnrate of large oak trees
  - updated structures to use structure void instead of stone/air, this will blend them better in the environment during worldgeneration
      - underground temple
