@@ -1,5 +1,12 @@
 # Changelog
 
+### Version 1.19.3 - 1.4
+
+- added new structure `explorations:desert_ruin`
+    - has eight different variants
+    - can generate in desert biomes
+    - might contain loot
+
 ### Version 1.19.3 - 1.3.1
 
 - reduced spawn chance of the scarecrows
