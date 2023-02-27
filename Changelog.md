@@ -1,6 +1,6 @@
 # Changelog
 
-### Version 1.19.3 - 1.4
+### Version 1.19.3 - 1.4.0
 
 - added new structure `explorations:desert_ruin`
     - has eight different variants
