@@ -1,9 +1,10 @@
 
 keep track of the structure salts, so they are not identical by accident  
-generated with [https://www.calculator.net/random-number-generator.html?slower=1000000000&supper=2147483647](https://www.calculator.net/random-number-generator.html?slower=1000000000&supper=2147483647)
+generated
+with [https://www.calculator.net/](https://www.calculator.net/random-number-generator.html?slower=1000000000&supper=2147483647)
 
 | Structure          | Salt       |
-| :----------------- | :--------- |
+|:-------------------|:-----------|
 | floating_island    | 1701811218 |
 | forgotten_well     | 1199356161 |
 | jungle_temple      | 1801628764 |
@@ -18,3 +19,4 @@ generated with [https://www.calculator.net/random-number-generator.html?slower=1
 | scarecrow_mangrove | 1362089678 |
 | scarecrow_oak      | 1480765986 |
 | scarecrow_spruce   | 1531328273 |
+| desert_ruin        | 1487218662 |

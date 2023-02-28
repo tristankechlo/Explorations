@@ -35,14 +35,34 @@
             <td><b>Logs</b></td>
         </tr>
         <tr>
-            <td><img src="https://i.ibb.co/LYMX3kg/floating-island.png" alt="floating island" width="250" height="250">            </td>
-            <td><img src="https://i.ibb.co/9c8YJKD/large-oak-tree.png" alt="large oak tree" width="250" height="250">            </td>
+            <td><img src="https://i.ibb.co/LYMX3kg/floating-island.png" alt="floating island" width="250" height="250"></td>
+            <td><img src="https://i.ibb.co/9c8YJKD/large-oak-tree.png" alt="large oak tree" width="250" height="250"></td>
             <td><img src="https://i.ibb.co/chKJKLd/logs.png" alt="logs" width="250" height="250"></td>
+        </tr>
+        <tr>
+            <td><b>Desert Ruins</b></td>
+            <td><b></b></td>
+            <td><b></b></td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/wKZ2wnL/desert-ruin.gif" alt="desert ruins" width="250" height="250"></td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
 
 ### checkout the [wiki](https://github.com/tristankechlo/Explorations/wiki) for more information about the structures
+
+<hr>
+
+### Available Data Packs:
+
+there is currently 1 pre-made datapack available for this mod:
+
+| Name                  | Description                                | MC-Version | Downloads                                                                                                                                                       |
+|-----------------------|--------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NoMoreFloatingIslands | will stop Floating Islands from generating |   1.19.X   | [Curseforge](https://www.curseforge.com/minecraft/texture-packs/no-more-floating-islands) or [Modrinth](https://modrinth.com/datapack/no-more-floating-islands) |
 
 <hr>
 
