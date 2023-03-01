@@ -6,12 +6,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+
+import java.util.Random;
 
 public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
 
@@ -22,7 +23,7 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
     @Override
     public boolean place(FeaturePlaceContext<ScarecrowFeatureConfig> context) {
         WorldGenLevel level = context.level();
-        RandomSource random = context.random();
+        Random random = context.random();
 
         Direction facingHead = Direction.Plane.HORIZONTAL.getRandomDirection(random);
         Direction facingArmLeft = facingHead.getClockWise(Axis.Y);

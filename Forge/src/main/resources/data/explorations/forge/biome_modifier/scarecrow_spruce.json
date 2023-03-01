@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": "#explorations:has_feature/scarecrow/spruce",
-    "features": "explorations:scarecrow_spruce",
-    "step": "vegetal_decoration"
-}

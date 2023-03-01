@@ -5,12 +5,17 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+
+import java.util.List;
+import java.util.Random;
+import java.util.function.BiConsumer;
 
 public class CaveVineDecorator extends TreeDecorator {
 
@@ -41,8 +46,14 @@ public class CaveVineDecorator extends TreeDecorator {
     }
 
     @Override
-    public void place(Context context) {
-        RandomSource random = context.random();
+    public void place(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> states, Random random,
+                      List<BlockPos> var4, List<BlockPos> leaves) {
+        TreeDecoratorContext context = new TreeDecoratorContext(level, states, random, leaves);
+        place(context);
+    }
+
+    private void place(TreeDecoratorContext context) {
+        Random random = context.random();
         context.leaves().forEach((blockPosLeave) -> {
             if (random.nextFloat() < this.startProbability) {
                 if (onlyOuterLeaves && !isOuterBlock(blockPosLeave, context)) {
@@ -56,7 +67,7 @@ public class CaveVineDecorator extends TreeDecorator {
         });
     }
 
-    private static boolean isOuterBlock(BlockPos startPos, Context context) {
+    private static boolean isOuterBlock(BlockPos startPos, TreeDecoratorContext context) {
         ImmutableList<BlockPos> neighbours = ImmutableList.of(startPos.north(), startPos.east(), startPos.south(), startPos.west());
         for (BlockPos pos : neighbours) {
             if (context.isAir(pos)) {
@@ -66,8 +77,8 @@ public class CaveVineDecorator extends TreeDecorator {
         return false;
     }
 
-    private static void addCaveVines(BlockPos startPos, Context context, float berryChance, final int maxVineLength) {
-        RandomSource random = context.random();
+    private static void addCaveVines(BlockPos startPos, TreeDecoratorContext context, float berryChance, final int maxVineLength) {
+        Random random = context.random();
         int i = maxVineLength;
         for (BlockPos blockpos = startPos; context.isAir(blockpos) && i > 0; --i) {
             BlockState state = Blocks.CAVE_VINES.defaultBlockState();

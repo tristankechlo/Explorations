@@ -1,21 +1,16 @@
 # Changelog
 
-### Version 1.19.3 - 1.4.0
+### Version 1.18.2 - 1.4.0
 
-- backport newer features to 1.19.2
-    - reduced spawn chance of the scarecrows
-    - added new structure `explorations:desert_ruin`
-        - has eight different variants
-        - can generate in desert biomes
-        - might contain loot
-
-### Version 1.19.2 - 1.3
-
-- port to 1.19.2
-- port to fabric
-
-### Version 1.19 - 1.2
-
+- decreased spawnrate of the underground temple
+- increased spawnrate of large oak trees
+- reduced spawn chance of the scarecrows
+- updated structures to use structure void instead of stone/air, this will blend them better in the environment during
+  worldgeneration
+    - underground temple
+    - forgotten well
+- add new scarecrow variant `mangrove`
+- scarecrows now generate only in their respective biome
 - add new custom tree decorator `explorations:cave_vines`
     - can be used for tree features to add hanging cave vines to the tree
 - add new custom tree decorator `explorations:lantern`
@@ -25,18 +20,10 @@
 - scarecrows moved from structures to features
     - can now generate more frequently
     - mods/datapacks can add custom scarecrows with modded blocks
-
-### Version 1.19 - 1.1.2
-
-- port to 1.19
-- decreased spawnrate of the underground temple
-- increased spawnrate of large oak trees
-- updated structures to use structure void instead of stone/air, this will blend them better in the environment during
-  worldgeneration
-    - underground temple
-    - forgotten well
-- add new scarecrow variant `mangrove`
-- scarecrows now generate only in their respective biome
+- added new structure `explorations:desert_ruin`
+    - has eight different variants
+    - can generate in desert biomes
+    - might contain loot
 
 ### Version 1.18.2 - 1.1.1
 

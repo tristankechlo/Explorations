@@ -9,10 +9,6 @@
         "salt": 1701811218,
         "spacing": 16,
         "separation": 8,
-        "type": "minecraft:random_spread",
-        "exclusion_zone": {
-            "chunk_count": 10,
-            "other_set": "minecraft:ocean_monuments"
-        }
+        "type": "minecraft:random_spread"
     }
 }

@@ -1,7 +1,6 @@
 {
     "values": [
         "#minecraft:dirt",
-        "#minecraft:stone_ore_replaceables",
-        "minecraft:mud"
+        "#minecraft:stone_ore_replaceables"
     ]
 }

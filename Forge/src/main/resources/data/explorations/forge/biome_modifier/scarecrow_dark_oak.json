@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": "#explorations:has_feature/scarecrow/dark_oak",
-    "features": "explorations:scarecrow_dark_oak",
-    "step": "vegetal_decoration"
-}

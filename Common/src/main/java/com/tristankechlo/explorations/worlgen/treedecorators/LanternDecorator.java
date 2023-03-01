@@ -5,9 +5,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction.Axis;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.LanternBlock;
@@ -15,10 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 public class LanternDecorator extends TreeDecorator {
@@ -49,8 +47,14 @@ public class LanternDecorator extends TreeDecorator {
     }
 
     @Override
-    public void place(Context context) {
-        RandomSource random = context.random();
+    public void place(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> states, Random random,
+                      List<BlockPos> var4, List<BlockPos> leaves) {
+        TreeDecoratorContext context = new TreeDecoratorContext(level, states, random, leaves);
+        place(context);
+    }
+
+    private void place(TreeDecoratorContext context) {
+        Random random = context.random();
         if (random.nextFloat() > this.probability) {
             return;
         }
@@ -69,8 +73,8 @@ public class LanternDecorator extends TreeDecorator {
         }
     }
 
-    private static List<BlockPos> getLeavesShuffled(Context context, final int maxCount) {
-        RandomSource random = context.random();
+    private static List<BlockPos> getLeavesShuffled(TreeDecoratorContext context, final int maxCount) {
+        Random random = context.random();
         List<BlockPos> all = context.leaves().stream().map((pos) -> pos.below()).filter((pos) -> context.isAir(pos)).collect(Collectors.toList());
         Set<BlockPos> target = new HashSet<>();
         int maxIndex = Math.min(maxCount, all.size());

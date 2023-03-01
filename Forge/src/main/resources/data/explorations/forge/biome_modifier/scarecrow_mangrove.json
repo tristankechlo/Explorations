@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": "#explorations:has_feature/scarecrow/mangrove",
-    "features": "explorations:scarecrow_mangrove",
-    "step": "vegetal_decoration"
-}
