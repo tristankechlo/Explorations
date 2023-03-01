@@ -1,7 +1,7 @@
 {
     "type": "minecraft:village",
     "biomes": "#explorations:has_structure/desert_ruin",
-    "adapt_noise": false,
+    "adapt_noise": true,
     "spawn_overrides": {},
     "config": {
         "start_pool": "explorations:desert_ruin_start",
