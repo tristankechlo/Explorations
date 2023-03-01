@@ -25,7 +25,7 @@ public final class ForgeExplorations {
     private static final List<ResourceKey<Biome>> SCARECROW_BIRCH_BIOMES = List.of(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
     private static final List<ResourceKey<Biome>> SCARECROW_DARK_OAK_BIOMES = List.of(Biomes.DARK_FOREST);
     private static final List<ResourceKey<Biome>> SCARECROW_JUNGLE_BIOMES = List.of(Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SPARSE_JUNGLE);
-    private static final List<ResourceKey<Biome>> SCARECROW_OAK_BIOMES = List.of(Biomes.FOREST, Biomes.DARK_FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.FLOWER_FOREST, Biomes.WINDSWEPT_FOREST, Biomes.WOODED_BADLANDS);
+    private static final List<ResourceKey<Biome>> SCARECROW_OAK_BIOMES = List.of(Biomes.FOREST, Biomes.DARK_FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.FLOWER_FOREST, Biomes.WINDSWEPT_FOREST, Biomes.WOODED_BADLANDS, Biomes.GROVE);
     private static final List<ResourceKey<Biome>> SCARECROW_SPRUCE_BIOMES = List.of(Biomes.SNOWY_TAIGA, Biomes.TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.GROVE, Biomes.WINDSWEPT_HILLS);
 
     public ForgeExplorations() {
