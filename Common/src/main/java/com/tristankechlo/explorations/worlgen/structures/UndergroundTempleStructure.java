@@ -3,9 +3,11 @@ package com.tristankechlo.explorations.worlgen.structures;
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
+import java.util.Optional;
 import java.util.Random;
 
 public final class UndergroundTempleStructure extends JigsawStructure {
@@ -18,13 +20,17 @@ public final class UndergroundTempleStructure extends JigsawStructure {
 
     @Override
     protected BlockPos generateStartPos(GenerationContext context) {
-        int sealevel = context.chunkGenerator().getSeaLevel();
-        if (sealevel <= 30) {
+        WorldgenRandom random = context.random();
+        int x = context.chunkPos().getMinBlockX() + random.nextInt(16);
+        int z = context.chunkPos().getMinBlockZ() + random.nextInt(16);
+        int maxY = context.chunkGenerator().getFirstOccupiedHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        if (maxY <= 30) {
             return null;
         }
-        WorldgenRandom random = context.random();
-        int y = random.nextInt(sealevel - 15);
-        return context.chunkPos().getMiddleBlockPosition(y);
+        maxY -= 15;
+        int minY = context.chunkGenerator().getMinY() + 15;
+        int y = minY + random.nextInt(maxY - minY);
+        return new BlockPos(x, y, z);
     }
 
     @Override

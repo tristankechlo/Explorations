@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "explorations",
-    "version": "1.19.3-1.4.0",
+    "version": "${version}",
     "name": "Explorations",
     "description": "adds more vanilla style structures to the game",
     "authors": [

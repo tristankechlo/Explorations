@@ -1,5 +1,14 @@
 # Changelog
 
+### Version 1.19.3 - 1.5.0
+
+- underground temple now generates also at y-levels lower than 0
+- added new structure `explorations:slime_cave`
+    - generates in all overworld biomes
+    - contains slime blocks
+    - spawns slimes
+    - contains loot
+
 ### Version 1.19.3 - 1.4.0
 
 - added new structure `explorations:desert_ruin`
