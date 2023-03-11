@@ -6,7 +6,9 @@ import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
 import com.tristankechlo.explorations.worlgen.features.ScarecrowFeature;
 import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
+import com.tristankechlo.explorations.worlgen.structures.processors.DeepslateProcessor;
 import com.tristankechlo.explorations.worlgen.structures.SlimeCaveStructure;
+import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
 import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
 import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
 import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
@@ -14,6 +16,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 
 public final class ModRegistry {
 
@@ -32,5 +36,13 @@ public final class ModRegistry {
     public static final RegistrationProvider<TreeDecoratorType<?>> TREE_DECORATORS = RegistrationProvider.get(BuiltInRegistries.TREE_DECORATOR_TYPE, Explorations.MOD_ID);
     public static final RegistryObject<TreeDecoratorType<LanternDecorator>> LANTERN = TREE_DECORATORS.register("lantern", Services.PLATFORM.getTreeDecoratorType(LanternDecorator.CODEC));
     public static final RegistryObject<TreeDecoratorType<CaveVineDecorator>> CAVE_VINES = TREE_DECORATORS.register("cave_vines", Services.PLATFORM.getTreeDecoratorType(CaveVineDecorator.CODEC));
+
+    /* STRUCTURE PIECE TYPE */
+    public static final RegistrationProvider<StructurePieceType> STRUCTURE_PIECE_TYPES = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_PIECE, Explorations.MOD_ID);
+    public static final RegistryObject<StructurePieceType> SLIME_CAVE_PIECE = STRUCTURE_PIECE_TYPES.register("slime_cave_piece", () -> SlimeCaveStructurePiece::new);
+
+    /* STRUCTURE PROCESSOR */
+    public static final RegistrationProvider<StructureProcessorType<?>> STRUCTURE_PROCESSORS = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_PROCESSOR, Explorations.MOD_ID);
+    public static final RegistryObject<StructureProcessorType<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate_processor", () -> () -> DeepslateProcessor.CODEC);
 
 }
