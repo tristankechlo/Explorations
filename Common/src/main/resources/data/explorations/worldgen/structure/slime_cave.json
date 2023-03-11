@@ -1,0 +1,8 @@
+{
+    "type": "explorations:slime_cave",
+    "start_pool": "explorations:slime_cave_start",
+    "size": 5,
+    "biomes": "#explorations:has_structure/slime_cave",
+    "step": "underground_structures",
+    "spawn_overrides": {}
+}

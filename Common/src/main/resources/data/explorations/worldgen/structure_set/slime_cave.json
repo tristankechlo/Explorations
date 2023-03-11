@@ -1,0 +1,14 @@
+{
+    "structures": [
+        {
+            "structure": "explorations:slime_cave",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1345250691,
+        "spacing": 24,
+        "separation": 12,
+        "type": "minecraft:random_spread"
+    }
+}

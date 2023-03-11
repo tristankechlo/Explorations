@@ -6,6 +6,7 @@ import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
 import com.tristankechlo.explorations.worlgen.features.ScarecrowFeature;
 import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
+import com.tristankechlo.explorations.worlgen.structures.SlimeCaveStructure;
 import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
 import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
 import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
@@ -25,6 +26,7 @@ public final class ModRegistry {
     /* STRUCTURES */
     public static final RegistrationProvider<StructureType<?>> STRUCTURES = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_TYPE, Explorations.MOD_ID);
     public static final RegistryObject<StructureType<UndergroundTempleStructure>> UNDERGROUND_TEMPLE = STRUCTURES.register("underground_temple", () -> () -> UndergroundTempleStructure.CODEC);
+    public static final RegistryObject<StructureType<SlimeCaveStructure>> SLIME_CAVE_STRUCTURE = STRUCTURES.register("slime_cave", () -> () -> SlimeCaveStructure.CODEC);
 
     /* TREE DECORATORS */
     public static final RegistrationProvider<TreeDecoratorType<?>> TREE_DECORATORS = RegistrationProvider.get(BuiltInRegistries.TREE_DECORATOR_TYPE, Explorations.MOD_ID);
