@@ -12,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -43,16 +42,14 @@ public final class SlimeCaveStructure extends Structure {
     @Override
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         WorldgenRandom random = context.random();
-        int x = context.chunkPos().getMinBlockX() + random.nextInt(16);
-        int z = context.chunkPos().getMinBlockZ() + random.nextInt(16);
-        int maxY = context.chunkGenerator().getFirstOccupiedHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        int maxY = context.chunkGenerator().getSeaLevel();
         if (maxY <= 30) {
             return Optional.empty();
         }
         maxY -= 20;
         int minY = context.chunkGenerator().getMinY() + 15;
         int y = minY + random.nextInt(maxY - minY);
-        BlockPos pos = new BlockPos(x, y, z);
+        BlockPos pos = context.chunkPos().getWorldPosition().atY(y);
         return Optional.of(new GenerationStub(pos, (builder) -> this.generatePieces(builder, context, pos)));
     }
 
