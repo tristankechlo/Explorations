@@ -8,6 +8,7 @@
     - contains slime blocks
     - spawns slimes
     - contains loot
+- add custom processor to randomize stone_bricks
 
 ### Version 1.19.3 - 1.4.0
 

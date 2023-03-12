@@ -10,6 +10,7 @@ import com.tristankechlo.explorations.worlgen.structures.processors.DeepslatePro
 import com.tristankechlo.explorations.worlgen.structures.SlimeCaveStructure;
 import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
 import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
+import com.tristankechlo.explorations.worlgen.structures.processors.StoneBrickAgingProcessor;
 import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
 import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -43,6 +44,7 @@ public final class ModRegistry {
 
     /* STRUCTURE PROCESSOR */
     public static final RegistrationProvider<StructureProcessorType<?>> STRUCTURE_PROCESSORS = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_PROCESSOR, Explorations.MOD_ID);
-    public static final RegistryObject<StructureProcessorType<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate_processor", () -> () -> DeepslateProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate", () -> () -> DeepslateProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<StoneBrickAgingProcessor>> STONE_BRICK_AGING_PROCESSOR = STRUCTURE_PROCESSORS.register("stone_brick_aging", () -> () -> StoneBrickAgingProcessor.CODEC);
 
 }
