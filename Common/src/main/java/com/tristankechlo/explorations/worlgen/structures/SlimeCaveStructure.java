@@ -49,7 +49,7 @@ public final class SlimeCaveStructure extends Structure {
         if (maxY <= 30) {
             return Optional.empty();
         }
-        maxY -= 15;
+        maxY -= 20;
         int minY = context.chunkGenerator().getMinY() + 15;
         int y = minY + random.nextInt(maxY - minY);
         BlockPos pos = new BlockPos(x, y, z);
