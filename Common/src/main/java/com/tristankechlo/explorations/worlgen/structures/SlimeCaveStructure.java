@@ -36,7 +36,7 @@ public final class SlimeCaveStructure extends Structure {
     }
 
     public static StructureSettings makeSettings(HolderSet<Biome> biomes) {
-        return new StructureSettings(biomes, Map.of(), Decoration.UNDERGROUND_STRUCTURES, TerrainAdjustment.NONE);
+        return new StructureSettings(biomes, Map.of(), Decoration.UNDERGROUND_STRUCTURES, TerrainAdjustment.BURY);
     }
 
     @Override
