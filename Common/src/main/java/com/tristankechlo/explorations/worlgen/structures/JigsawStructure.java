@@ -58,7 +58,7 @@ public abstract class JigsawStructure extends Structure {
                 .group(StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(JigsawStructureSettings::startPool),
                         ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(JigsawStructureSettings::startJigsawName),
                         Codec.intRange(0, 30).fieldOf("size").orElse(5).forGetter(JigsawStructureSettings::size),
-                        Codec.intRange(0, 30).fieldOf("max_distance_from_center").orElse(80).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
+                        Codec.intRange(0, 30).fieldOf("max_distance_from_center").orElse(50).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
                 .apply(instance, JigsawStructureSettings::new));
     }
 

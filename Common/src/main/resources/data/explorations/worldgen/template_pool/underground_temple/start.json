@@ -1,12 +1,12 @@
 {
-    "name": "explorations:underground_temple/underground_temple_start",
+    "name": "explorations:underground_temple/start",
     "fallback": "minecraft:empty",
     "elements": [
         {
             "weight": 80,
             "element": {
-                "location": "explorations:underground_temple/large_room",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/large_hall",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -14,8 +14,8 @@
         {
             "weight": 20,
             "element": {
-                "location": "explorations:underground_temple/large_room_down",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/small_hall_down",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }

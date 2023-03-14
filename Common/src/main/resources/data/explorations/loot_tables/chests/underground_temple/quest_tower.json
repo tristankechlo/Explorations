@@ -1,15 +1,15 @@
 {
+    "type": "minecraft:chest",
     "pools": [
         {
             "rolls": 1,
             "entries": [
                 {
-                    "type": "item",
-                    "weight": 1,
+                    "type": "minecraft:item",
                     "name": "minecraft:diamond",
                     "functions": [
                         {
-                            "function": "set_count",
+                            "function": "minecraft:set_count",
                             "count": {
                                 "min": 0,
                                 "max": 5
@@ -21,20 +21,19 @@
         },
         {
             "rolls": {
-                "min": 1,
+                "min": 2,
                 "max": 3
             },
             "entries": [
                 {
-                    "type": "item",
-                    "weight": 1,
+                    "type": "minecraft:item",
                     "name": "minecraft:rotten_flesh",
                     "functions": [
                         {
-                            "function": "set_count",
+                            "function": "minecraft:set_count",
                             "count": {
-                                "min": 6,
-                                "max": 26
+                                "min": 5,
+                                "max": 15
                             }
                         }
                     ]
@@ -45,32 +44,32 @@
             "rolls": 1,
             "entries": [
                 {
-                    "type": "item",
+                    "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:enchanted_book",
                     "functions": [
                         {
-                            "function": "enchant_randomly",
+                            "function": "minecraft:enchant_randomly",
                             "enchantments": [
-                                "protection",
-                                "sharpness",
-                                "looting",
-                                "mending"
+                                "minecraft:protection",
+                                "minecraft:sharpness",
+                                "minecraft:looting",
+                                "minecraft:mending"
                             ]
                         },
                         {
-                            "function": "set_count",
+                            "function": "minecraft:set_count",
                             "count": 1
                         }
                     ]
                 },
                 {
-                    "type": "item",
+                    "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:golden_apple",
                     "functions": [
                         {
-                            "function": "set_count",
+                            "function": "minecraft:set_count",
                             "count": 1
                         }
                     ]
@@ -81,15 +80,33 @@
             "rolls": 1,
             "entries": [
                 {
-                    "type": "item",
-                    "weight": 1,
+                    "type": "minecraft:item",
                     "name": "minecraft:gold_ingot",
                     "functions": [
                         {
-                            "function": "set_count",
+                            "function": "minecraft:set_count",
                             "count": {
                                 "min": 2,
                                 "max": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:golden_apple",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 0,
+                                "p": 0.1
                             }
                         }
                     ]

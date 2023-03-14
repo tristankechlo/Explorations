@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 
 public class StoneBrickAgingProcessor extends StructureProcessor {
 
@@ -25,6 +26,11 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
             Chances.CODEC.fieldOf("chances").forGetter(processor -> processor.chances)
     ).apply(instance, StoneBrickAgingProcessor::new));
     private static final List<Block> STONE_BRICKS_REPLACEMENTS = List.of(Blocks.MOSSY_STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS);
+    private static final Map<Block, Block> BRICKS = Map.of(
+            Blocks.CHISELED_STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS,
+            Blocks.DEEPSLATE_BRICKS, Blocks.CRACKED_DEEPSLATE_BRICKS,
+            Blocks.DEEPSLATE_TILES, Blocks.CRACKED_DEEPSLATE_TILES
+    );
     private final Chances chances;
 
     public StoneBrickAgingProcessor(Chances chances) {
@@ -41,14 +47,15 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
         if (old.is(Blocks.STONE_BRICKS)) {
             Block block = Util.getRandom(STONE_BRICKS_REPLACEMENTS, random);
             replacement = this.tryReplacing(block, old, random, chances.bricks());
-        } else if (old.is(Blocks.CHISELED_STONE_BRICKS)) {
-            replacement = this.tryReplacing(Blocks.CRACKED_STONE_BRICKS, old, random, chances.bricks());
         } else if (old.is(Blocks.STONE_BRICK_STAIRS)) {
             replacement = this.tryReplacing(Blocks.MOSSY_STONE_BRICK_STAIRS, old, random, chances.stairs());
         } else if (old.is(Blocks.STONE_BRICK_SLAB)) {
             replacement = this.tryReplacing(Blocks.MOSSY_STONE_BRICK_SLAB, old, random, chances.slabs());
         } else if (old.is(Blocks.STONE_BRICK_WALL)) {
             replacement = this.tryReplacing(Blocks.MOSSY_STONE_BRICK_WALL, old, random, chances.walls());
+        } else if (BRICKS.containsKey(old.getBlock())) {
+            Block temp = BRICKS.get(old.getBlock());
+            replacement = this.tryReplacing(temp, old, random, chances.bricks());
         }
 
         if (replacement == null) {

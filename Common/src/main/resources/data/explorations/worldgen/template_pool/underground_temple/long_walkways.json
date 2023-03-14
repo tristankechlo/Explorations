@@ -5,8 +5,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_broken_walkway",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/broken",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -14,8 +14,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_iron_bars",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/iron_bars",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -23,8 +23,17 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_normal_walkway",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/normal",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 30,
+            "element": {
+                "location": "explorations:underground_temple/walkways/lava",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -32,17 +41,26 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_lava",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/spawner",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
         },
         {
-            "weight": 50,
+            "weight": 25,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_spawner",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/stairs",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 25,
+            "element": {
+                "location": "explorations:underground_temple/walkways/stairs_bars",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
