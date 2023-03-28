@@ -2,6 +2,7 @@ package com.tristankechlo.explorations.worlgen.structures;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 
 import java.util.Optional;
 
-public class FloatingIslandStructure extends StructureFeature<JigsawConfiguration> {
+public final class FloatingIslandStructure extends StructureFeature<JigsawConfiguration> {
 
     public FloatingIslandStructure() {
         super(JigsawConfiguration.CODEC, FloatingIslandStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
@@ -28,12 +29,11 @@ public class FloatingIslandStructure extends StructureFeature<JigsawConfiguratio
 
     private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
         ChunkPos chunkpos = context.chunkPos();
-        return !context.chunkGenerator().hasFeatureChunkInRange(BuiltinStructureSets.OCEAN_MONUMENTS, context.seed(),
-                chunkpos.x, chunkpos.z, 10);
+        ChunkGenerator generator = context.chunkGenerator();
+        return !generator.hasFeatureChunkInRange(BuiltinStructureSets.OCEAN_MONUMENTS, context.seed(), chunkpos.x, chunkpos.z, 10);
     }
 
-    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(
-            PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
         if (!FloatingIslandStructure.isFeatureChunk(context)) {
             return Optional.empty();
         }
@@ -44,9 +44,6 @@ public class FloatingIslandStructure extends StructureFeature<JigsawConfiguratio
         int targetHeight = Math.min(context.heightAccessor().getMaxBuildHeight() - 20, topLandY + 60);
         blockpos = blockpos.atY(targetHeight);
 
-        Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator = JigsawPlacement.addPieces(context,
-                PoolElementStructurePiece::new, blockpos, false, false);
-
-        return structurePiecesGenerator;
+        return JigsawPlacement.addPieces(context, PoolElementStructurePiece::new, blockpos, false, false);
     }
 }

@@ -1,20 +1,20 @@
 {
-    "name": "explorations:underground_temple/shafts",
+    "name": "explorations:underground_temple/start",
     "fallback": "minecraft:empty",
     "elements": [
         {
-            "weight": 1,
+            "weight": 80,
             "element": {
-                "location": "explorations:underground_temple/shafts/small",
+                "location": "explorations:underground_temple/rooms/large_hall",
                 "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
         },
         {
-            "weight": 1,
+            "weight": 20,
             "element": {
-                "location": "explorations:underground_temple/shafts/large",
+                "location": "explorations:underground_temple/rooms/small_hall_down",
                 "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"

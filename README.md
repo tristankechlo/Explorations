@@ -41,13 +41,11 @@
         </tr>
         <tr>
             <td><b>Desert Ruins</b></td>
-            <td><b></b></td>
-            <td><b></b></td>
+            <td colspan="2"><b>Slime Cave</b></td>
         </tr>
         <tr>
             <td><img src="https://i.ibb.co/wKZ2wnL/desert-ruin.gif" alt="desert ruins" width="250" height="250"></td>
-            <td></td>
-            <td></td>
+            <td colspan="2" align="center"><img src="https://i.ibb.co/DC7fFYN/slime-cave-raw.png" alt="slime cave" width="500" height="250"></td>
         </tr>
     </tbody>
 </table>

@@ -1,7 +1,7 @@
 {
     "type": "explorations:underground_temple",
     "config": {
-        "start_pool": "explorations:underground_temple/underground_temple_start",
+        "start_pool": "explorations:underground_temple/start",
         "size": 6
     },
     "biomes": "#explorations:has_structure/underground_temple",

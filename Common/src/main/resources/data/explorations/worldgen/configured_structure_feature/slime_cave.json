@@ -1,0 +1,7 @@
+{
+    "type": "explorations:slime_cave",
+    "biomes": "#explorations:has_structure/slime_cave",
+    "adapt_noise": false,
+    "spawn_overrides": {},
+    "config": {}
+}

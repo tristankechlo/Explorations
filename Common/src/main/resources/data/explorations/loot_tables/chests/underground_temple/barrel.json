@@ -11,7 +11,23 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "weight": 10,
+                    "weight": 15,
+                    "name": "minecraft:apple",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 1,
+                                "max": 3
+                            },
+                            "add": false
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "weight": 15,
                     "name": "minecraft:coal",
                     "functions": [
                         {
@@ -27,12 +43,28 @@
                 },
                 {
                     "type": "minecraft:item",
+                    "weight": 10,
+                    "name": "minecraft:gold_nugget",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:uniform",
+                                "min": 1,
+                                "max": 3
+                            },
+                            "add": false
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
                     "weight": 2,
                     "name": "minecraft:stone_axe"
                 },
                 {
                     "type": "minecraft:item",
-                    "weight": 5,
+                    "weight": 10,
                     "name": "minecraft:rotten_flesh"
                 },
                 {
@@ -58,24 +90,15 @@
             ]
         },
         {
-            "rolls": 1,
+            "rolls": {
+                "min": 0,
+                "max": 1
+            },
             "bonus_rolls": 0,
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:leather_chestplate"
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:golden_helmet"
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:stone_pickaxe"
-                },
-                {
-                    "type": "minecraft:item",
-                    "name": "minecraft:stone_shovel"
+                    "name": "minecraft:golden_apple"
                 }
             ]
         }

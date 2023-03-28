@@ -5,8 +5,8 @@
         {
             "weight": 4,
             "element": {
-                "location": "explorations:underground_temple/large_room",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/large_hall",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -14,8 +14,8 @@
         {
             "weight": 4,
             "element": {
-                "location": "explorations:underground_temple/large_room_down",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/large_hall_down",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -23,8 +23,8 @@
         {
             "weight": 20,
             "element": {
-                "location": "explorations:underground_temple/library",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/library",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -32,8 +32,8 @@
         {
             "weight": 30,
             "element": {
-                "location": "explorations:underground_temple/long_broken_walkway",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/broken",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -41,8 +41,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_iron_bars",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/iron_bars",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -50,8 +50,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/long_normal_walkway",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/normal",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -59,8 +59,8 @@
         {
             "weight": 40,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_lava",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/lava",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -68,8 +68,26 @@
         {
             "weight": 10,
             "element": {
-                "location": "explorations:underground_temple/long_walkway_spawner",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/walkways/spawner",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 25,
+            "element": {
+                "location": "explorations:underground_temple/walkways/stairs",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 25,
+            "element": {
+                "location": "explorations:underground_temple/walkways/stairs_bars",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -77,8 +95,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/intersection_four",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/intersections/four_way",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -86,8 +104,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/intersection_three",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/intersections/three_way",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -95,8 +113,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/intersection_corner",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/intrusions/corner",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -104,8 +122,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/walkway_end",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/dead_ends/chest",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -113,8 +131,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/walkway_end_chest",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/dead_ends/normal",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -122,8 +140,35 @@
         {
             "weight": 20,
             "element": {
-                "location": "explorations:underground_temple/enchant_room",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/rooms/enchanting",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 20,
+            "element": {
+                "location": "explorations:underground_temple/rooms/bedroom",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 20,
+            "element": {
+                "location": "explorations:underground_temple/rooms/cells",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 20,
+            "element": {
+                "location": "explorations:underground_temple/rooms/dungeon",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -131,8 +176,8 @@
         {
             "weight": 50,
             "element": {
-                "location": "explorations:underground_temple/end_to_shaft_down",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/shafts/dead_end",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
@@ -141,7 +186,7 @@
             "weight": 25,
             "element": {
                 "location": "explorations:underground_temple/quest_tower",
-                "processors": "minecraft:empty",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }

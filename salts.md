@@ -1,4 +1,3 @@
-
 keep track of the structure salts, so they are not identical by accident  
 generated
 with [https://www.calculator.net/](https://www.calculator.net/random-number-generator.html?slower=1000000000&supper=2147483647)
@@ -20,3 +19,4 @@ with [https://www.calculator.net/](https://www.calculator.net/random-number-gene
 | scarecrow_oak      | 1480765986 |
 | scarecrow_spruce   | 1531328273 |
 | desert_ruin        | 1487218662 |
+| slime_cave         | 1345250691 |

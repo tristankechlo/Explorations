@@ -13,11 +13,10 @@ import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import java.util.Optional;
 import java.util.Random;
 
-public class UndergroundTempleStructure extends StructureFeature<JigsawConfiguration> {
+public final class UndergroundTempleStructure extends StructureFeature<JigsawConfiguration> {
 
     public UndergroundTempleStructure() {
-        super(JigsawConfiguration.CODEC, UndergroundTempleStructure::createPiecesGenerator,
-                PostPlacementProcessor.NONE);
+        super(JigsawConfiguration.CODEC, UndergroundTempleStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
     }
 
     @Override
@@ -30,28 +29,26 @@ public class UndergroundTempleStructure extends StructureFeature<JigsawConfigura
         return random.nextDouble() < 0.6;
     }
 
-
-    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(
-            PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
         // skip generation when the chunk is not a feature chunk
         if (!UndergroundTempleStructure.isFeatureChunk(context)) {
             return Optional.empty();
         }
 
-        int sealevel = context.chunkGenerator().getSeaLevel();
-        if (sealevel <= 30) {
+        Random random = new Random(context.seed());
+        int maxY = context.chunkGenerator().getSeaLevel();
+        if (maxY <= 30) {
             return Optional.empty();
         }
-
-        Random random = new Random(context.seed());
-        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(random.nextInt(0, sealevel) - 15);
+        maxY -= 15;
+        int minY = context.chunkGenerator().getMinY() + 15;
+        int y = minY + random.nextInt(maxY - minY);
+        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(y);
 
         final boolean intersecting = false;
         final boolean placeAtHeightMap = false;
-        Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator = JigsawPlacement.addPieces(context,
-                PoolElementStructurePiece::new, blockpos, intersecting, placeAtHeightMap);
 
-        return structurePiecesGenerator;
+        return JigsawPlacement.addPieces(context, PoolElementStructurePiece::new, blockpos, intersecting, placeAtHeightMap);
     }
 
 }
