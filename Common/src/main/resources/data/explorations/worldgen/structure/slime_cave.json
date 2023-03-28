@@ -1,0 +1,4 @@
+{
+    "type": "explorations:slime_cave",
+    "biomes": "#explorations:has_structure/slime_cave"
+}

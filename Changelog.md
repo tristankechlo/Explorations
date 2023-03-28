@@ -1,6 +1,20 @@
 # Changelog
 
-### Version 1.19.3 - 1.4.0
+### Version 1.19.2 - 1.5.0
+
+- changes to the underground temple
+  - now also generates at y-levels lower than 0
+  - added new structure pieces
+  - reworked some older/plain elements
+  - reworked the loot tables
+- added new structure `explorations:slime_cave`
+  - generates in all overworld biomes
+  - contains slime blocks
+  - spawns slimes
+  - contains loot
+- add custom processor to randomize stone_bricks
+
+### Version 1.19.2 - 1.4.0
 
 - backport newer features to 1.19.2
     - reduced spawn chance of the scarecrows

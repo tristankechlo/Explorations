@@ -5,8 +5,17 @@
         {
             "weight": 1,
             "element": {
-                "location": "explorations:underground_temple/shaft_down_small",
-                "processors": "minecraft:empty",
+                "location": "explorations:underground_temple/shafts/small",
+                "processors": "explorations:randomize_stonebrick",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        },
+        {
+            "weight": 1,
+            "element": {
+                "location": "explorations:underground_temple/shafts/large",
+                "processors": "explorations:randomize_stonebrick",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
             }
