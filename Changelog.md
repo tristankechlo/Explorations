@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.19.4 - 1.5.1
+
+- fix game crashing in other dimensions
+
 ### Version 1.19.4 - 1.5.0
 
 - changes to the underground temple

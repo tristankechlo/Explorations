@@ -17,13 +17,17 @@ public final class UndergroundTempleStructure extends JigsawStructure {
     @Override
     protected BlockPos generateStartPos(GenerationContext context) {
         WorldgenRandom random = context.random();
-        int maxY = context.chunkGenerator().getSeaLevel();
-        if (maxY <= 30) {
+        int highestY = context.chunkGenerator().getSeaLevel();
+        if (highestY <= 30) {
             return null;
         }
-        maxY -= 15;
-        int minY = context.chunkGenerator().getMinY() + 15;
-        int y = minY + random.nextInt(maxY - minY);
+        highestY -= 15;
+        int lowestY = context.chunkGenerator().getMinY() + 15;
+        int range = Math.abs(highestY - lowestY);
+        if (range < 10) {
+            return null;
+        }
+        int y = lowestY + random.nextInt(range);
         return context.chunkPos().getMiddleBlockPosition(y);
     }
 
