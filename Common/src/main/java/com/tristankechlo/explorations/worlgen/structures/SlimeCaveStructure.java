@@ -42,13 +42,17 @@ public final class SlimeCaveStructure extends Structure {
     @Override
     public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         WorldgenRandom random = context.random();
-        int maxY = context.chunkGenerator().getSeaLevel();
-        if (maxY <= 30) {
+        int highestY = context.chunkGenerator().getSeaLevel();
+        if (highestY <= 30) {
             return Optional.empty();
         }
-        maxY -= 20;
-        int minY = context.chunkGenerator().getMinY() + 15;
-        int y = minY + random.nextInt(maxY - minY);
+        highestY -= 20;
+        int lowestY = context.chunkGenerator().getMinY() + 15;
+        int range = Math.abs(highestY - lowestY);
+        if (range < 10) {
+            return Optional.empty();
+        }
+        int y = lowestY + random.nextInt(range);
         BlockPos pos = context.chunkPos().getWorldPosition().atY(y);
         return Optional.of(new GenerationStub(pos, (builder) -> this.generatePieces(builder, context, pos)));
     }
