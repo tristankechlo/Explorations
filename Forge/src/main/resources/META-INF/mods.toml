@@ -5,7 +5,7 @@ showAsResourcePack=false
 
 [[mods]]
 modId="explorations"
-version="1.18.2-1.5.0"
+version="${version}"
 displayName="Explorations+"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/explorations"
 #logoFile="examplemod.png"
