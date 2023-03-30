@@ -36,14 +36,18 @@ public final class UndergroundTempleStructure extends StructureFeature<JigsawCon
         }
 
         Random random = new Random(context.seed());
-        int maxY = context.chunkGenerator().getSeaLevel();
-        if (maxY <= 30) {
+        int highestY = context.chunkGenerator().getSeaLevel();
+        if (highestY <= 30) {
             return Optional.empty();
         }
-        maxY -= 15;
-        int minY = context.chunkGenerator().getMinY() + 15;
-        int y = minY + random.nextInt(maxY - minY);
-        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(y);
+        highestY -= 15;
+        int lowestY = context.chunkGenerator().getMinY() + 5;
+        int range = Math.abs(highestY - lowestY);
+        if (range < 10) {
+            return Optional.empty();
+        }
+        int y = lowestY + random.nextInt(range);
+        BlockPos blockpos = context.chunkPos().getWorldPosition().atY(y);
 
         final boolean intersecting = false;
         final boolean placeAtHeightMap = false;

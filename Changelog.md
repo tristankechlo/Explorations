@@ -1,17 +1,21 @@
 # Changelog
 
+### Version 1.18.2 - 1.5.1
+
+- fix game crashing in other dimensions
+
 ### Version 1.18.2 - 1.5.0
 
 - changes to the underground temple
-  - now also generates at y-levels lower than 0
-  - added new structure pieces
-  - reworked some older/plain elements
-  - reworked the loot tables
+    - now also generates at y-levels lower than 0
+    - added new structure pieces
+    - reworked some older/plain elements
+    - reworked the loot tables
 - added new structure `explorations:slime_cave`
-  - generates in all overworld biomes
-  - contains slime blocks
-  - spawns slimes
-  - contains loot
+    - generates in all overworld biomes
+    - contains slime blocks
+    - spawns slimes
+    - contains loot
 - add custom processor to randomize stone_bricks
 
 ### Version 1.18.2 - 1.4.0

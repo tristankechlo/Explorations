@@ -31,13 +31,17 @@ public final class SlimeCaveStructure extends StructureFeature<NoneFeatureConfig
 
     public static Optional<PieceGenerator<NoneFeatureConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context) {
         Random random = new Random(context.seed());
-        int maxY = context.chunkGenerator().getSeaLevel();
-        if (maxY <= 30) {
+        int highestY = context.chunkGenerator().getSeaLevel();
+        if (highestY <= 30) {
             return Optional.empty();
         }
-        maxY -= 20;
-        int minY = context.chunkGenerator().getMinY() + 15;
-        int y = minY + random.nextInt(maxY - minY);
+        highestY -= 20;
+        int lowestY = context.chunkGenerator().getMinY() + 5;
+        int range = Math.abs(highestY - lowestY);
+        if (range < 10) {
+            return Optional.empty();
+        }
+        int y = lowestY + random.nextInt(range);
         BlockPos pos = context.chunkPos().getWorldPosition().atY(y);
         return Optional.of((builder, context2) -> generatePieces(builder, context2, pos));
     }
