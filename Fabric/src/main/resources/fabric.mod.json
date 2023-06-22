@@ -13,7 +13,7 @@
         "homepage": "https://github.com/tristankechlo/Explorations"
     },
     "license": "CC BY-NC-ND 4.0",
-    "icon": "assets/explorations/logo.png",
+    "icon": "pack.png",
     "environment": "*",
     "entrypoints": {
         "main": [
@@ -26,7 +26,7 @@
     "depends": {
         "fabricloader": ">=0.14",
         "fabric": "*",
-        "minecraft": ">=1.19.3",
+        "minecraft": ">=1.20",
         "java": ">=17"
     },
     "custom": {
