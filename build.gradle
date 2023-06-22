@@ -55,7 +55,6 @@ subprojects {
         doLast {
             fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
                 File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
-                    //File file -> file.text = file.text.replaceAll("\r", "").replaceAll("\t", "").replaceAll("\n", "")
             }
         }
     }

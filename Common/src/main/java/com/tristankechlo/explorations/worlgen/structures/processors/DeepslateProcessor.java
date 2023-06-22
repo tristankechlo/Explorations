@@ -23,11 +23,11 @@ public class DeepslateProcessor extends StructureProcessor {
     @Nullable
     @Override
     public StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, StructureBlockInfo var4, StructureBlockInfo var5, StructurePlaceSettings var6) {
-        Block block = var5.state.getBlock();
+        Block block = var5.state().getBlock();
         if (!REPLACEMENTS.containsKey(block)) {
             return var5;
         }
-        BlockPos pos = var5.pos;
+        BlockPos pos = var5.pos();
         if (pos.getY() >= 0) {
             return var5;
         }

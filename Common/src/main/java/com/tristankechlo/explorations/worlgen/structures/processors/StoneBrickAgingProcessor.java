@@ -40,9 +40,9 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
     @Nullable
     @Override
     public StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, StructureBlockInfo var4, StructureBlockInfo var5, StructurePlaceSettings var6) {
-        BlockState old = var5.state;
+        BlockState old = var5.state();
         BlockState replacement = null;
-        RandomSource random = var6.getRandom(var5.pos);
+        RandomSource random = var6.getRandom(var5.pos());
 
         if (old.is(Blocks.STONE_BRICKS)) {
             Block block = Util.getRandom(STONE_BRICKS_REPLACEMENTS, random);
@@ -61,7 +61,7 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
         if (replacement == null) {
             return var5;
         }
-        return new StructureBlockInfo(var5.pos, replacement, var5.nbt);
+        return new StructureBlockInfo(var5.pos(), replacement, var5.nbt());
     }
 
     private BlockState tryReplacing(Block block, BlockState defaultState, RandomSource random, float chance) {

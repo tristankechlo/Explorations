@@ -91,7 +91,7 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
                 return false;
             }
             BlockState state = level.getBlockState(pos);
-            boolean replaceable = forceReplace || level.isEmptyBlock(pos) || state.getMaterial().isLiquid() || state.getMaterial().isReplaceable();
+            boolean replaceable = forceReplace || level.isEmptyBlock(pos) || state.getFluidState().isEmpty() || state.canBeReplaced();
             if (!replaceable) {
                 return false;
             }
