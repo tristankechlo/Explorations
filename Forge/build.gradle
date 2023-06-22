@@ -1,21 +1,21 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'idea'
+    id 'net.minecraftforge.gradle'
+    id 'org.spongepowered.mixin'
 }
-apply plugin: 'java'
-apply plugin: 'net.minecraftforge.gradle'
 
-version = "${minecraft_version}-${mod_version}"
-archivesBaseName = "${mod_id}-forge"
+base {
+    version = "${minecraft_version}-${mod_version}"
+    archivesBaseName = "${mod_id}-forge"
+}
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
-    //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
+        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+        project.logger.debug('Forge Access Transformers are enabled for this project.')
+    }
 
     runs {
         client {
@@ -55,8 +55,12 @@ dependencies {
     compileOnly project(":Common")
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     source(project(":Common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+    source(project(":Common").sourceSets.main.allJava)
 }
 
 processResources {

@@ -1,10 +1,12 @@
 plugins {
-    id 'fabric-loom' version '1.0-SNAPSHOT'
     id 'idea'
+    id 'fabric-loom'
 }
 
-version = "${minecraft_version}-${mod_version}"
-archivesBaseName = "${mod_id}-fabric"
+base {
+    version = "${minecraft_version}-${mod_version}"
+    archivesBaseName = "${mod_id}-fabric"
+}
 
 repositories {
     maven {
@@ -22,8 +24,10 @@ dependencies {
 }
 
 loom {
-    mixin.defaultRefmapName = "explorations.refmap.json"
-    //accessWidenerPath = file("src/main/resources/explorations.accesswidener")
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+
     runs {
         client {
             client()
@@ -40,7 +44,6 @@ loom {
     }
 }
 
-
 processResources {
     from project(":Common").sourceSets.main.resources
     inputs.property "version", project.version
@@ -48,6 +51,14 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    source(project(":Common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+    source(project(":Common").sourceSets.main.allJava)
 }
 
 tasks.withType(JavaCompile) {

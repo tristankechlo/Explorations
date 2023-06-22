@@ -1,3 +1,13 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'fabric-loom' version '1.2-SNAPSHOT' apply(false)
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)' apply(false)
+    id 'org.spongepowered.gradle.vanilla' version '0.2.1-SNAPSHOT' apply(false)
+    id("org.spongepowered.mixin") version "0.7-SNAPSHOT" apply(false)
+}
+
 subprojects {
     apply plugin: 'java'
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -44,7 +54,8 @@ subprojects {
     processResources {
         doLast {
             fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
-                File file -> file.text = file.text.replaceAll("\r", "").replaceAll("\t", "").replaceAll("\n", "")
+                File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+                    //File file -> file.text = file.text.replaceAll("\r", "").replaceAll("\t", "").replaceAll("\n", "")
             }
         }
     }
