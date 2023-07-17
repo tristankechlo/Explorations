@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.19.2 - 1.5.2
+
+- fix broken enchantment books that could be found in the `underground_temple` and `floating_island`
+
 ### Version 1.19.2 - 1.5.1
 
 - fix game crashing in other dimensions
