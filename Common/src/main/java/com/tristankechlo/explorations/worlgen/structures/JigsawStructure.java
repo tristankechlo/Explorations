@@ -9,8 +9,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
@@ -46,7 +48,8 @@ public abstract class JigsawStructure extends Structure {
         }
 
         return JigsawPlacement.addPieces(context, this.settings.startPool(), this.settings.startJigsawName(),
-                this.settings.size(), blockpos, false, Optional.empty(), this.settings.maxDistanceFromCenter());
+                this.settings.size(), blockpos, false, Optional.empty(), this.settings.maxDistanceFromCenter(),
+                PoolAliasLookup.create(List.of(), blockpos, context.seed()));
     }
 
     protected abstract BlockPos generateStartPos(GenerationContext context);

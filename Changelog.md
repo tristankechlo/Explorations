@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.20.4 - 1.5.3
+
+- port to 1.20.4
+
 ### Version 1.20.1 - 1.5.2
 
 - fix broken enchantment books that could be found in the `underground_temple` and `floating_island`
