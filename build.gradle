@@ -1,11 +1,16 @@
 plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 base {
     version = "${minecraft_version}-${mod_version}"
     archivesBaseName = "${mod_id}-forge"
+}
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+    config("${mod_id}.mixins.json")
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
@@ -36,6 +41,7 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 processResources {
