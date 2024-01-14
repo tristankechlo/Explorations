@@ -7,7 +7,7 @@ import com.tristankechlo.explorations.worldgen.structures.ForgottenWellStructure
 import com.tristankechlo.explorations.worldgen.structures.JungleTempleStructure;
 import com.tristankechlo.explorations.worldgen.structures.UnderGroundTempleStructure;
 import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
-import com.tristankechlo.explorations.worldgen.structures.util.JigsawStructure;
+import com.tristankechlo.explorations.worldgen.structures.JigsawStructure;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -37,14 +37,21 @@ public class ModStructures {
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {
+
+        // add structures into the map in Structure class
         Structure.STRUCTURES_REGISTRY.put(structure.getRegistryName().toString(), structure);
 
+        // whether surrounding land will be modified automatically to conform to the bottom of the structure
         if (transformSurroundingLand) {
-            Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
+            Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder()
+                    .addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
         }
 
-        DimensionStructuresSettings.DEFAULTS = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder().putAll(DimensionStructuresSettings.DEFAULTS).put(structure, structureSeparationSettings).build();
+        // this is the map that holds the default spacing of all structures
+        DimensionStructuresSettings.DEFAULTS = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
+                .putAll(DimensionStructuresSettings.DEFAULTS).put(structure, structureSeparationSettings).build();
 
+        // there are very few mods that rely on seeing the structure in the noise settings registry before the world is made
         WorldGenRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
             Map<Structure<?>, StructureSeparationSettings> structureMap = settings.getValue().structureSettings().structureConfig();
 

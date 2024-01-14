@@ -14,6 +14,7 @@ public class BiomeLoadingHandler {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void biomeModification(final BiomeLoadingEvent event) {
 
+        // register generation biomes for desert ruins
         if (JigsawConfig.DESERT_RUIN.spawnBiomes.contains(event.getName().toString())) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_DESERT_RUIN);
         }

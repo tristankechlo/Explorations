@@ -15,15 +15,15 @@ import java.util.stream.Collectors;
 
 public class JigsawConfig {
 
-    public final ResourceLocation startPool;
-    public final GenerationStage.Decoration step;
-    public final List<MobSpawnInfo.Spawners> defaultSpawnList;
-    public final int size;
-    public final boolean placeAtHeightmap;
-    public final int yOffset;
-    public final List<String> spawnBiomes;
-    public final StructureSeparationSettings separationSettings;
-    public final boolean transformSurroundingLand;
+    public final ResourceLocation startPool; // location of the json-file for the start pool
+    public final GenerationStage.Decoration step; // in which generation stage to generate the structure
+    public final List<MobSpawnInfo.Spawners> defaultSpawnList; // what mobs can spawn inside the structure
+    public final int size; // how large the jigsaw structure can generate
+    public final boolean placeAtHeightmap; // place the structure at the surface
+    public final int yOffset; // move structure up or down
+    public final List<String> spawnBiomes; // list of biomes to generate the structure in
+    public final StructureSeparationSettings separationSettings; // spacing between structures
+    public final boolean transformSurroundingLand; // adjust the land to incorporate this structure
 
     private JigsawConfig(ResourceLocation startPool, GenerationStage.Decoration step, List<MobSpawnInfo.Spawners> defaultSpawnList, int size, boolean placeAtHeightmap, int yOffset, List<String> spawnBiomes, StructureSeparationSettings settings, boolean transformSurroundingLand) {
         this.startPool = startPool;

@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.eventhandler;
 
-import com.tristankechlo.explorations.mixin_util.ChunkgeneratorUtil;
+import com.tristankechlo.explorations.mixin_util.ChunkGeneratorAddon;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructures;
 import net.minecraft.util.ResourceLocation;
@@ -38,7 +38,7 @@ public class WorldLoadingHandler {
             return;
         }
 
-        // add structures
+        // manually add structure spacing to world's chunkgenerator
         Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
         tempMap.putIfAbsent(ModStructures.DESERT_RUIN.get(), getSettings(ModStructures.DESERT_RUIN.get()));
         tempMap.putIfAbsent(ModStructures.FORGOTTEN_WELL.get(), getSettings(ModStructures.FORGOTTEN_WELL.get()));
@@ -47,13 +47,14 @@ public class WorldLoadingHandler {
         serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
     }
 
+    // check if the current world uses a ChunkGenerator from 'terraforged'
     private boolean isTerraForged(ServerWorld world) {
         try {
             ChunkGenerator generator = world.getChunkSource().generator;
-            if (!(generator instanceof ChunkgeneratorUtil)) {
+            if (!(generator instanceof ChunkGeneratorAddon)) {
                 return false;
             }
-            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkgeneratorUtil) generator).explorations$getCodec());
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAddon) generator).explorations$getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) {
                 return true;
             }

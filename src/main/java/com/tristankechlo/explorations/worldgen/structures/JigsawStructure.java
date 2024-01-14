@@ -1,5 +1,6 @@
-package com.tristankechlo.explorations.worldgen.structures.util;
+package com.tristankechlo.explorations.worldgen.structures;
 
+import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.vector.Vector3i;
@@ -48,10 +49,14 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
         }
 
         @Override
-        public void generatePieces(DynamicRegistries registries, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biome, NoFeatureConfig configIn) {
+        public void generatePieces(DynamicRegistries registries, ChunkGenerator chunkGenerator, TemplateManager templateManager,
+                                   int chunkX, int chunkZ, Biome biome, NoFeatureConfig configIn) {
+            // transform chunk coordinates to block coordinates
             int x = chunkX * 16;
             int z = chunkZ * 16;
             BlockPos centerPos = new BlockPos(x, 0, z);
+
+            // generate jigsaw structure
             JigsawConfig config = JigsawStructure.this.config;
             final boolean intersecting = false;
             JigsawManager.addPieces(
@@ -59,18 +64,21 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
                     new VillageConfig(() -> getJigsawPattern(registries, config), config.size),
                     AbstractVillagePiece::new,
                     chunkGenerator,
-                    templateManagerIn,
+                    templateManager,
                     centerPos,
                     this.pieces,
                     this.random,
                     intersecting,
                     config.placeAtHeightmap
             );
+
             // move pieces to fit into land
             if (config.yOffset != 0) {
                 this.boundingBox.move(0, config.yOffset, 0);
                 this.pieces.forEach(piece -> piece.move(0, config.yOffset, 0));
             }
+
+            // recalculate position of whole structure
             Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
             int xOffset = centerPos.getX() - structureCenter.getX();
             int zOffset = centerPos.getZ() - structureCenter.getZ();
