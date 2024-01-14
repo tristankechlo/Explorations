@@ -5,11 +5,11 @@ showAsResourcePack=false
 
 [[mods]]
 modId="explorations"
-version="1.16.5 - 1.0.0"
+version="${version}"
 displayName="Explorations+"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/explorations"
-#logoFile="examplemod.png"
-#credits="Thanks for this example mod goes to Java"
+logoFile="pack.png"
+credits="Thanks to TelepathicGrunt for his StructureTutorialMod"
 authors="Buecher_wurm"
 description='''adds more vanilla style structures to the game'''
 

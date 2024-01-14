@@ -1,28 +1,22 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
 
-version = "${mod_version}"
-group = 'com.tristankechlo.explorations'
-archivesBaseName = 'explorations'
+base {
+    version = "${minecraft_version}-${mod_version}"
+    archivesBaseName = "${mod_id}-forge"
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: project.mappings
+    mappings channel: 'official', version: minecraft_version
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
-        client {
+        configureEach {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
@@ -30,32 +24,45 @@ minecraft {
             mods { explorations { source sourceSets.main } }
         }
 
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
+        client {
+            // this block needs to be here for runClient to exist
+        }
 
-            mods { explorations { source sourceSets.main } }
+        server {
+            args '--nogui'
         }
     }
 }
 
-
-repositories {
-    maven { url 'https://maven.blamejared.com' }
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 }
 
-dependencies {    
-    minecraft "net.minecraftforge:forge:${forge_version}"
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "explorations",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            'Specification-Title'     : mod_name,
+            'Specification-Vendor'    : mod_author,
+            'Specification-Version'   : project.jar.archiveVersion,
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : project.jar.archiveVersion,
+            'Implementation-Vendor'   : mod_author,
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'Timestamp'               : System.currentTimeMillis(),
+            'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+            'Build-On-Minecraft'      : minecraft_version
         ])
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

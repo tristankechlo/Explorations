@@ -1,11 +1,7 @@
 package com.tristankechlo.explorations.structures;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -26,96 +22,86 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
-import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.structure.StructureStart;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ForgottenWellStructure extends Structure<NoFeatureConfig> {
 
-	public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
+    public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
 
-	public ForgottenWellStructure(Codec<NoFeatureConfig> codec) {
-		super(codec);
-	}
+    public ForgottenWellStructure(Codec<NoFeatureConfig> codec) {
+        super(codec);
+    }
 
-	@Override
-	public IStartFactory<NoFeatureConfig> getStartFactory() {
-		return ForgottenWellStructure.Start::new;
-	}
+    @Override
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
+        return ForgottenWellStructure.Start::new;
+    }
 
-	@Override
-	public Decoration step() {
-		return GenerationStage.Decoration.SURFACE_STRUCTURES;
-	}
+    @Override
+    public Decoration step() {
+        return GenerationStage.Decoration.SURFACE_STRUCTURES;
+    }
 
-	@Override
-	protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed,
-			SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos,
-			NoFeatureConfig featureConfig) {
-		BlockPos centerOfChunk = new BlockPos(chunkX * 16, 0, chunkZ * 16);
-		int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(),
-				Heightmap.Type.WORLD_SURFACE_WG);
-		IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
-		BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
-		return topBlock.getFluidState().isEmpty();
-	}
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        BlockPos centerOfChunk = new BlockPos(chunkX * 16, 0, chunkZ * 16);
+        int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+        IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
+        BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
+        return topBlock.getFluidState().isEmpty();
+    }
 
-	private static List<String> getDefaultSpawnBiomes() {
-		List<String> biomes = new ArrayList<>();
-		biomes.add(Biomes.FOREST.location().toString());
-		biomes.add(Biomes.BIRCH_FOREST.location().toString());
-		biomes.add(Biomes.BIRCH_FOREST_HILLS.location().toString());
-		biomes.add(Biomes.DARK_FOREST.location().toString());
-		biomes.add(Biomes.DARK_FOREST_HILLS.location().toString());
-		biomes.add(Biomes.TALL_BIRCH_FOREST.location().toString());
-		biomes.add(Biomes.FLOWER_FOREST.location().toString());
-		return biomes;
-	}
+    private static List<String> getDefaultSpawnBiomes() {
+        List<String> biomes = new ArrayList<>();
+        biomes.add(Biomes.FOREST.location().toString());
+        biomes.add(Biomes.BIRCH_FOREST.location().toString());
+        biomes.add(Biomes.BIRCH_FOREST_HILLS.location().toString());
+        biomes.add(Biomes.DARK_FOREST.location().toString());
+        biomes.add(Biomes.DARK_FOREST_HILLS.location().toString());
+        biomes.add(Biomes.TALL_BIRCH_FOREST.location().toString());
+        biomes.add(Biomes.FLOWER_FOREST.location().toString());
+        return biomes;
+    }
 
-	public static class Start extends StructureStart<NoFeatureConfig> {
+    public static class Start extends StructureStart<NoFeatureConfig> {
 
-		public static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID,
-				"forgotten_well_start_pool");
+        public static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID, "forgotten_well_start_pool");
 
-		public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ,
-				MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-			super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-		}
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        }
 
-		@Override
-		public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator,
-				TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
+        @Override
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
 
-			int x = chunkX * 16;
-			int z = chunkZ * 16;
-			BlockPos centerPos = new BlockPos(x, 0, z);
-			final int maxDepth = 10;
-			final boolean placeAtHeightMap = true;
-			final boolean intersecting = false;
-			JigsawManager.addPieces(dynamicRegistryManager,
-					new VillageConfig(() -> getJigsawPattern(dynamicRegistryManager), maxDepth),
-					AbstractVillagePiece::new, chunkGenerator, templateManagerIn, centerPos, this.pieces, this.random,
-					intersecting, placeAtHeightMap);
-			// move pieces to fit into land
-			this.pieces.forEach(piece -> piece.move(0, -2, 0));
-			this.pieces.forEach(piece -> piece.getBoundingBox().y0 += 2);
+            int x = chunkX * 16;
+            int z = chunkZ * 16;
+            BlockPos centerPos = new BlockPos(x, 0, z);
+            final int maxDepth = 10;
+            final boolean placeAtHeightMap = true;
+            final boolean intersecting = false;
+            JigsawManager.addPieces(dynamicRegistryManager, new VillageConfig(() -> getJigsawPattern(dynamicRegistryManager), maxDepth), AbstractVillagePiece::new, chunkGenerator, templateManagerIn, centerPos, this.pieces, this.random, intersecting, placeAtHeightMap);
+            // move pieces to fit into land
+            this.pieces.forEach(piece -> piece.move(0, -2, 0));
+            this.pieces.forEach(piece -> piece.getBoundingBox().y0 += 2);
 
-			Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
-			int xOffset = centerPos.getX() - structureCenter.getX();
-			int zOffset = centerPos.getZ() - structureCenter.getZ();
-			for (StructurePiece structurePiece : this.pieces) {
-				structurePiece.move(xOffset, 0, zOffset);
-			}
-			this.calculateBoundingBox();
-		}
+            Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
+            int xOffset = centerPos.getX() - structureCenter.getX();
+            int zOffset = centerPos.getZ() - structureCenter.getZ();
+            for (StructurePiece structurePiece : this.pieces) {
+                structurePiece.move(xOffset, 0, zOffset);
+            }
+            this.calculateBoundingBox();
+        }
 
-		private JigsawPattern getJigsawPattern(DynamicRegistries dynamicRegistryManager) {
-			return dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL);
-		}
+        private JigsawPattern getJigsawPattern(DynamicRegistries dynamicRegistryManager) {
+            return dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(START_POOL);
+        }
 
-	}
+    }
 
 }
