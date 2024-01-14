@@ -3,9 +3,11 @@ package com.tristankechlo.explorations.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.structures.ForgottenWellStructure;
-import com.tristankechlo.explorations.structures.JungleTempleStructure;
-import com.tristankechlo.explorations.structures.UnderGroundTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.ForgottenWellStructure;
+import com.tristankechlo.explorations.worldgen.structures.JungleTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.UnderGroundTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
+import com.tristankechlo.explorations.worldgen.structures.util.JigsawStructure;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -22,11 +24,13 @@ public class ModStructures {
 
     public static final DeferredRegister<Structure<?>> STRUCTURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, Explorations.MOD_ID);
 
-    public static final RegistryObject<Structure<NoFeatureConfig>> FORGOTTEN_WELL = STRUCTURES.register("forgotten_well", () -> (new ForgottenWellStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_TEMPLE = STRUCTURES.register("jungle_temple", () -> (new JungleTempleStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> UNDERGROUND_TEMPLE = STRUCTURES.register("underground_temple", () -> (new UnderGroundTempleStructure(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> DESERT_RUIN = STRUCTURES.register("desert_ruin", () -> new JigsawStructure(JigsawConfig.DESERT_RUIN));
+    public static final RegistryObject<Structure<NoFeatureConfig>> FORGOTTEN_WELL = STRUCTURES.register("forgotten_well", ForgottenWellStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_TEMPLE = STRUCTURES.register("jungle_temple", JungleTempleStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> UNDERGROUND_TEMPLE = STRUCTURES.register("underground_temple", UnderGroundTempleStructure::new);
 
     public static void setupStructures() {
+        setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
         setupMapSpacingAndLand(FORGOTTEN_WELL.get(), new StructureSeparationSettings(10, 5, 2147413647), true);
         setupMapSpacingAndLand(JUNGLE_TEMPLE.get(), new StructureSeparationSettings(17, 6, 2147413646), false);
         setupMapSpacingAndLand(UNDERGROUND_TEMPLE.get(), new StructureSeparationSettings(15, 6, 2147413645), false);

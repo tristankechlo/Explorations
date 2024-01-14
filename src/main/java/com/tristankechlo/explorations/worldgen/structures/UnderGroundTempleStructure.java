@@ -1,7 +1,6 @@
-package com.tristankechlo.explorations.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -31,10 +30,14 @@ import java.util.List;
 
 public class UnderGroundTempleStructure extends Structure<NoFeatureConfig> {
 
-    private static final List<Spawners> STRUCTURE_MONSTERS = ImmutableList.of(new Spawners(EntityType.ILLUSIONER, 100, 4, 9), new Spawners(EntityType.VINDICATOR, 100, 4, 9), new Spawners(EntityType.PILLAGER, 100, 4, 9));
+    private static final List<Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
+            new Spawners(EntityType.ILLUSIONER, 100, 4, 9),
+            new Spawners(EntityType.VINDICATOR, 100, 4, 9),
+            new Spawners(EntityType.PILLAGER, 100, 4, 9)
+    );
 
-    public UnderGroundTempleStructure(Codec<NoFeatureConfig> codec) {
-        super(codec);
+    public UnderGroundTempleStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override
@@ -61,12 +64,12 @@ public class UnderGroundTempleStructure extends Structure<NoFeatureConfig> {
 
         private static final ResourceLocation START_POOL = new ResourceLocation(Explorations.MOD_ID, "underground_temple/underground_temple_start");
 
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
-            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+        public Start(Structure<NoFeatureConfig> structure, int chunkX, int chunkZ, MutableBoundingBox boundingBox, int reference, long seed) {
+            super(structure, chunkX, chunkZ, boundingBox, reference, seed);
         }
 
         @Override
-        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biome, NoFeatureConfig config) {
 
             int x = chunkX * 16;
             int z = chunkZ * 16;
@@ -74,7 +77,18 @@ public class UnderGroundTempleStructure extends Structure<NoFeatureConfig> {
             final int maxDepth = 6;
             final boolean placeAtHeightMap = false;
             final boolean intersecting = false;
-            JigsawManager.addPieces(dynamicRegistryManager, new VillageConfig(() -> getJigsawPattern(dynamicRegistryManager), maxDepth), AbstractVillagePiece::new, chunkGenerator, templateManagerIn, centerPos, this.pieces, this.random, intersecting, placeAtHeightMap);
+            JigsawManager.addPieces(
+                    dynamicRegistryManager,
+                    new VillageConfig(() -> getJigsawPattern(dynamicRegistryManager), maxDepth),
+                    AbstractVillagePiece::new,
+                    chunkGenerator,
+                    templateManagerIn,
+                    centerPos,
+                    this.pieces,
+                    this.random,
+                    intersecting,
+                    placeAtHeightMap
+            );
 
             Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
             int xOffset = centerPos.getX() - structureCenter.getX();

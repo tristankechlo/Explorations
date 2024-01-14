@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
@@ -32,8 +32,8 @@ public class ForgottenWellStructure extends Structure<NoFeatureConfig> {
 
     public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
 
-    public ForgottenWellStructure(Codec<NoFeatureConfig> codec) {
-        super(codec);
+    public ForgottenWellStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override

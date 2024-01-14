@@ -1,6 +1,5 @@
-package com.tristankechlo.explorations.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
-import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.Explorations;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,8 +34,8 @@ public class JungleTempleStructure extends Structure<NoFeatureConfig> {
 
     public static final List<String> DEFAULT_BIOMES = getDefaultSpawnBiomes();
 
-    public JungleTempleStructure(Codec<NoFeatureConfig> codec) {
-        super(codec);
+    public JungleTempleStructure() {
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override

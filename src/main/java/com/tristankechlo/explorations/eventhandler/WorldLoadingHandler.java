@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.eventhandler;
 
-import com.mojang.serialization.Codec;
+import com.tristankechlo.explorations.mixin_util.ChunkgeneratorUtil;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructures;
 import net.minecraft.util.ResourceLocation;
@@ -15,17 +15,12 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 public class WorldLoadingHandler {
 
-    private static Method GETCODEC_METHOD;
-
-    @SuppressWarnings("resource")
     @SubscribeEvent(priority = EventPriority.NORMAL)
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         if (!(event.getWorld() instanceof ServerWorld)) {
@@ -45,24 +40,25 @@ public class WorldLoadingHandler {
 
         // add structures
         Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
+        tempMap.putIfAbsent(ModStructures.DESERT_RUIN.get(), getSettings(ModStructures.DESERT_RUIN.get()));
         tempMap.putIfAbsent(ModStructures.FORGOTTEN_WELL.get(), getSettings(ModStructures.FORGOTTEN_WELL.get()));
         tempMap.putIfAbsent(ModStructures.JUNGLE_TEMPLE.get(), getSettings(ModStructures.JUNGLE_TEMPLE.get()));
         tempMap.putIfAbsent(ModStructures.UNDERGROUND_TEMPLE.get(), getSettings(ModStructures.UNDERGROUND_TEMPLE.get()));
         serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
     }
 
-    @SuppressWarnings("resource")
-    private boolean isTerraForged(ServerWorld serverWorld) {
+    private boolean isTerraForged(ServerWorld world) {
         try {
-            if (GETCODEC_METHOD == null) {
-                GETCODEC_METHOD = ObfuscationReflectionHelper.findMethod(ChunkGenerator.class, "func_230347_a_");
+            ChunkGenerator generator = world.getChunkSource().generator;
+            if (!(generator instanceof ChunkgeneratorUtil)) {
+                return false;
             }
-            @SuppressWarnings("unchecked") ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey((Codec<? extends ChunkGenerator>) GETCODEC_METHOD.invoke(serverWorld.getChunkSource().generator));
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkgeneratorUtil) generator).explorations$getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) {
                 return true;
             }
         } catch (Exception e) {
-            Explorations.LOGGER.error("Was unable to check if " + serverWorld.dimension().location() + " is using Terraforged's ChunkGenerator.");
+            Explorations.LOGGER.error("Was unable to check if " + world.dimension().location() + " is using Terraforged's ChunkGenerator.");
         }
         return false;
     }
