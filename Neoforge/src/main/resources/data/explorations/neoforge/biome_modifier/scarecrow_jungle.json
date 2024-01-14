@@ -1,0 +1,6 @@
+{
+    "type": "neoforge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/jungle",
+    "features": "explorations:scarecrow_jungle",
+    "step": "vegetal_decoration"
+}

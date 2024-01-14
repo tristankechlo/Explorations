@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[2,)"
+license="CC BY-NC-ND 4.0"
+showAsResourcePack=false
+
+[[mods]]
+modId="explorations"
+version="${version}"
+displayName="Explorations+"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/explorations"
+logoFile="pack.png"
+credits="Thanks to TelepathicGrunt for his StructureTutorialMod"
+authors="Buecher_wurm"
+description='''adds more vanilla style structures to the game'''
+
+[[dependencies.explorations]]
+    modId="neoforge"
+    type="required"
+    versionRange = "[20.4,)"
+    ordering="NONE"
+    side="BOTH"
+	
+[[dependencies.explorations]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.20.4,1.21)"
+    ordering="NONE"
+    side="BOTH"

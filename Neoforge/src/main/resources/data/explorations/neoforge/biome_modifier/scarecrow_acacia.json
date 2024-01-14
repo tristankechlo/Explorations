@@ -1,0 +1,6 @@
+{
+    "type": "neoforge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/acacia",
+    "features": "explorations:scarecrow_acacia",
+    "step": "vegetal_decoration"
+}
