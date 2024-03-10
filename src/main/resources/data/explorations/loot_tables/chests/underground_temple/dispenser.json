@@ -10,8 +10,8 @@
                     "name": "minecraft:tipped_arrow",
                     "functions": [
                         {
-                            "function": "minecraft:set_nbt",
-                            "tag": "{Potion:\"minecraft:slowness\"}"
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:slowness"
                         },
                         {
                             "function": "minecraft:set_count",
@@ -42,8 +42,8 @@
                     "name": "minecraft:tipped_arrow",
                     "functions": [
                         {
-                            "function": "minecraft:set_nbt",
-                            "tag": "{Potion:\"minecraft:weakness\"}"
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:weakness"
                         },
                         {
                             "function": "minecraft:set_count",

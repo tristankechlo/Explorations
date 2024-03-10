@@ -20,7 +20,10 @@
             ]
         },
         {
-            "rolls": 1,
+            "rolls": {
+                "min": 2,
+                "max": 3
+            },
             "entries": [
                 {
                     "type": "minecraft:item",
@@ -29,8 +32,8 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "min": 6,
-                                "max": 26
+                                "min": 5,
+                                "max": 15
                             }
                         }
                     ]
@@ -43,28 +46,31 @@
                 {
                     "type": "minecraft:item",
                     "weight": 1,
-                    "name": "minecraft:paper",
+                    "name": "minecraft:book",
                     "functions": [
                         {
+                            "function": "minecraft:enchant_randomly",
+                            "enchantments": [
+                                "minecraft:protection",
+                                "minecraft:sharpness",
+                                "minecraft:looting",
+                                "minecraft:mending"
+                            ]
+                        },
+                        {
                             "function": "minecraft:set_count",
-                            "count": {
-                                "min": 1,
-                                "max": 4
-                            }
+                            "count": 1
                         }
                     ]
                 },
                 {
                     "type": "minecraft:item",
                     "weight": 1,
-                    "name": "minecraft:string",
+                    "name": "minecraft:golden_apple",
                     "functions": [
                         {
                             "function": "minecraft:set_count",
-                            "count": {
-                                "min": 4,
-                                "max": 12
-                            }
+                            "count": 1
                         }
                     ]
                 }
@@ -80,8 +86,27 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "min": 1,
+                                "min": 2,
                                 "max": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:golden_apple",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 0,
+                                "p": 0.1
                             }
                         }
                     ]
