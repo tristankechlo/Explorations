@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.tristankechlo.explorations.init.ModStructureProcessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +34,7 @@ public class Explorations {
 
 	private void commonSetup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			ModStructureProcessor.setupStructureProcessors();
 			ModStructures.setupStructures();
 			ConfiguredStructures.registerConfiguredStructures();
 		});

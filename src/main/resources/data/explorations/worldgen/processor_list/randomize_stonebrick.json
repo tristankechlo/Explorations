@@ -1,0 +1,13 @@
+{
+    "processors": [
+        {
+            "processor_type": "explorations:stone_brick_aging",
+            "chances": {
+                "bricks": 0.25,
+                "stairs": 0.15,
+                "slabs": 0.15,
+                "walls": 0.15
+            }
+        }
+    ]
+}

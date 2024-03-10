@@ -1,0 +1,103 @@
+{
+    "processors": [
+        {
+            "processor_type": "minecraft:rule",
+            "rules": [
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:coal_ore"
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:iron_ore"
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:redstone_ore",
+                        "Properties": {
+                            "lit": "false"
+                        }
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:lapis_ore"
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:gold_ore"
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:diamond_ore"
+                    }
+                },
+                {
+                    "location_predicate": {
+                        "predicate_type": "minecraft:always_true"
+                    },
+                    "input_predicate": {
+                        "predicate_type": "minecraft:random_block_match",
+                        "block": "minecraft:stone",
+                        "probability": 0.05
+                    },
+                    "output_state": {
+                        "Name": "minecraft:emerald_ore"
+                    }
+                }
+            ]
+        }
+    ]
+}
