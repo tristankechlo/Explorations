@@ -32,6 +32,21 @@ public class BiomeLoadingHandler {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_FLOATING_ISLAND);
         }
 
+        // add large oak tree biomes
+        if (JigsawConfig.LARGE_OAK_TREE.spawnBiomes.contains(event.getName().toString())) {
+            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_LARGE_OAK_TREE);
+        }
+
+        // add logs biomes
+        if (JigsawConfig.LOGS.spawnBiomes.contains(event.getName().toString())) {
+            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_LOGS);
+        }
+
+        // add shrine biomes
+        if (JigsawConfig.SHRINE.spawnBiomes.contains(event.getName().toString())) {
+            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_SHRINE);
+        }
+
         // add undergrounde temple to all overworld biomes
         if (event.getCategory() != Category.NETHER && event.getCategory() != Category.THEEND) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);

@@ -1,8 +1,8 @@
 package com.tristankechlo.explorations.eventhandler;
 
-import com.tristankechlo.explorations.mixin_util.ChunkGeneratorAddon;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructures;
+import com.tristankechlo.explorations.mixin_util.ChunkGeneratorAddon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -45,6 +45,9 @@ public class WorldLoadingHandler {
         tempMap.putIfAbsent(ModStructures.JUNGLE_TEMPLE.get(), getSettings(ModStructures.JUNGLE_TEMPLE.get()));
         tempMap.putIfAbsent(ModStructures.UNDERGROUND_TEMPLE.get(), getSettings(ModStructures.UNDERGROUND_TEMPLE.get()));
         tempMap.putIfAbsent(ModStructures.FLOATING_ISLAND.get(), getSettings(ModStructures.FLOATING_ISLAND.get()));
+        tempMap.putIfAbsent(ModStructures.LARGE_OAK_TREE.get(), getSettings(ModStructures.LARGE_OAK_TREE.get()));
+        tempMap.putIfAbsent(ModStructures.LOGS.get(), getSettings(ModStructures.LOGS.get()));
+        tempMap.putIfAbsent(ModStructures.SHRINE.get(), getSettings(ModStructures.SHRINE.get()));
         serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
     }
 

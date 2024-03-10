@@ -1,6 +1,7 @@
 package com.tristankechlo.explorations.worldgen.structures.config;
 
 import com.tristankechlo.explorations.Explorations;
+import com.tristankechlo.explorations.util.WorldGenHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -43,6 +44,18 @@ public class JigsawConfig {
             .addSpawnBiome(Biomes.LUKEWARM_OCEAN).addSpawnBiome(Biomes.DEEP_LUKEWARM_OCEAN)
             .addSpawnBiome(Biomes.WARM_OCEAN).addSpawnBiome(Biomes.DEEP_WARM_OCEAN)
             .build();
+
+    public static final JigsawConfig LARGE_OAK_TREE = new JigsawConfig.Builder().setStartPool("large_oak_tree_start")
+            .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_BIOMES))
+            .setSeparationSettings(9, 4, 1684511628).setSize(1).build();
+
+    public static final JigsawConfig LOGS = new JigsawConfig.Builder().setStartPool("logs_start")
+            .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_AND_JUNGLE_BIOMES))
+            .setSeparationSettings(10, 5, 2105923705).setSize(1).build();
+
+    public static final JigsawConfig SHRINE = new JigsawConfig.Builder().setStartPool("shrine_start")
+            .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_AND_JUNGLE_BIOMES))
+            .setSeparationSettings(16, 8, 1759717125).setSize(1).build();
 
 
     public final ResourceLocation startPool; // location of the json-file for the start pool
@@ -112,6 +125,11 @@ public class JigsawConfig {
 
         public Builder addSpawnBiome(RegistryKey<Biome> biome) {
             this.spawnBiomes.add(biome);
+            return this;
+        }
+
+        public Builder setSpawnBiomes(List<RegistryKey<Biome>> biomes) {
+            this.spawnBiomes = biomes;
             return this;
         }
 

@@ -29,6 +29,9 @@ public class ModStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_TEMPLE = STRUCTURES.register("jungle_temple", JungleTempleStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> UNDERGROUND_TEMPLE = STRUCTURES.register("underground_temple", UnderGroundTempleStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> FLOATING_ISLAND = STRUCTURES.register("floating_island", FloatingIslandStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> LARGE_OAK_TREE = STRUCTURES.register("large_oak_tree", () -> new JigsawStructure(JigsawConfig.LARGE_OAK_TREE));
+    public static final RegistryObject<Structure<NoFeatureConfig>> LOGS = STRUCTURES.register("logs", () -> new JigsawStructure(JigsawConfig.LOGS));
+    public static final RegistryObject<Structure<NoFeatureConfig>> SHRINE = STRUCTURES.register("shrine", () -> new JigsawStructure(JigsawConfig.SHRINE));
 
     public static void setupStructures() {
         setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
@@ -36,6 +39,9 @@ public class ModStructures {
         setupMapSpacingAndLand(JUNGLE_TEMPLE.get(), JigsawConfig.JUNGLE_TEMPLE.separationSettings, JigsawConfig.JUNGLE_TEMPLE.transformSurroundingLand);
         setupMapSpacingAndLand(UNDERGROUND_TEMPLE.get(), JigsawConfig.UNDERGROUND_TEMPLE.separationSettings, JigsawConfig.UNDERGROUND_TEMPLE.transformSurroundingLand);
         setupMapSpacingAndLand(FLOATING_ISLAND.get(), JigsawConfig.FLOATING_ISLAND.separationSettings, JigsawConfig.FLOATING_ISLAND.transformSurroundingLand);
+        setupMapSpacingAndLand(LARGE_OAK_TREE.get(), JigsawConfig.LARGE_OAK_TREE.separationSettings, JigsawConfig.LARGE_OAK_TREE.transformSurroundingLand);
+        setupMapSpacingAndLand(LOGS.get(), JigsawConfig.LOGS.separationSettings, JigsawConfig.LOGS.transformSurroundingLand);
+        setupMapSpacingAndLand(SHRINE.get(), JigsawConfig.SHRINE.separationSettings, JigsawConfig.SHRINE.transformSurroundingLand);
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {
