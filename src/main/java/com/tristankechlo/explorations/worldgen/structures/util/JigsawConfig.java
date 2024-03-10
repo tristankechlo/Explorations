@@ -20,7 +20,7 @@ public class JigsawConfig {
             .addSpawnBiome(Biomes.DESERT).addSpawnBiome(Biomes.DESERT_HILLS).addSpawnBiome(Biomes.DESERT_LAKES)
             .setSeparationSettings(12, 5, 1487218662).setSize(1).build();
 
-    public static final JigsawConfig FORGOTTEN_WELL = new JigsawConfig.Builder().setStartPool("forgotten_well_start_pool")
+    public static final JigsawConfig FORGOTTEN_WELL = new JigsawConfig.Builder().setStartPool("forgotten_well_start")
             .addSpawnBiome(Biomes.FOREST).addSpawnBiome(Biomes.BIRCH_FOREST).addSpawnBiome(Biomes.BIRCH_FOREST_HILLS).addSpawnBiome(Biomes.DARK_FOREST).addSpawnBiome(Biomes.DARK_FOREST_HILLS).addSpawnBiome(Biomes.TALL_BIRCH_FOREST).addSpawnBiome(Biomes.FLOWER_FOREST)
             .setSeparationSettings(10, 5, 2147413647).setSize(1).build();
 
@@ -28,7 +28,7 @@ public class JigsawConfig {
             .addSpawnBiome(Biomes.JUNGLE).addSpawnBiome(Biomes.JUNGLE_EDGE).addSpawnBiome(Biomes.JUNGLE_HILLS).addSpawnBiome(Biomes.MODIFIED_JUNGLE).addSpawnBiome(Biomes.MODIFIED_JUNGLE_EDGE).addSpawnBiome(Biomes.BAMBOO_JUNGLE).addSpawnBiome(Biomes.BAMBOO_JUNGLE_HILLS)
             .setSeparationSettings(17, 6, 2147413646).setTransformSurroundingLand(false).setSize(3).build();
 
-    public static final JigsawConfig UNDERGROUND_TEMPLE = new JigsawConfig.Builder().setStartPool("underground_temple/underground_temple_start")
+    public static final JigsawConfig UNDERGROUND_TEMPLE = new JigsawConfig.Builder().setStartPool("underground_temple/start")
             .setSeparationSettings(15, 6, 2147413645).setTransformSurroundingLand(false).setSize(6).setPlaceAtHeightmap(false)
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.ILLUSIONER, 100, 4, 9))
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 100, 4, 9))

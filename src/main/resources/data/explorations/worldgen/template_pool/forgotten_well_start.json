@@ -1,11 +1,11 @@
 {
-    "name": "explorations:jungle_temple/jungle_temple_start",
+    "name": "explorations:forgotten_well_start_pool",
     "fallback": "minecraft:empty",
     "elements": [
         {
             "weight": 1,
             "element": {
-                "location": "explorations:jungle_temple/jungle_temple",
+                "location": "explorations:forgotten_well",
                 "processors": "minecraft:empty",
                 "projection": "rigid",
                 "element_type": "minecraft:single_pool_element"
