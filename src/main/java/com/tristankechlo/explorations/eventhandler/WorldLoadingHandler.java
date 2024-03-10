@@ -44,6 +44,7 @@ public class WorldLoadingHandler {
         tempMap.putIfAbsent(ModStructures.FORGOTTEN_WELL.get(), getSettings(ModStructures.FORGOTTEN_WELL.get()));
         tempMap.putIfAbsent(ModStructures.JUNGLE_TEMPLE.get(), getSettings(ModStructures.JUNGLE_TEMPLE.get()));
         tempMap.putIfAbsent(ModStructures.UNDERGROUND_TEMPLE.get(), getSettings(ModStructures.UNDERGROUND_TEMPLE.get()));
+        tempMap.putIfAbsent(ModStructures.FLOATING_ISLAND.get(), getSettings(ModStructures.FLOATING_ISLAND.get()));
         serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
     }
 

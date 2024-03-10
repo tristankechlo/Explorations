@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.worldgen.structures;
 
-import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
+import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.vector.Vector3i;
@@ -59,18 +59,7 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
             // generate jigsaw structure
             JigsawConfig config = JigsawStructure.this.config;
             final boolean intersecting = false;
-            JigsawManager.addPieces(
-                    registries,
-                    new VillageConfig(() -> getJigsawPattern(registries, config), config.size),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManager,
-                    centerPos,
-                    this.pieces,
-                    this.random,
-                    intersecting,
-                    config.placeAtHeightmap
-            );
+            this.addJigsawPieces(registries, chunkGenerator, templateManager, centerPos, intersecting, config);
 
             // move pieces to fit into land
             if (config.yOffset != 0) {
@@ -91,6 +80,22 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
 
         protected JigsawPattern getJigsawPattern(DynamicRegistries registries, JigsawConfig config) {
             return registries.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool);
+        }
+
+        protected void addJigsawPieces(DynamicRegistries registries, ChunkGenerator chunkGenerator, TemplateManager templateManager,
+                                       BlockPos centerPos, boolean intersecting, JigsawConfig config) {
+            JigsawManager.addPieces(
+                    registries,
+                    new VillageConfig(() -> getJigsawPattern(registries, config), config.size),
+                    AbstractVillagePiece::new,
+                    chunkGenerator,
+                    templateManager,
+                    centerPos,
+                    this.pieces,
+                    this.random,
+                    intersecting,
+                    config.placeAtHeightmap
+            );
         }
     }
 

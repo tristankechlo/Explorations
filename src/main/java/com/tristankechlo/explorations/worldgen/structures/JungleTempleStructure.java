@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.worldgen.structures;
 
-import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
+import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.SharedSeedRandom;
@@ -16,8 +16,9 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
-import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
@@ -59,19 +60,7 @@ public class JungleTempleStructure extends JigsawStructure {
 
             // generate jigsaw structure
             JigsawConfig config = JungleTempleStructure.this.config;
-            final boolean intersecting = false;
-            JigsawManager.addPieces(
-                    registries,
-                    new VillageConfig(() -> getJigsawPattern(registries, config), config.size),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManager,
-                    centerPos,
-                    this.pieces,
-                    this.random,
-                    intersecting,
-                    config.placeAtHeightmap
-            );
+            this.addJigsawPieces(registries, chunkGenerator, templateManager, centerPos, false, config);
 
             // move pieces to fit into land
             this.pieces.forEach(piece -> piece.move(0, 1, 0));

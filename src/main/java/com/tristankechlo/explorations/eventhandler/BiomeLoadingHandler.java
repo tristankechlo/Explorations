@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.eventhandler;
 
 import com.tristankechlo.explorations.init.ConfiguredStructures;
-import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
+import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -25,6 +25,11 @@ public class BiomeLoadingHandler {
         // add jungle temple biomes
         if (JigsawConfig.JUNGLE_TEMPLE.spawnBiomes.contains(event.getName().toString())) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_JUNGLE_TEMPLE);
+        }
+
+        // add floating island biomes
+        if (JigsawConfig.FLOATING_ISLAND.spawnBiomes.contains(event.getName().toString())) {
+            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_FLOATING_ISLAND);
         }
 
         // add undergrounde temple to all overworld biomes

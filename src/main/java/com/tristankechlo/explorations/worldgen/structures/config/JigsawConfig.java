@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worldgen.structures.util;
+package com.tristankechlo.explorations.worldgen.structures.config;
 
 import com.tristankechlo.explorations.Explorations;
 import net.minecraft.entity.EntityType;
@@ -34,6 +34,15 @@ public class JigsawConfig {
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 100, 4, 9))
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 100, 4, 9))
             .setStep(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).build();
+
+    public static final JigsawConfig FLOATING_ISLAND = new JigsawConfig.Builder().setStartPool("floating_island_start")
+            .setSeparationSettings(16, 8, 1701811218).setSize(1).setTransformSurroundingLand(false).setYOffset(60)
+            .addSpawnBiome(Biomes.OCEAN).addSpawnBiome(Biomes.DEEP_COLD_OCEAN)
+            .addSpawnBiome(Biomes.COLD_OCEAN).addSpawnBiome(Biomes.DEEP_COLD_OCEAN)
+            .addSpawnBiome(Biomes.FROZEN_OCEAN).addSpawnBiome(Biomes.DEEP_FROZEN_OCEAN)
+            .addSpawnBiome(Biomes.LUKEWARM_OCEAN).addSpawnBiome(Biomes.DEEP_LUKEWARM_OCEAN)
+            .addSpawnBiome(Biomes.WARM_OCEAN).addSpawnBiome(Biomes.DEEP_WARM_OCEAN)
+            .build();
 
 
     public final ResourceLocation startPool; // location of the json-file for the start pool
@@ -115,6 +124,11 @@ public class JigsawConfig {
 
         public Builder setTransformSurroundingLand(boolean transformLand) {
             this.transformSurroundingLand = transformLand;
+            return this;
+        }
+
+        public Builder setYOffset(int offset) {
+            this.yOffset = offset;
             return this;
         }
 

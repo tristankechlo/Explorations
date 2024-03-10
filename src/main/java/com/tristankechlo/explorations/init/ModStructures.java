@@ -3,10 +3,11 @@ package com.tristankechlo.explorations.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.tristankechlo.explorations.Explorations;
+import com.tristankechlo.explorations.worldgen.structures.FloatingIslandStructure;
 import com.tristankechlo.explorations.worldgen.structures.JigsawStructure;
 import com.tristankechlo.explorations.worldgen.structures.JungleTempleStructure;
 import com.tristankechlo.explorations.worldgen.structures.UnderGroundTempleStructure;
-import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
+import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -27,12 +28,14 @@ public class ModStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> FORGOTTEN_WELL = STRUCTURES.register("forgotten_well", () -> new JigsawStructure(JigsawConfig.FORGOTTEN_WELL));
     public static final RegistryObject<Structure<NoFeatureConfig>> JUNGLE_TEMPLE = STRUCTURES.register("jungle_temple", JungleTempleStructure::new);
     public static final RegistryObject<Structure<NoFeatureConfig>> UNDERGROUND_TEMPLE = STRUCTURES.register("underground_temple", UnderGroundTempleStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> FLOATING_ISLAND = STRUCTURES.register("floating_island", FloatingIslandStructure::new);
 
     public static void setupStructures() {
         setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
         setupMapSpacingAndLand(FORGOTTEN_WELL.get(), JigsawConfig.FORGOTTEN_WELL.separationSettings, JigsawConfig.FORGOTTEN_WELL.transformSurroundingLand);
         setupMapSpacingAndLand(JUNGLE_TEMPLE.get(), JigsawConfig.JUNGLE_TEMPLE.separationSettings, JigsawConfig.JUNGLE_TEMPLE.transformSurroundingLand);
         setupMapSpacingAndLand(UNDERGROUND_TEMPLE.get(), JigsawConfig.UNDERGROUND_TEMPLE.separationSettings, JigsawConfig.UNDERGROUND_TEMPLE.transformSurroundingLand);
+        setupMapSpacingAndLand(FLOATING_ISLAND.get(), JigsawConfig.FLOATING_ISLAND.separationSettings, JigsawConfig.FLOATING_ISLAND.transformSurroundingLand);
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {
