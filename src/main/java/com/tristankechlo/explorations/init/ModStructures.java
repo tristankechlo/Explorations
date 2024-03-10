@@ -31,9 +31,9 @@ public class ModStructures {
 
     public static void setupStructures() {
         setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
-        setupMapSpacingAndLand(FORGOTTEN_WELL.get(), new StructureSeparationSettings(10, 5, 2147413647), true);
-        setupMapSpacingAndLand(JUNGLE_TEMPLE.get(), new StructureSeparationSettings(17, 6, 2147413646), false);
-        setupMapSpacingAndLand(UNDERGROUND_TEMPLE.get(), new StructureSeparationSettings(15, 6, 2147413645), false);
+        setupMapSpacingAndLand(FORGOTTEN_WELL.get(), JigsawConfig.FORGOTTEN_WELL.separationSettings, JigsawConfig.FORGOTTEN_WELL.transformSurroundingLand);
+        setupMapSpacingAndLand(JUNGLE_TEMPLE.get(), JigsawConfig.JUNGLE_TEMPLE.separationSettings, JigsawConfig.JUNGLE_TEMPLE.transformSurroundingLand);
+        setupMapSpacingAndLand(UNDERGROUND_TEMPLE.get(), JigsawConfig.UNDERGROUND_TEMPLE.separationSettings, JigsawConfig.UNDERGROUND_TEMPLE.transformSurroundingLand);
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {

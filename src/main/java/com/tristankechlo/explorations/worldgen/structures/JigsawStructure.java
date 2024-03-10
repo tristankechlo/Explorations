@@ -20,7 +20,7 @@ import java.util.List;
 
 public class JigsawStructure extends Structure<NoFeatureConfig> {
 
-    private final JigsawConfig config;
+    protected final JigsawConfig config;
 
     public JigsawStructure(JigsawConfig config) {
         super(NoFeatureConfig.CODEC);
@@ -42,7 +42,7 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
         return JigsawStructure.Start::new;
     }
 
-    private class Start extends StructureStart<NoFeatureConfig> {
+    protected class Start extends StructureStart<NoFeatureConfig> {
 
         public Start(Structure<NoFeatureConfig> structure, int chunkX, int chunkZ, MutableBoundingBox boundingBox, int reference, long seed) {
             super(structure, chunkX, chunkZ, boundingBox, reference, seed);
@@ -76,6 +76,7 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
             if (config.yOffset != 0) {
                 this.boundingBox.move(0, config.yOffset, 0);
                 this.pieces.forEach(piece -> piece.move(0, config.yOffset, 0));
+                this.pieces.forEach(piece -> piece.getBoundingBox().y0 += config.yOffset);
             }
 
             // recalculate position of whole structure
@@ -88,7 +89,7 @@ public class JigsawStructure extends Structure<NoFeatureConfig> {
             this.calculateBoundingBox();
         }
 
-        private JigsawPattern getJigsawPattern(DynamicRegistries registries, JigsawConfig config) {
+        protected JigsawPattern getJigsawPattern(DynamicRegistries registries, JigsawConfig config) {
             return registries.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool);
         }
     }

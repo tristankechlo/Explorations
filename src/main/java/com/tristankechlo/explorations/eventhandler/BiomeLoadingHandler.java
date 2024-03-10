@@ -1,8 +1,6 @@
 package com.tristankechlo.explorations.eventhandler;
 
 import com.tristankechlo.explorations.init.ConfiguredStructures;
-import com.tristankechlo.explorations.worldgen.structures.ForgottenWellStructure;
-import com.tristankechlo.explorations.worldgen.structures.JungleTempleStructure;
 import com.tristankechlo.explorations.worldgen.structures.util.JigsawConfig;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -20,12 +18,12 @@ public class BiomeLoadingHandler {
         }
 
         // add forgotten well biomes
-        if (ForgottenWellStructure.DEFAULT_BIOMES.contains(event.getName().toString())) {
+        if (JigsawConfig.FORGOTTEN_WELL.spawnBiomes.contains(event.getName().toString())) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_FORGOTTEN_WELL);
         }
 
         // add jungle temple biomes
-        if (JungleTempleStructure.DEFAULT_BIOMES.contains(event.getName().toString())) {
+        if (JigsawConfig.JUNGLE_TEMPLE.spawnBiomes.contains(event.getName().toString())) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_JUNGLE_TEMPLE);
         }
 

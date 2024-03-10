@@ -1,6 +1,7 @@
 package com.tristankechlo.explorations.worldgen.structures.util;
 
 import com.tristankechlo.explorations.Explorations;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -14,6 +15,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JigsawConfig {
+
+    public static final JigsawConfig DESERT_RUIN = new JigsawConfig.Builder().setStartPool("desert_ruin_start")
+            .addSpawnBiome(Biomes.DESERT).addSpawnBiome(Biomes.DESERT_HILLS).addSpawnBiome(Biomes.DESERT_LAKES)
+            .setSeparationSettings(12, 5, 1487218662).setSize(1).build();
+
+    public static final JigsawConfig FORGOTTEN_WELL = new JigsawConfig.Builder().setStartPool("forgotten_well_start_pool")
+            .addSpawnBiome(Biomes.FOREST).addSpawnBiome(Biomes.BIRCH_FOREST).addSpawnBiome(Biomes.BIRCH_FOREST_HILLS).addSpawnBiome(Biomes.DARK_FOREST).addSpawnBiome(Biomes.DARK_FOREST_HILLS).addSpawnBiome(Biomes.TALL_BIRCH_FOREST).addSpawnBiome(Biomes.FLOWER_FOREST)
+            .setSeparationSettings(10, 5, 2147413647).setSize(1).build();
+
+    public static final JigsawConfig JUNGLE_TEMPLE = new JigsawConfig.Builder().setStartPool("jungle_temple/jungle_temple_start")
+            .addSpawnBiome(Biomes.JUNGLE).addSpawnBiome(Biomes.JUNGLE_EDGE).addSpawnBiome(Biomes.JUNGLE_HILLS).addSpawnBiome(Biomes.MODIFIED_JUNGLE).addSpawnBiome(Biomes.MODIFIED_JUNGLE_EDGE).addSpawnBiome(Biomes.BAMBOO_JUNGLE).addSpawnBiome(Biomes.BAMBOO_JUNGLE_HILLS)
+            .setSeparationSettings(17, 6, 2147413646).setTransformSurroundingLand(false).setSize(3).build();
+
+    public static final JigsawConfig UNDERGROUND_TEMPLE = new JigsawConfig.Builder().setStartPool("underground_temple/underground_temple_start")
+            .setSeparationSettings(15, 6, 2147413645).setTransformSurroundingLand(false).setSize(6).setPlaceAtHeightmap(false)
+            .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.ILLUSIONER, 100, 4, 9))
+            .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 100, 4, 9))
+            .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 100, 4, 9))
+            .setStep(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).build();
+
 
     public final ResourceLocation startPool; // location of the json-file for the start pool
     public final GenerationStage.Decoration step; // in which generation stage to generate the structure
@@ -49,7 +70,7 @@ public class JigsawConfig {
         private int salt = 0;
         private int spacing = 0;
         private int separation = 0;
-        private boolean transformSurroundingland = true;
+        private boolean transformSurroundingLand = true;
 
         public Builder() {
             startPool = new ResourceLocation(Explorations.MOD_ID, "start_pool");
@@ -80,11 +101,6 @@ public class JigsawConfig {
             return this;
         }
 
-        public Builder setyOffset(int yOffset) {
-            this.yOffset = yOffset;
-            return this;
-        }
-
         public Builder addSpawnBiome(RegistryKey<Biome> biome) {
             this.spawnBiomes.add(biome);
             return this;
@@ -97,21 +113,20 @@ public class JigsawConfig {
             return this;
         }
 
+        public Builder setTransformSurroundingLand(boolean transformLand) {
+            this.transformSurroundingLand = transformLand;
+            return this;
+        }
+
         public JigsawConfig build() {
             if (salt == 0 || spacing == 0 || separation == 0) {
                 throw new IllegalArgumentException();
             }
             StructureSeparationSettings separationSettings = new StructureSeparationSettings(spacing, separation, salt);
             List<String> biomes = spawnBiomes.stream().map((e) -> e.location().toString()).collect(Collectors.toList());
-            return new JigsawConfig(startPool, step, defaultSpawnList, size, placeAtHeightmap, yOffset, biomes, separationSettings, transformSurroundingland);
+            return new JigsawConfig(startPool, step, defaultSpawnList, size, placeAtHeightmap, yOffset, biomes, separationSettings, transformSurroundingLand);
         }
 
     }
-
-    public static final JigsawConfig DESERT_RUIN = new JigsawConfig.Builder()
-            .setStartPool("desert_ruin_start")
-            .addSpawnBiome(Biomes.DESERT).addSpawnBiome(Biomes.DESERT_HILLS).addSpawnBiome(Biomes.DESERT_LAKES)
-            .setSeparationSettings(12, 5, 1487218662)
-            .build();
 
 }
