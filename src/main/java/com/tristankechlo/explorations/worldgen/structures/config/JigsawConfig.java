@@ -57,6 +57,9 @@ public class JigsawConfig {
             .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_AND_JUNGLE_BIOMES))
             .setSeparationSettings(16, 8, 1759717125).setSize(1).build();
 
+    public static final JigsawConfig SLIME_CAVE = new JigsawConfig.Builder().setTransformSurroundingLand(false)
+            .setSeparationSettings(16, 8, 1345250691).setSize(1).build();
+
 
     public final ResourceLocation startPool; // location of the json-file for the start pool
     public final GenerationStage.Decoration step; // in which generation stage to generate the structure

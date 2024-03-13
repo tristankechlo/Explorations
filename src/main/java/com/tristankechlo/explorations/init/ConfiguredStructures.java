@@ -18,18 +18,20 @@ public class ConfiguredStructures {
     public static StructureFeature<?, ?> CONFIGURED_LARGE_OAK_TREE = ModStructures.LARGE_OAK_TREE.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_LOGS = ModStructures.LOGS.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_SHRINE = ModStructures.SHRINE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<?, ?> CONFIGURED_SLIME_CAVE = ModStructures.SLIME_CAVE.get().configured(IFeatureConfig.NONE);
 
     public static void registerConfiguredStructures() {
         // registers the configured structures, which are added to the biomes
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_desert_ruin"), CONFIGURED_DESERT_RUIN);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_forgotten_well"), CONFIGURED_FORGOTTEN_WELL);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_jungle_temple"), CONFIGURED_JUNGLE_TEMPLE);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_underground_temple"), CONFIGURED_UNDERGROUND_TEMPLE);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_floating_island"), CONFIGURED_FLOATING_ISLAND);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_large_oak_tree"), CONFIGURED_LARGE_OAK_TREE);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_logs"), CONFIGURED_LOGS);
-        Registry.register(registry, new ResourceLocation(Explorations.MOD_ID, "configured_shrine"), CONFIGURED_SHRINE);
+        Registry.register(registry, loc("configured_desert_ruin"), CONFIGURED_DESERT_RUIN);
+        Registry.register(registry, loc("configured_forgotten_well"), CONFIGURED_FORGOTTEN_WELL);
+        Registry.register(registry, loc("configured_jungle_temple"), CONFIGURED_JUNGLE_TEMPLE);
+        Registry.register(registry, loc("configured_underground_temple"), CONFIGURED_UNDERGROUND_TEMPLE);
+        Registry.register(registry, loc("configured_floating_island"), CONFIGURED_FLOATING_ISLAND);
+        Registry.register(registry, loc("configured_large_oak_tree"), CONFIGURED_LARGE_OAK_TREE);
+        Registry.register(registry, loc("configured_logs"), CONFIGURED_LOGS);
+        Registry.register(registry, loc("configured_shrine"), CONFIGURED_SHRINE);
+        Registry.register(registry, loc("configured_slime_cave"), CONFIGURED_SLIME_CAVE);
 
         // prevent crashes, if mod's use a custom ChunkGenerator
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.DESERT_RUIN.get(), CONFIGURED_DESERT_RUIN);
@@ -40,5 +42,11 @@ public class ConfiguredStructures {
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.LARGE_OAK_TREE.get(), CONFIGURED_LARGE_OAK_TREE);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.LOGS.get(), CONFIGURED_LOGS);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.SHRINE.get(), CONFIGURED_SHRINE);
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.SLIME_CAVE.get(), CONFIGURED_SLIME_CAVE);
     }
+
+    private static ResourceLocation loc(String name) {
+        return new ResourceLocation(Explorations.MOD_ID, name);
+    }
+
 }

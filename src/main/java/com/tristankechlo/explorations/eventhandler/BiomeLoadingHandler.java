@@ -50,6 +50,7 @@ public class BiomeLoadingHandler {
         // add undergrounde temple to all overworld biomes
         if (event.getCategory() != Category.NETHER && event.getCategory() != Category.THEEND) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);
+            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_SLIME_CAVE);
         }
 
     }

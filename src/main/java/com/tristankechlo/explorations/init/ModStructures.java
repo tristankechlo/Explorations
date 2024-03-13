@@ -3,10 +3,7 @@ package com.tristankechlo.explorations.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.worldgen.structures.FloatingIslandStructure;
-import com.tristankechlo.explorations.worldgen.structures.JigsawStructure;
-import com.tristankechlo.explorations.worldgen.structures.JungleTempleStructure;
-import com.tristankechlo.explorations.worldgen.structures.UnderGroundTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.*;
 import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -32,6 +29,7 @@ public class ModStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> LARGE_OAK_TREE = STRUCTURES.register("large_oak_tree", () -> new JigsawStructure(JigsawConfig.LARGE_OAK_TREE));
     public static final RegistryObject<Structure<NoFeatureConfig>> LOGS = STRUCTURES.register("logs", () -> new JigsawStructure(JigsawConfig.LOGS));
     public static final RegistryObject<Structure<NoFeatureConfig>> SHRINE = STRUCTURES.register("shrine", () -> new JigsawStructure(JigsawConfig.SHRINE));
+    public static final RegistryObject<Structure<NoFeatureConfig>> SLIME_CAVE = STRUCTURES.register("slime_cave", SlimeCaveStructure::new);
 
     public static void setupStructures() {
         setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
@@ -42,6 +40,7 @@ public class ModStructures {
         setupMapSpacingAndLand(LARGE_OAK_TREE.get(), JigsawConfig.LARGE_OAK_TREE.separationSettings, JigsawConfig.LARGE_OAK_TREE.transformSurroundingLand);
         setupMapSpacingAndLand(LOGS.get(), JigsawConfig.LOGS.separationSettings, JigsawConfig.LOGS.transformSurroundingLand);
         setupMapSpacingAndLand(SHRINE.get(), JigsawConfig.SHRINE.separationSettings, JigsawConfig.SHRINE.transformSurroundingLand);
+        setupMapSpacingAndLand(SLIME_CAVE.get(), JigsawConfig.SLIME_CAVE.separationSettings, JigsawConfig.SLIME_CAVE.transformSurroundingLand);
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {

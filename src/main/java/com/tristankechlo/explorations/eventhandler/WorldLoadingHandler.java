@@ -48,6 +48,7 @@ public class WorldLoadingHandler {
         tempMap.putIfAbsent(ModStructures.LARGE_OAK_TREE.get(), getSettings(ModStructures.LARGE_OAK_TREE.get()));
         tempMap.putIfAbsent(ModStructures.LOGS.get(), getSettings(ModStructures.LOGS.get()));
         tempMap.putIfAbsent(ModStructures.SHRINE.get(), getSettings(ModStructures.SHRINE.get()));
+        tempMap.putIfAbsent(ModStructures.SLIME_CAVE.get(), getSettings(ModStructures.SLIME_CAVE.get()));
         serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
     }
 
