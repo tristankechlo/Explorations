@@ -4,7 +4,8 @@
     "package": "com.tristankechlo.explorations.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "ChunkGeneratorAccessor"
+        "ChunkGeneratorAccessor",
+        "SlimeEntityInvoker"
     ],
     "client": [
     ],

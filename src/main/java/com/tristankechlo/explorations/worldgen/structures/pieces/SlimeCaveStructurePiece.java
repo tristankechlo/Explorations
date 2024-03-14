@@ -2,6 +2,7 @@ package com.tristankechlo.explorations.worldgen.structures.pieces;
 
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructurePieces;
+import com.tristankechlo.explorations.mixin.SlimeEntityInvoker;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -77,9 +78,9 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
             }
         } else if (marker.equals("slime")) {
             SlimeEntity slime = EntityType.SLIME.create(level.getLevel());
-            if (slime != null) {
+            if (slime != null && (slime instanceof SlimeEntityInvoker)) {
                 slime.moveTo(pos, 0.0F, 0.0F);
-                slime.setSize(random.nextInt(3) + 1, true);
+                ((SlimeEntityInvoker) slime).explorations$setSize(random.nextInt(3) + 1, true);
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), SpawnReason.STRUCTURE, null, null);
                 level.addFreshEntity(slime);
             }
