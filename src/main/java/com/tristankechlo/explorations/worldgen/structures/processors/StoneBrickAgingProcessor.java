@@ -2,7 +2,7 @@ package com.tristankechlo.explorations.worldgen.structures.processors;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.tristankechlo.explorations.init.ModStructureProcessor;
+import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -78,7 +78,7 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
 
     @Override
     protected IStructureProcessorType<?> getType() {
-        return ModStructureProcessor.STONE_BRICK_AGING_PROCESSOR;
+        return ModRegistry.STONE_BRICK_AGING_PROCESSOR;
     }
 
     private static class Chances {

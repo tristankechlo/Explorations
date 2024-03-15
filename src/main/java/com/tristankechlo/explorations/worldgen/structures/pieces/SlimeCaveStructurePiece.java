@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.worldgen.structures.pieces;
 
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.init.ModStructurePieces;
+import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.mixin.SlimeEntityInvoker;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -31,7 +31,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
     private final Rotation rotation;
 
     public SlimeCaveStructurePiece(BlockPos absolutePosition, Rotation rotation, TemplateManager manager) {
-        super(ModStructurePieces.SLIME_CAVE_PIECE, 0);
+        super(ModRegistry.SLIME_CAVE_PIECE, 0);
         this.rotation = rotation;
         this.templatePosition = absolutePosition;
         Template template = manager.getOrCreate(ID);
@@ -40,7 +40,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
     }
 
     public SlimeCaveStructurePiece(TemplateManager manager, CompoundNBT nbt) {
-        super(ModStructurePieces.SLIME_CAVE_PIECE, nbt);
+        super(ModRegistry.SLIME_CAVE_PIECE, nbt);
         this.rotation = Rotation.valueOf(nbt.getString("Rot"));
         Template template = manager.getOrCreate(ID);
         createSpawnData();

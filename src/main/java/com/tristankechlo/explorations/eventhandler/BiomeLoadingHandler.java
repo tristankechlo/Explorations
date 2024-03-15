@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.eventhandler;
 
+import com.tristankechlo.explorations.init.ConfiguredFeatures;
 import com.tristankechlo.explorations.init.ConfiguredStructures;
-import com.tristankechlo.explorations.init.ModFeatures;
 import com.tristankechlo.explorations.worldgen.structures.config.JigsawConfig;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -78,22 +78,22 @@ public class BiomeLoadingHandler {
 
     private static void addScarecrows(String location, BiomeLoadingEvent event) {
         if (SCARECROW_ACACIA_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_ACACIA);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_ACACIA);
         }
         if (SCARECROW_BIRCH_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_BIRCH);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_BIRCH);
         }
         if (SCARECROW_DARK_OAK_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_DARK_OAK);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_DARK_OAK);
         }
         if (SCARECROW_JUNGLE_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_JUNGLE);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_JUNGLE);
         }
         if (SCARECROW_OAK_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_OAK);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_OAK);
         }
         if (SCARECROW_SPRUCE_BIOMES.contains(location)) {
-            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ModFeatures.CONFIGURED_SCARECROW_SPRUCE);
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_SCARECROW_SPRUCE);
         }
     }
 

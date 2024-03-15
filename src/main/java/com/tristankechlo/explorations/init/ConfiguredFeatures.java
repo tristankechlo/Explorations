@@ -1,7 +1,6 @@
 package com.tristankechlo.explorations.init;
 
 import com.tristankechlo.explorations.Explorations;
-import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
 import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -9,16 +8,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.Features;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 
-public class ModFeatures {
-
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Explorations.MOD_ID);
-    public static final RegistryObject<ScarecrowFeature> SCARECROW = FEATURES.register("scarecrow", ScarecrowFeature::new);
+public class ConfiguredFeatures {
 
     /* CONFIGURED FEATURES */
     public static ConfiguredFeature<?, ?> CONFIGURED_SCARECROW_ACACIA;
@@ -45,7 +37,7 @@ public class ModFeatures {
     }
 
     private static ConfiguredFeature<?, ?> configuredScarecrow(Block fence, int chance) {
-        return SCARECROW.get()
+        return ModRegistry.SCARECROW.get()
                 .configured(ScarecrowFeatureConfig.simple(fence))
                 .decorated(Features.Placements.HEIGHTMAP_SQUARE)
                 .chance(chance);

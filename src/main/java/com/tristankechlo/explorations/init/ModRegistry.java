@@ -1,0 +1,38 @@
+package com.tristankechlo.explorations.init;
+
+import com.tristankechlo.explorations.Explorations;
+import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
+import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
+import com.tristankechlo.explorations.worldgen.structures.processors.StoneBrickAgingProcessor;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.structure.IStructurePieceType;
+import net.minecraft.world.gen.feature.template.IStructureProcessorType;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class ModRegistry {
+
+    /* REGISTRIES */
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Explorations.MOD_ID);
+
+    /* REGISTRY OBJECTS */
+    public static final RegistryObject<ScarecrowFeature> SCARECROW = FEATURES.register("scarecrow", ScarecrowFeature::new);
+    public static IStructurePieceType SLIME_CAVE_PIECE;
+    public static IStructureProcessorType<StoneBrickAgingProcessor> STONE_BRICK_AGING_PROCESSOR;
+
+    public static void setupStructureProcessors() {
+        STONE_BRICK_AGING_PROCESSOR = Registry.register(Registry.STRUCTURE_PROCESSOR, loc("stone_brick_aging"), () -> StoneBrickAgingProcessor.CODEC);
+    }
+
+    public static void registerStructurePieces() {
+        SLIME_CAVE_PIECE = Registry.register(Registry.STRUCTURE_PIECE, loc("slime_cave_piece"), SlimeCaveStructurePiece::new);
+    }
+
+    private static ResourceLocation loc(String name) {
+        return new ResourceLocation(Explorations.MOD_ID, name);
+    }
+
+}

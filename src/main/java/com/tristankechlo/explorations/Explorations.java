@@ -20,7 +20,7 @@ public class Explorations {
     public Explorations() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        ModFeatures.FEATURES.register(modEventBus);
+        ModRegistry.FEATURES.register(modEventBus);
         ModStructures.STRUCTURES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(new BiomeLoadingHandler());
@@ -30,11 +30,11 @@ public class Explorations {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ModFeatures.registerConfiguredFeatures();
-            ModStructureProcessor.setupStructureProcessors();
-            ModStructurePieces.registerStructurePieces();
+            ModRegistry.setupStructureProcessors();
+            ModRegistry.registerStructurePieces();
             ModStructures.setupStructures();
             ConfiguredStructures.registerConfiguredStructures();
+            ConfiguredFeatures.registerConfiguredFeatures();
         });
     }
 
