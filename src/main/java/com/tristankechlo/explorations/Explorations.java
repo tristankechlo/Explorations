@@ -21,6 +21,7 @@ public class Explorations {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         ModRegistry.FEATURES.register(modEventBus);
+        ModRegistry.TREEDECORATOS.register(modEventBus);
         ModStructures.STRUCTURES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(new BiomeLoadingHandler());

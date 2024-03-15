@@ -18,6 +18,14 @@ import java.util.Set;
 
 public class BiomeLoadingHandler {
 
+    private static final Set<String> SCARECROW_ACACIA_BIOMES = make(Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU);
+    private static final Set<String> SCARECROW_BIRCH_BIOMES = make(Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_HILLS);
+    private static final Set<String> SCARECROW_DARK_OAK_BIOMES = make(Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS);
+    private static final Set<String> SCARECROW_JUNGLE_BIOMES = make(Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.BAMBOO_JUNGLE, Biomes.BAMBOO_JUNGLE_HILLS, Biomes.MODIFIED_JUNGLE, Biomes.MODIFIED_JUNGLE_EDGE);
+    private static final Set<String> SCARECROW_OAK_BIOMES = make(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST);
+    private static final Set<String> SCARECROW_SPRUCE_BIOMES = make(Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.TAIGA_MOUNTAINS, Biomes.GIANT_TREE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA_HILLS, Biomes.GIANT_SPRUCE_TAIGA_HILLS);
+    private static final Set<String> LARGE_MUSHROOM_BIOMES = make(Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS);
+
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void biomeModification(final BiomeLoadingEvent event) {
         ResourceLocation identifier = event.getName();
@@ -26,6 +34,11 @@ public class BiomeLoadingHandler {
         }
 
         addScarecrows(identifier.toString(), event);
+
+        // add large mushroom
+        if (LARGE_MUSHROOM_BIOMES.contains(identifier.toString())) {
+            event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_LARGE_MUSHROOM);
+        }
 
         // register generation biomes for desert ruins
         if (JigsawConfig.DESERT_RUIN.spawnBiomes.contains(event.getName().toString())) {
@@ -68,13 +81,6 @@ public class BiomeLoadingHandler {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_SLIME_CAVE);
         }
     }
-
-    private static final Set<String> SCARECROW_ACACIA_BIOMES = make(Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU);
-    private static final Set<String> SCARECROW_BIRCH_BIOMES = make(Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_HILLS);
-    private static final Set<String> SCARECROW_DARK_OAK_BIOMES = make(Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS);
-    private static final Set<String> SCARECROW_JUNGLE_BIOMES = make(Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.BAMBOO_JUNGLE, Biomes.BAMBOO_JUNGLE_HILLS, Biomes.MODIFIED_JUNGLE, Biomes.MODIFIED_JUNGLE_EDGE);
-    private static final Set<String> SCARECROW_OAK_BIOMES = make(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST);
-    private static final Set<String> SCARECROW_SPRUCE_BIOMES = make(Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.TAIGA_MOUNTAINS, Biomes.GIANT_TREE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA_HILLS, Biomes.GIANT_SPRUCE_TAIGA_HILLS);
 
     private static void addScarecrows(String location, BiomeLoadingEvent event) {
         if (SCARECROW_ACACIA_BIOMES.contains(location)) {
