@@ -4,7 +4,8 @@
 
 - backport all newer features
   - deepslate has been replaced with blackstone for the underground temple
-  - candles have been replaced with lanterns
+  - candles have been replaced with lanterns for the underground temple
+  - moss blocks have been replace with dirt for slime caves
 
 ### Version 1.16.5 - 1.0.0
 
