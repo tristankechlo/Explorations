@@ -40,45 +40,49 @@ public class BiomeLoadingHandler {
             event.getGeneration().addFeature(Decoration.VEGETAL_DECORATION, ConfiguredFeatures.CONFIGURED_LARGE_MUSHROOM);
         }
 
+        addStructures(identifier.toString(), event);
+    }
+
+    private static void addStructures(String location, BiomeLoadingEvent event) {
         // register generation biomes for desert ruins
-        if (JigsawConfig.DESERT_RUIN.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_DESERT_RUIN);
+        if (JigsawConfig.DESERT_RUIN.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_DESERT_RUIN);
         }
 
         // add forgotten well biomes
-        if (JigsawConfig.FORGOTTEN_WELL.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_FORGOTTEN_WELL);
+        if (JigsawConfig.FORGOTTEN_WELL.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_FORGOTTEN_WELL);
         }
 
         // add jungle temple biomes
-        if (JigsawConfig.JUNGLE_TEMPLE.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_JUNGLE_TEMPLE);
+        if (JigsawConfig.JUNGLE_TEMPLE.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_JUNGLE_TEMPLE);
         }
 
         // add floating island biomes
-        if (JigsawConfig.FLOATING_ISLAND.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_FLOATING_ISLAND);
+        if (JigsawConfig.FLOATING_ISLAND.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_FLOATING_ISLAND);
         }
 
         // add large oak tree biomes
-        if (JigsawConfig.LARGE_OAK_TREE.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_LARGE_OAK_TREE);
+        if (JigsawConfig.LARGE_OAK_TREE.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_LARGE_OAK_TREE);
         }
 
         // add logs biomes
-        if (JigsawConfig.LOGS.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_LOGS);
+        if (JigsawConfig.LOGS.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_LOGS);
         }
 
         // add shrine biomes
-        if (JigsawConfig.SHRINE.spawnBiomes.contains(event.getName().toString())) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_SHRINE);
+        if (JigsawConfig.SHRINE.spawnBiomes.contains(location)) {
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_SHRINE);
         }
 
         // add undergrounde temple to all overworld biomes
         if (event.getCategory() != Category.NETHER && event.getCategory() != Category.THEEND) {
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);
-            event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_SLIME_CAVE);
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_UNDERGROUND_TEMPLE);
+            event.getGeneration().addStructureStart(ConfiguredStructures.CONFIGURED_SLIME_CAVE);
         }
     }
 
