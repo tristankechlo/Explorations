@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[46,)"
+loaderVersion="${forge_loader_range}"
 license="CC BY-NC-ND 4.0"
 showAsResourcePack=false
 
@@ -16,13 +16,13 @@ description='''adds more vanilla style structures to the game'''
 [[dependencies.explorations]]
     modId="forge"
     mandatory=true
-    versionRange="[46,)"
+    versionRange="${forge_loader_range}"
     ordering="NONE"
     side="BOTH"
 	
 [[dependencies.explorations]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20,1.21)"
+    versionRange="${version_range}"
     ordering="NONE"
     side="BOTH"

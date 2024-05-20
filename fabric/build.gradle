@@ -1,17 +1,6 @@
 plugins {
-    id 'idea'
-    id 'fabric-loom' version '1.4-SNAPSHOT'
-}
-
-base {
-    version = "${minecraft_version}-${mod_version}"
-    archivesBaseName = "${mod_id}-fabric"
-}
-
-repositories {
-    maven {
-        url "https://maven.terraformersmc.com/releases"
-    }
+    id 'loader'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
 }
 
 dependencies {
@@ -20,47 +9,30 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
-    implementation project(":Common")
+}
+
+repositories {
+    maven {
+        url "https://maven.terraformersmc.com/releases"
+    }
 }
 
 loom {
     mixin {
         defaultRefmapName.set("${mod_id}.refmap.json")
     }
-
     runs {
         client {
             client()
             setConfigName("Fabric Client")
             ideConfigGenerated(true)
-            runDir("run")
+            runDir("runs/client")
         }
         server {
             server()
             setConfigName("Fabric Server")
             ideConfigGenerated(true)
-            runDir("run")
+            runDir("runs/server")
         }
     }
-}
-
-processResources {
-    from project(":Common").sourceSets.main.resources
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    source(project(":Common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-    source(project(":Common").sourceSets.main.allJava)
-}
-
-tasks.withType(JavaCompile) {
-    source(project(":Common").sourceSets.main.allSource)
 }
