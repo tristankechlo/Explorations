@@ -4,6 +4,11 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+    config("${mod_id}.mixins.json")
+}
+
 minecraft {
     mappings channel: 'official', version: minecraft_version
 
