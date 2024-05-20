@@ -6,8 +6,8 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "weight": 1,
                     "name": "minecraft:fermented_spider_eye",
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -20,8 +20,8 @@
                 },
                 {
                     "type": "minecraft:item",
-                    "weight": 1,
                     "name": "minecraft:spider_eye",
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -39,46 +39,46 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "weight": 1,
                     "name": "minecraft:potion",
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": 1
                         },
                         {
-                            "function": "minecraft:set_nbt",
-                            "tag": "{Potion:\"minecraft:water\"}"
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:water"
                         }
                     ]
                 },
                 {
                     "type": "minecraft:item",
-                    "weight": 1,
                     "name": "minecraft:potion",
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": 1
                         },
                         {
-                            "function": "minecraft:set_nbt",
-                            "tag": "{Potion:\"minecraft:slowness\"}"
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:slowness"
                         }
                     ]
                 },
                 {
                     "type": "minecraft:item",
-                    "weight": 1,
                     "name": "minecraft:potion",
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": 1
                         },
                         {
-                            "function": "minecraft:set_nbt",
-                            "tag": "{Potion:\"minecraft:strength\"}"
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:strength"
                         }
                     ]
                 }
