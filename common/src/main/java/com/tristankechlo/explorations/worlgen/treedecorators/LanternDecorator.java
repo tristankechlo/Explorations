@@ -1,6 +1,7 @@
 package com.tristankechlo.explorations.worlgen.treedecorators;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 
 public class LanternDecorator extends TreeDecorator {
 
-    public static final Codec<LanternDecorator> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final MapCodec<LanternDecorator> CODEC = RecordCodecBuilder.mapCodec((builder) -> {
         return builder.group(
                 Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> decorator.probability),
                 IntProvider.codec(0, 10).fieldOf("lantern_count").orElse(ConstantInt.of(3)).forGetter((decorator) -> decorator.count),

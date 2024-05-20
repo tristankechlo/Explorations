@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.mixin.TreeDecoratorTypeAccessor;
 import com.tristankechlo.explorations.platform.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -32,7 +32,7 @@ public final class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public <P extends TreeDecorator> TreeDecoratorType<P> getTreeDecorator(Codec<P> codec) {
+    public <P extends TreeDecorator> TreeDecoratorType<P> getTreeDecorator(MapCodec<P> codec) {
         return TreeDecoratorTypeAccessor.callNew(codec);
     }
 

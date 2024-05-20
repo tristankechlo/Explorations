@@ -1,6 +1,7 @@
 package com.tristankechlo.explorations.worlgen.structures.processors;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.Util;
@@ -22,9 +23,10 @@ import java.util.Map;
 
 public class StoneBrickAgingProcessor extends StructureProcessor {
 
-    public static final Codec<StoneBrickAgingProcessor> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Chances.CODEC.fieldOf("chances").forGetter(processor -> processor.chances)
-    ).apply(instance, StoneBrickAgingProcessor::new));
+    public static final MapCodec<StoneBrickAgingProcessor> CODEC = RecordCodecBuilder.mapCodec(
+            instance -> instance.group(
+                    Chances.CODEC.fieldOf("chances").forGetter(processor -> processor.chances)
+            ).apply(instance, StoneBrickAgingProcessor::new));
     private static final List<Block> STONE_BRICKS_REPLACEMENTS = List.of(Blocks.MOSSY_STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS);
     private static final Map<Block, Block> BRICKS = Map.of(
             Blocks.CHISELED_STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS,

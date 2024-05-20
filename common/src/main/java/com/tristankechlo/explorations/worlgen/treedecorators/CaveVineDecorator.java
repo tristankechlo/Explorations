@@ -2,6 +2,7 @@ package com.tristankechlo.explorations.worlgen.treedecorators;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 
 public class CaveVineDecorator extends TreeDecorator {
 
-    public static final Codec<CaveVineDecorator> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final MapCodec<CaveVineDecorator> CODEC = RecordCodecBuilder.mapCodec((builder) -> {
         return builder.group(
                 Codec.floatRange(0.0F, 1.0F).fieldOf("start_chance").forGetter((decorator) -> decorator.startProbability),
                 Codec.floatRange(0.0F, 1.0F).fieldOf("berry_chance").forGetter((decorator) -> decorator.berrySpawnChance),

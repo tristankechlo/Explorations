@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.worlgen.structures.processors;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class DeepslateProcessor extends StructureProcessor {
 
     public static final DeepslateProcessor INSTANCE = new DeepslateProcessor();
-    public static final Codec<DeepslateProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<DeepslateProcessor> CODEC = MapCodec.unit(() -> INSTANCE);
     private static final Map<Block, Block> REPLACEMENTS = Map.of(Blocks.STONE, Blocks.DEEPSLATE, Blocks.MOSSY_COBBLESTONE, Blocks.TUFF);
 
     @Nullable

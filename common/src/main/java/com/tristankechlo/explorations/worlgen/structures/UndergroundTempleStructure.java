@@ -1,14 +1,18 @@
 package com.tristankechlo.explorations.worlgen.structures;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
 public final class UndergroundTempleStructure extends JigsawStructure {
 
-    public static final Codec<UndergroundTempleStructure> CODEC = JigsawStructure.createCodec(UndergroundTempleStructure::new);
+    public static final MapCodec<UndergroundTempleStructure> CODEC = RecordCodecBuilder.mapCodec(
+            (instance) -> instance.group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
+                    .apply(instance, UndergroundTempleStructure::new));
 
     public UndergroundTempleStructure(StructureSettings config, JigsawStructureSettings settings) {
         super(config, settings);

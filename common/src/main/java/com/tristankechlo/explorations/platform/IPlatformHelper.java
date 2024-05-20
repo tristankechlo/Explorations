@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.platform;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
@@ -17,9 +17,9 @@ public interface IPlatformHelper {
 
     Path getConfigDirectory();
 
-    <P extends TreeDecorator> TreeDecoratorType<P> getTreeDecorator(Codec<P> codec);
+    <P extends TreeDecorator> TreeDecoratorType<P> getTreeDecorator(MapCodec<P> codec);
 
-    default <P extends TreeDecorator> Supplier<TreeDecoratorType<P>> getTreeDecoratorType(Codec<P> codec) {
+    default <P extends TreeDecorator> Supplier<TreeDecoratorType<P>> getTreeDecoratorType(MapCodec<P> codec) {
         return () -> this.getTreeDecorator(codec);
     }
 

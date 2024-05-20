@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.worlgen.structures;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
@@ -24,9 +24,9 @@ import java.util.Optional;
 
 public final class SlimeCaveStructure extends Structure {
 
-    public static final Codec<SlimeCaveStructure> CODEC = RecordCodecBuilder.<SlimeCaveStructure>mapCodec(instance ->
+    public static final MapCodec<SlimeCaveStructure> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(RegistryCodecs.homogeneousList(Registries.BIOME).fieldOf("biomes").forGetter(s -> s.biomes))
-                    .apply(instance, SlimeCaveStructure::new)).codec();
+                    .apply(instance, SlimeCaveStructure::new));
     private static final ResourceLocation ID = new ResourceLocation("explorations", "slime_cave");
     private final HolderSet<Biome> biomes;
 

@@ -54,7 +54,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
             CompoundTag tag = new CompoundTag();
             tag.putString("id", "minecraft:slime");
             SpawnData.CustomSpawnRules customSpawnRules = new SpawnData.CustomSpawnRules(RANGE, RANGE);
-            SpawnData spawnData = new SpawnData(tag, Optional.of(customSpawnRules));
+            SpawnData spawnData = new SpawnData(tag, Optional.of(customSpawnRules), Optional.empty());
             spawnDataTag = SpawnData.CODEC.encodeStart(NbtOps.INSTANCE, spawnData).result()
                     .orElseThrow(() -> new IllegalStateException("Invalid SpawnData"));
         }
@@ -78,7 +78,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
             if (slime != null) {
                 slime.moveTo(pos, 0.0F, 0.0F);
                 slime.setSize(random.nextInt(3) + 1, true);
-                slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null, null);
+                slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null);
                 level.addFreshEntity(slime);
             }
         }

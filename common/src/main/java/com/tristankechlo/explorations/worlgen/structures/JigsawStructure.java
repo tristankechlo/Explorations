@@ -27,7 +27,7 @@ public abstract class JigsawStructure extends Structure {
 
     public static <S extends JigsawStructure> Codec<S> createCodec(BiFunction<StructureSettings, JigsawStructureSettings, S> factory) {
         return RecordCodecBuilder.<S>mapCodec(instance -> instance
-                .group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
+                        .group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
                 .apply(instance, factory)).codec();
     }
 
