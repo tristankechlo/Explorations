@@ -55,7 +55,7 @@ public class JigsawConfig {
 
     public static final JigsawConfig SHRINE = new JigsawConfig.Builder().setStartPool("shrine_start")
             .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_AND_JUNGLE_BIOMES))
-            .setSeparationSettings(16, 8, 1759717125).setSize(1).build();
+            .setSeparationSettings(39, 15, 1759717125).setSize(1).build();
 
     public static final JigsawConfig SLIME_CAVE = new JigsawConfig.Builder().setTransformSurroundingLand(false)
             .setSeparationSettings(16, 8, 1345250691).setSize(1).build();

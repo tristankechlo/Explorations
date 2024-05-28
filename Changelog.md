@@ -4,6 +4,7 @@
 
 - fix scarecrows spawning in water
 - prevent structures from generating in modded dimensions
+- decreased shrine generation rate (similar to ruined portals now)
 
 ### Version 1.16.5 - 1.5.3
 
