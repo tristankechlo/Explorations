@@ -3,6 +3,7 @@
 ### Version 1.16.5 - 1.6.0
 
 - fix scarecrows spawning in water
+- prevent structures from generating in modded dimensions
 
 ### Version 1.16.5 - 1.5.3
 
