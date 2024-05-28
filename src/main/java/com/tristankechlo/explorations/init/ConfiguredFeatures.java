@@ -49,7 +49,7 @@ public class ConfiguredFeatures {
     private static ConfiguredFeature<?, ?> configuredScarecrow(Block fence, int chance) {
         return ModRegistry.SCARECROW.get()
                 .configured(ScarecrowFeatureConfig.simple(fence))
-                .decorated(Features.Placements.HEIGHTMAP_SQUARE)
+                .decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE)
                 .chance(chance);
     }
 
@@ -68,7 +68,7 @@ public class ConfiguredFeatures {
                                 .decorators(ImmutableList.of(new LanternDecorator(0.9f)))
                                 .ignoreVines().heightmap(Heightmap.Type.MOTION_BLOCKING)
                                 .maxWaterDepth(Integer.MAX_VALUE).build())
-                .decorated(Features.Placements.HEIGHTMAP_SQUARE).count(5);
+                .decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE).count(5);
     }
 
     private static ResourceLocation loc(String name) {
