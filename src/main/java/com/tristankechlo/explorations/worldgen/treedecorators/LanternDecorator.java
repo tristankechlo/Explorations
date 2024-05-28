@@ -82,16 +82,17 @@ public class LanternDecorator extends TreeDecorator {
     }
 
     private static List<BlockPos> getLeavesShuffled(TreeDecoratorContext context, final int maxCount) {
-        Random random = context.random();
-        List<BlockPos> all = context.leaves().stream().map(BlockPos::below).filter(context::isAir).collect(Collectors.toList());
-        Set<BlockPos> target = new HashSet<>();
+        List<BlockPos> all = context.leaves().stream()
+                .map(BlockPos::below)
+                .filter(context::isAir) // only blocks where the block below is empty
+                .distinct() // no duplicate blocks
+                .collect(Collectors.toList());
+        Collections.shuffle(all, context.random()); // shuffle all elements
+
+        // remove blocks if size > maxCount
         int maxIndex = Math.min(maxCount, all.size());
-        while (maxIndex > 0 && all.size() > 0) {
-            BlockPos pos = all.remove(random.nextInt(all.size()));
-            target.add(pos);
-            maxIndex--;
-        }
-        return new ArrayList<>(target);
+        all.subList(maxIndex, all.size()).clear();
+        return all;
     }
 
     public int getRandom(Random random, int min, int max) {
