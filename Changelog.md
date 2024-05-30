@@ -6,9 +6,10 @@
 - prevent structures from generating in modded dimensions
 - decreased shrine generation rate (similar to ruined portals now)
 - improved loot_table for shrine (more/better loot to be found)
-- adjusted scarecrow spawn-rate
+- adjusted scarecrow generation rate
   - generally spawns less often
   - can now generate in plain-biomes
+- decreased generation rate of underground temples
 
 ### Version 1.16.5 - 1.5.3
 

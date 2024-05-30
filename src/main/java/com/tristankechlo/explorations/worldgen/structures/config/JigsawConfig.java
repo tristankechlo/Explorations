@@ -30,7 +30,7 @@ public class JigsawConfig {
             .setSeparationSettings(17, 6, 2147413646).setTransformSurroundingLand(false).setSize(3).build();
 
     public static final JigsawConfig UNDERGROUND_TEMPLE = new JigsawConfig.Builder().setStartPool("underground_temple/start")
-            .setSeparationSettings(15, 6, 2147413645).setTransformSurroundingLand(false).setSize(6).setPlaceAtHeightmap(false)
+            .setSeparationSettings(20, 8, 2147413645).setTransformSurroundingLand(false).setSize(6).setPlaceAtHeightmap(false)
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.ILLUSIONER, 100, 4, 9))
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 100, 4, 9))
             .addDefaultSpawn(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 100, 4, 9))
