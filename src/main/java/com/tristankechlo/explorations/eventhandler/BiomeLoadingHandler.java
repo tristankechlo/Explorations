@@ -26,7 +26,7 @@ public class BiomeLoadingHandler {
     private static final Set<String> SCARECROW_BIRCH_BIOMES = make(Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_HILLS);
     private static final Set<String> SCARECROW_DARK_OAK_BIOMES = make(Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS);
     private static final Set<String> SCARECROW_JUNGLE_BIOMES = make(Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.BAMBOO_JUNGLE, Biomes.BAMBOO_JUNGLE_HILLS, Biomes.MODIFIED_JUNGLE, Biomes.MODIFIED_JUNGLE_EDGE);
-    private static final Set<String> SCARECROW_OAK_BIOMES = make(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST);
+    private static final Set<String> SCARECROW_OAK_BIOMES = make(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.PLAINS);
     private static final Set<String> SCARECROW_SPRUCE_BIOMES = make(Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.TAIGA_MOUNTAINS, Biomes.GIANT_TREE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_TREE_TAIGA_HILLS, Biomes.GIANT_SPRUCE_TAIGA_HILLS);
     private static final Set<String> LARGE_MUSHROOM_BIOMES = make(Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS);
 
