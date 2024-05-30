@@ -45,9 +45,9 @@ public class JigsawConfig {
             .addSpawnBiome(Biomes.WARM_OCEAN).addSpawnBiome(Biomes.DEEP_WARM_OCEAN)
             .build();
 
-    public static final JigsawConfig LARGE_OAK_TREE = new JigsawConfig.Builder().setStartPool("large_oak_tree_start")
+    public static final JigsawConfig LARGE_OAK_TREE = new JigsawConfig.Builder().setStartPool("large_oak_tree/start")
             .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_BIOMES))
-            .setSeparationSettings(9, 4, 1684511628).setSize(1).build();
+            .setSeparationSettings(9, 3, 1684511628).setSize(1).build();
 
     public static final JigsawConfig LOGS = new JigsawConfig.Builder().setStartPool("logs_start")
             .setSpawnBiomes(new ArrayList<>(WorldGenHelper.FOREST_AND_JUNGLE_BIOMES))

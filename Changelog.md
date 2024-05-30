@@ -10,6 +10,8 @@
   - generally spawns less often
   - can now generate in plain-biomes
 - decreased generation rate of underground temples
+- split large oak trees into two nbt's
+  - adjusts better to terrain adaptions
 
 ### Version 1.16.5 - 1.5.3
 
