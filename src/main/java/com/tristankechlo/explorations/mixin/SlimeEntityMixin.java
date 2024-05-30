@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Random;
 
 @Mixin(SlimeEntity.class)
-public class SlimeEntityMixin {
+public abstract class SlimeEntityMixin {
 
     @Inject(method = "checkSlimeSpawnRules", at = @At(value = "HEAD"), cancellable = true)
     private static void explorations$checkSpawnRules(EntityType<SlimeEntity> type, IWorld level, SpawnReason reason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
