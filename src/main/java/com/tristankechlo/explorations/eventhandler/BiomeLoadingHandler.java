@@ -107,6 +107,7 @@ public class BiomeLoadingHandler {
         config.add(new Tuple<>(JigsawConfig.LARGE_OAK_TREE.spawnBiomes, ConfiguredStructures.CONFIGURED_LARGE_OAK_TREE));
         config.add(new Tuple<>(JigsawConfig.LOGS.spawnBiomes, ConfiguredStructures.CONFIGURED_LOGS));
         config.add(new Tuple<>(JigsawConfig.SHRINE.spawnBiomes, ConfiguredStructures.CONFIGURED_SHRINE));
+        config.add(new Tuple<>(JigsawConfig.CAMPSITE.spawnBiomes, ConfiguredStructures.CONFIGURED_CAMPSITE));
         return config;
     }
 

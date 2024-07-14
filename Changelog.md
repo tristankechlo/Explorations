@@ -13,6 +13,7 @@
 - split large oak trees into two nbt's
   - adjusts better to terrain adaptions
 - add statues that can generate in villages
+- add new structure campsite
 
 ### Version 1.16.5 - 1.5.3
 

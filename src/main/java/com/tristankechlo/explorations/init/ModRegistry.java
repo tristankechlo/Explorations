@@ -4,6 +4,7 @@ import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
 import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import com.tristankechlo.explorations.worldgen.structures.processors.StoneBrickAgingProcessor;
+import com.tristankechlo.explorations.worldgen.structures.processors.WoolReplacingProcessor;
 import com.tristankechlo.explorations.worldgen.treedecorators.LanternDecorator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -26,9 +27,11 @@ public class ModRegistry {
     public static final RegistryObject<TreeDecoratorType<?>> LANTERN = TREEDECORATOS.register("lantern", () -> new TreeDecoratorType<>(LanternDecorator.CODEC));
     public static IStructurePieceType SLIME_CAVE_PIECE;
     public static IStructureProcessorType<StoneBrickAgingProcessor> STONE_BRICK_AGING_PROCESSOR;
+    public static IStructureProcessorType<WoolReplacingProcessor> WOOL_REPLACING_PROCESSOR;
 
     public static void setupStructureProcessors() {
         STONE_BRICK_AGING_PROCESSOR = Registry.register(Registry.STRUCTURE_PROCESSOR, loc("stone_brick_aging"), () -> StoneBrickAgingProcessor.CODEC);
+        WOOL_REPLACING_PROCESSOR = Registry.register(Registry.STRUCTURE_PROCESSOR, loc("wool_replacing"), () -> WoolReplacingProcessor.CODEC);
     }
 
     public static void registerStructurePieces() {

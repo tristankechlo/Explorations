@@ -30,6 +30,7 @@ public class ModStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> LOGS = STRUCTURES.register("logs", () -> new JigsawStructure(JigsawConfig.LOGS));
     public static final RegistryObject<Structure<NoFeatureConfig>> SHRINE = STRUCTURES.register("shrine", () -> new JigsawStructure(JigsawConfig.SHRINE));
     public static final RegistryObject<Structure<NoFeatureConfig>> SLIME_CAVE = STRUCTURES.register("slime_cave", SlimeCaveStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> CAMPSITE = STRUCTURES.register("campsite", () -> new JigsawStructure(JigsawConfig.CAMPSITE));
 
     public static void setupStructures() {
         setupMapSpacingAndLand(DESERT_RUIN.get(), JigsawConfig.DESERT_RUIN.separationSettings, JigsawConfig.DESERT_RUIN.transformSurroundingLand);
@@ -41,6 +42,7 @@ public class ModStructures {
         setupMapSpacingAndLand(LOGS.get(), JigsawConfig.LOGS.separationSettings, JigsawConfig.LOGS.transformSurroundingLand);
         setupMapSpacingAndLand(SHRINE.get(), JigsawConfig.SHRINE.separationSettings, JigsawConfig.SHRINE.transformSurroundingLand);
         setupMapSpacingAndLand(SLIME_CAVE.get(), JigsawConfig.SLIME_CAVE.separationSettings, JigsawConfig.SLIME_CAVE.transformSurroundingLand);
+        setupMapSpacingAndLand(CAMPSITE.get(), JigsawConfig.CAMPSITE.separationSettings, JigsawConfig.CAMPSITE.transformSurroundingLand);
     }
 
     private static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings structureSettings, boolean transformSurroundingLand) {

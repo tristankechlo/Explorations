@@ -19,6 +19,7 @@ public class ConfiguredStructures {
     public static StructureFeature<?, ?> CONFIGURED_LOGS = ModStructures.LOGS.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_SHRINE = ModStructures.SHRINE.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_SLIME_CAVE = ModStructures.SLIME_CAVE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<?, ?> CONFIGURED_CAMPSITE = ModStructures.CAMPSITE.get().configured(IFeatureConfig.NONE);
 
     public static void registerConfiguredStructures() {
         // registers the configured structures, which are added to the biomes
@@ -32,6 +33,7 @@ public class ConfiguredStructures {
         Registry.register(registry, loc("configured_logs"), CONFIGURED_LOGS);
         Registry.register(registry, loc("configured_shrine"), CONFIGURED_SHRINE);
         Registry.register(registry, loc("configured_slime_cave"), CONFIGURED_SLIME_CAVE);
+        Registry.register(registry, loc("configured_campsite"), CONFIGURED_CAMPSITE);
 
         // prevent crashes, if mod's use a custom ChunkGenerator
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.DESERT_RUIN.get(), CONFIGURED_DESERT_RUIN);
@@ -43,6 +45,7 @@ public class ConfiguredStructures {
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.LOGS.get(), CONFIGURED_LOGS);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.SHRINE.get(), CONFIGURED_SHRINE);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.SLIME_CAVE.get(), CONFIGURED_SLIME_CAVE);
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(ModStructures.CAMPSITE.get(), CONFIGURED_CAMPSITE);
     }
 
     private static ResourceLocation loc(String name) {
