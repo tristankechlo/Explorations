@@ -29,12 +29,12 @@ public class ConfiguredFeatures {
     public static ConfiguredFeature<?, ?> CONFIGURED_LARGE_MUSHROOM;
 
     public static void registerConfiguredFeatures() {
-        CONFIGURED_SCARECROW_ACACIA = configuredScarecrow(Blocks.ACACIA_FENCE, 75);
-        CONFIGURED_SCARECROW_BIRCH = configuredScarecrow(Blocks.BIRCH_FENCE, 75);
-        CONFIGURED_SCARECROW_DARK_OAK = configuredScarecrow(Blocks.DARK_OAK_FENCE, 75);
-        CONFIGURED_SCARECROW_JUNGLE = configuredScarecrow(Blocks.JUNGLE_FENCE, 75);
-        CONFIGURED_SCARECROW_OAK = configuredScarecrow(Blocks.OAK_FENCE, 76);
-        CONFIGURED_SCARECROW_SPRUCE = configuredScarecrow(Blocks.SPRUCE_FENCE, 75);
+        CONFIGURED_SCARECROW_ACACIA = configuredScarecrow(Blocks.ACACIA_FENCE, 100);
+        CONFIGURED_SCARECROW_BIRCH = configuredScarecrow(Blocks.BIRCH_FENCE, 100);
+        CONFIGURED_SCARECROW_DARK_OAK = configuredScarecrow(Blocks.DARK_OAK_FENCE, 100);
+        CONFIGURED_SCARECROW_JUNGLE = configuredScarecrow(Blocks.JUNGLE_FENCE, 100);
+        CONFIGURED_SCARECROW_OAK = configuredScarecrow(Blocks.OAK_FENCE, 100);
+        CONFIGURED_SCARECROW_SPRUCE = configuredScarecrow(Blocks.SPRUCE_FENCE, 100);
         CONFIGURED_LARGE_MUSHROOM = configuredLargeMushroom();
 
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, loc("scarecrow_acacia"), CONFIGURED_SCARECROW_ACACIA);
