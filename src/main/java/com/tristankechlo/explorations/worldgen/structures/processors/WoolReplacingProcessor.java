@@ -3,9 +3,9 @@ package com.tristankechlo.explorations.worldgen.structures.processors;
 import com.mojang.serialization.Codec;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.DyeColor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class WoolReplacingProcessor extends StructureProcessor {
 
-    private static final List<String> ALL_COLORS = Arrays.stream(TextFormatting.values()).filter(TextFormatting::isColor).map(TextFormatting::getName).collect(Collectors.toList());
+    private static final List<String> ALL_COLORS = Arrays.stream(DyeColor.values()).map(DyeColor::getName).collect(Collectors.toList());
     private static final Pattern PATTERN = Pattern.compile("minecraft:[a-z_]+_wool", Pattern.CASE_INSENSITIVE);
     public static final Codec<WoolReplacingProcessor> CODEC = Codec.unit(WoolReplacingProcessor::new);
 
