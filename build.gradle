@@ -43,8 +43,8 @@ subprojects {
         enabled = false
     }
 
-    //minify json files
     processResources {
+        // replace placeholders
         def expandProps = [
                 "version"                   : "${minecraft_version}-${mod_version}",
                 "version_range"             : version_range,
@@ -55,12 +55,12 @@ subprojects {
                 "fabric_range_max_exclusive": fabric_range_max_exclusive,
                 "forge_loader_range"        : forge_loader_range
         ]
-
         filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
             expand expandProps
         }
         inputs.properties(expandProps)
 
+        //minify json files
         doLast {
             fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
                 File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
