@@ -13,4 +13,4 @@ pluginManagement {
 }
 
 rootProject.name = 'Explorations'
-include("Common", "Fabric", "Forge")
+include("common", "fabric", "forge")
