@@ -4,7 +4,7 @@
     "package": "com.tristankechlo.explorations.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "TreeDecoratorTypeAccessor"
+        "StructureTemplatePoolMixin"
     ],
     "client": [
     ],
@@ -12,6 +12,6 @@
     ],
     "injectors": {
         "defaultRequire": 1
-    }
+    },
+    "refmap": "explorations.refmap.json"
 }
-
