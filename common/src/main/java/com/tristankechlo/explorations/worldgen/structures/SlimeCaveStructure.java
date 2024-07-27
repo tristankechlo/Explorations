@@ -1,6 +1,6 @@
-package com.tristankechlo.explorations.worlgen.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
-import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
+import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;

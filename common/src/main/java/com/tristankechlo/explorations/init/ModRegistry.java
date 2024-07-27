@@ -4,16 +4,16 @@ import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.platform.Services;
 import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
-import com.tristankechlo.explorations.worlgen.features.ScarecrowFeature;
-import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
-import com.tristankechlo.explorations.worlgen.structures.FloatingIslandStructure;
-import com.tristankechlo.explorations.worlgen.structures.SlimeCaveStructure;
-import com.tristankechlo.explorations.worlgen.structures.UndergroundTempleStructure;
-import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
-import com.tristankechlo.explorations.worlgen.structures.processors.DeepslateProcessor;
-import com.tristankechlo.explorations.worlgen.structures.processors.StoneBrickAgingProcessor;
-import com.tristankechlo.explorations.worlgen.treedecorators.CaveVineDecorator;
-import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
+import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
+import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
+import com.tristankechlo.explorations.worldgen.structures.FloatingIslandStructure;
+import com.tristankechlo.explorations.worldgen.structures.SlimeCaveStructure;
+import com.tristankechlo.explorations.worldgen.structures.UndergroundTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
+import com.tristankechlo.explorations.worldgen.structures.processors.DeepslateProcessor;
+import com.tristankechlo.explorations.worldgen.structures.processors.StoneBrickAgingProcessor;
+import com.tristankechlo.explorations.worldgen.treedecorators.CaveVineDecorator;
+import com.tristankechlo.explorations.worldgen.treedecorators.LanternDecorator;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.block.Blocks;
@@ -66,11 +66,11 @@ public final class ModRegistry {
     /* PLACED FEATURES */
     public static final RegistrationProvider<PlacedFeature> PLACED_FEATURES = RegistrationProvider.get(BuiltinRegistries.PLACED_FEATURE, Explorations.MOD_ID);
     public static final RegistryObject<PlacedFeature> LARGE_MUSHROOM_PLACED = PLACED_FEATURES.register("large_mushroom", () -> ModFeatures.createLargeMushroomPlaced(LARGE_MUSHROOM_CONFIGURED.asHolder()));
-    public static final RegistryObject<PlacedFeature> SCARECROW_ACACIA_PLACED = PLACED_FEATURES.register("scarecrow_acacia", () -> ModFeatures.createScarecrowPlaced(SCARECROW_ACACIA_CONFIGURED.asHolder(), 20));
-    public static final RegistryObject<PlacedFeature> SCARECROW_BIRCH_PLACED = PLACED_FEATURES.register("scarecrow_birch", () -> ModFeatures.createScarecrowPlaced(SCARECROW_BIRCH_CONFIGURED.asHolder(), 20));
-    public static final RegistryObject<PlacedFeature> SCARECROW_DARK_OAK_PLACED = PLACED_FEATURES.register("scarecrow_dark_oak", () -> ModFeatures.createScarecrowPlaced(SCARECROW_DARK_OAK_CONFIGURED.asHolder(), 20));
-    public static final RegistryObject<PlacedFeature> SCARECROW_JUNGLE_PLACED = PLACED_FEATURES.register("scarecrow_jungle", () -> ModFeatures.createScarecrowPlaced(SCARECROW_JUNGLE_CONFIGURED.asHolder(), 20));
-    public static final RegistryObject<PlacedFeature> SCARECROW_OAK_PLACED = PLACED_FEATURES.register("scarecrow_oak", () -> ModFeatures.createScarecrowPlaced(SCARECROW_OAK_CONFIGURED.asHolder(), 22));
-    public static final RegistryObject<PlacedFeature> SCARECROW_SPRUCE_PLACED = PLACED_FEATURES.register("scarecrow_spruce", () -> ModFeatures.createScarecrowPlaced(SCARECROW_SPRUCE_CONFIGURED.asHolder(), 20));
+    public static final RegistryObject<PlacedFeature> SCARECROW_ACACIA_PLACED = PLACED_FEATURES.register("scarecrow_acacia", () -> ModFeatures.createScarecrowPlaced(SCARECROW_ACACIA_CONFIGURED.asHolder(), 100));
+    public static final RegistryObject<PlacedFeature> SCARECROW_BIRCH_PLACED = PLACED_FEATURES.register("scarecrow_birch", () -> ModFeatures.createScarecrowPlaced(SCARECROW_BIRCH_CONFIGURED.asHolder(), 100));
+    public static final RegistryObject<PlacedFeature> SCARECROW_DARK_OAK_PLACED = PLACED_FEATURES.register("scarecrow_dark_oak", () -> ModFeatures.createScarecrowPlaced(SCARECROW_DARK_OAK_CONFIGURED.asHolder(), 100));
+    public static final RegistryObject<PlacedFeature> SCARECROW_JUNGLE_PLACED = PLACED_FEATURES.register("scarecrow_jungle", () -> ModFeatures.createScarecrowPlaced(SCARECROW_JUNGLE_CONFIGURED.asHolder(), 100));
+    public static final RegistryObject<PlacedFeature> SCARECROW_OAK_PLACED = PLACED_FEATURES.register("scarecrow_oak", () -> ModFeatures.createScarecrowPlaced(SCARECROW_OAK_CONFIGURED.asHolder(), 101));
+    public static final RegistryObject<PlacedFeature> SCARECROW_SPRUCE_PLACED = PLACED_FEATURES.register("scarecrow_spruce", () -> ModFeatures.createScarecrowPlaced(SCARECROW_SPRUCE_CONFIGURED.asHolder(), 100));
 
 }

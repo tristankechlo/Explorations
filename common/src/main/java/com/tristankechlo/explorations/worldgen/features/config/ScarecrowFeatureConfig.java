@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.features.config;
+package com.tristankechlo.explorations.worldgen.features.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

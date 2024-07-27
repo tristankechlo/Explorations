@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.treedecorators;
+package com.tristankechlo.explorations.worldgen.treedecorators;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelSimulatedReader;

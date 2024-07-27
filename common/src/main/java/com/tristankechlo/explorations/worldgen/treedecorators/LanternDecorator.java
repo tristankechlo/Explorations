@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.treedecorators;
+package com.tristankechlo.explorations.worldgen.treedecorators;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -15,7 +15,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
@@ -74,16 +76,17 @@ public class LanternDecorator extends TreeDecorator {
     }
 
     private static List<BlockPos> getLeavesShuffled(TreeDecoratorContext context, final int maxCount) {
-        Random random = context.random();
-        List<BlockPos> all = context.leaves().stream().map((pos) -> pos.below()).filter((pos) -> context.isAir(pos)).collect(Collectors.toList());
-        Set<BlockPos> target = new HashSet<>();
+        List<BlockPos> all = context.leaves().stream()
+                .map(BlockPos::below)
+                .filter(context::isAir) // only blocks where the block below is empty
+                .distinct() // no duplicate blocks
+                .collect(Collectors.toList());
+        Collections.shuffle(all, context.random()); // shuffle all elements
+
+        // remove blocks if size > maxCount
         int maxIndex = Math.min(maxCount, all.size());
-        while (maxIndex > 0 && all.size() > 0) {
-            BlockPos pos = all.remove(random.nextInt(all.size()));
-            target.add(pos);
-            maxIndex--;
-        }
-        return new ArrayList<>(target);
+        all.subList(maxIndex, all.size()).clear();
+        return all;
     }
 
 }

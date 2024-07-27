@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.treedecorators;
+package com.tristankechlo.explorations.worldgen.treedecorators;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -9,7 +9,6 @@ import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 

@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.init;
 
-import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
-import com.tristankechlo.explorations.worlgen.treedecorators.LanternDecorator;
+import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
+import com.tristankechlo.explorations.worldgen.treedecorators.LanternDecorator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
@@ -44,7 +44,7 @@ public class ModFeatures {
         return new PlacedFeature(holder, List.of(
                 CountPlacement.of(UniformInt.of(0, 2)),
                 InSquarePlacement.spread(),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                 BiomeFilter.biome(),
                 BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(Blocks.DARK_OAK_SAPLING.defaultBlockState(), BlockPos.ZERO)),
                 BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT, new Vec3i(0, -1, 0)))
@@ -80,7 +80,7 @@ public class ModFeatures {
         return new PlacedFeature(holder, List.of(
                 RarityFilter.onAverageOnceEvery(chance),
                 InSquarePlacement.spread(),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                 BiomeFilter.biome(),
                 BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(ModTags.SCARECROW_SPAWNABLE_ON, new Vec3i(0, -1, 0)))
         ));

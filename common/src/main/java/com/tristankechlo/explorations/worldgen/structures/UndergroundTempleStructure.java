@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -24,17 +24,7 @@ public final class UndergroundTempleStructure extends StructureFeature<JigsawCon
         return GenerationStep.Decoration.UNDERGROUND_STRUCTURES;
     }
 
-    private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
-        Random random = new Random(context.seed());
-        return random.nextDouble() < 0.6;
-    }
-
     public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
-        // skip generation when the chunk is not a feature chunk
-        if (!UndergroundTempleStructure.isFeatureChunk(context)) {
-            return Optional.empty();
-        }
-
         Random random = new Random(context.seed());
         int highestY = context.chunkGenerator().getSeaLevel();
         if (highestY <= 30) {

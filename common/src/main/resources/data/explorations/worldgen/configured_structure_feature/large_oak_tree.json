@@ -1,7 +1,7 @@
 {
     "type": "minecraft:village",
     "config": {
-        "start_pool": "explorations:large_oak_tree_start",
+        "start_pool": "explorations:large_oak_tree/start",
         "size": 1
     },
     "biomes": "#explorations:has_structure/large_oak_tree",
