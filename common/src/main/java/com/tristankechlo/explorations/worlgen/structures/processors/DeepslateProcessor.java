@@ -10,7 +10,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
@@ -20,7 +19,6 @@ public class DeepslateProcessor extends StructureProcessor {
     public static final MapCodec<DeepslateProcessor> CODEC = MapCodec.unit(() -> INSTANCE);
     private static final Map<Block, Block> REPLACEMENTS = Map.of(Blocks.STONE, Blocks.DEEPSLATE, Blocks.MOSSY_COBBLESTONE, Blocks.TUFF);
 
-    @Nullable
     @Override
     public StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, StructureBlockInfo var4, StructureBlockInfo var5, StructurePlaceSettings var6) {
         Block block = var5.state().getBlock();
