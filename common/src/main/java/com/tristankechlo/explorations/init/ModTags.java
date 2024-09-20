@@ -18,7 +18,7 @@ public final class ModTags {
     public static final TagKey<Biome> HAS_FEATURE_SCARECROW_MANGROVE = getTagKey("has_feature/scarecrow/mangrove");
 
     private static TagKey<Biome> getTagKey(String id) {
-        return TagKey.create(Registries.BIOME, new ResourceLocation(Explorations.MOD_ID, id));
+        return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, id));
     }
 
 }

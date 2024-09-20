@@ -10,11 +10,13 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
+
+import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_DIMENSION_PADDING;
+import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_LIQUID_SETTINGS;
 
 public abstract class JigsawStructure extends Structure {
 
@@ -27,7 +29,7 @@ public abstract class JigsawStructure extends Structure {
 
     public static <S extends JigsawStructure> Codec<S> createCodec(BiFunction<StructureSettings, JigsawStructureSettings, S> factory) {
         return RecordCodecBuilder.<S>mapCodec(instance -> instance
-                        .group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
+                .group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
                 .apply(instance, factory)).codec();
     }
 
@@ -35,7 +37,6 @@ public abstract class JigsawStructure extends Structure {
         return JigsawStructureSettings.CODEC.forGetter((s) -> s.settings);
     }
 
-    @NotNull
     @Override
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         // skip generation when the chunk is not a feature chunk
@@ -49,7 +50,7 @@ public abstract class JigsawStructure extends Structure {
 
         return JigsawPlacement.addPieces(context, this.settings.startPool(), this.settings.startJigsawName(),
                 this.settings.size(), blockpos, false, Optional.empty(), this.settings.maxDistanceFromCenter(),
-                PoolAliasLookup.create(List.of(), blockpos, context.seed()));
+                PoolAliasLookup.create(List.of(), blockpos, context.seed()), DEFAULT_DIMENSION_PADDING, DEFAULT_LIQUID_SETTINGS);
     }
 
     protected abstract BlockPos generateStartPos(GenerationContext context);

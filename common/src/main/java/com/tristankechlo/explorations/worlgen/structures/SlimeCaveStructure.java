@@ -2,6 +2,7 @@ package com.tristankechlo.explorations.worlgen.structures;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
 import net.minecraft.core.BlockPos;
@@ -27,7 +28,7 @@ public final class SlimeCaveStructure extends Structure {
     public static final MapCodec<SlimeCaveStructure> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(RegistryCodecs.homogeneousList(Registries.BIOME).fieldOf("biomes").forGetter(s -> s.biomes))
                     .apply(instance, SlimeCaveStructure::new));
-    private static final ResourceLocation ID = new ResourceLocation("explorations", "slime_cave");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "slime_cave");
     private final HolderSet<Biome> biomes;
 
     public SlimeCaveStructure(HolderSet<Biome> biomes) {

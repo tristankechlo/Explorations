@@ -16,14 +16,14 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public final class FabricExplorations implements ModInitializer {
 
-    private static final ResourceLocation LARGE_MUSHROOM = new ResourceLocation(Explorations.MOD_ID, "large_mushroom");
-    private static final ResourceLocation SCARECROW_ACACIA = new ResourceLocation(Explorations.MOD_ID, "scarecrow_acacia");
-    private static final ResourceLocation SCARECROW_BIRCH = new ResourceLocation(Explorations.MOD_ID, "scarecrow_birch");
-    private static final ResourceLocation SCARECROW_DARK_OAK = new ResourceLocation(Explorations.MOD_ID, "scarecrow_dark_oak");
-    private static final ResourceLocation SCARECROW_JUNGLE = new ResourceLocation(Explorations.MOD_ID, "scarecrow_jungle");
-    private static final ResourceLocation SCARECROW_OAK = new ResourceLocation(Explorations.MOD_ID, "scarecrow_oak");
-    private static final ResourceLocation SCARECROW_SPRUCE = new ResourceLocation(Explorations.MOD_ID, "scarecrow_spruce");
-    private static final ResourceLocation SCARECROW_MANGROVE = new ResourceLocation(Explorations.MOD_ID, "scarecrow_mangrove");
+    private static final ResourceLocation LARGE_MUSHROOM = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "large_mushroom");
+    private static final ResourceLocation SCARECROW_ACACIA = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_acacia");
+    private static final ResourceLocation SCARECROW_BIRCH = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_birch");
+    private static final ResourceLocation SCARECROW_DARK_OAK = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_dark_oak");
+    private static final ResourceLocation SCARECROW_JUNGLE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_jungle");
+    private static final ResourceLocation SCARECROW_OAK = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_oak");
+    private static final ResourceLocation SCARECROW_SPRUCE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_spruce");
+    private static final ResourceLocation SCARECROW_MANGROVE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_mangrove");
 
     @Override
     public void onInitialize() {
