@@ -17,6 +17,9 @@ neoForge {
         client {
             client()
         }
+        server {
+            server()
+        }
     }
     mods {
         "${mod_id}" {
