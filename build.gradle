@@ -6,6 +6,7 @@ subprojects {
     java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
 
     jar {
+        from rootProject.file('LICENSE')
         manifest {
             attributes([
                     'Specification-Title'     : mod_name,
@@ -43,8 +44,24 @@ subprojects {
         enabled = false
     }
 
-    //minify json files
     processResources {
+        // replace placeholders
+        def expandProps = [
+                "version"                   : "${minecraft_version}-${mod_version}",
+                "version_range"             : version_range,
+                "minecraft_version"         : minecraft_version,
+                "java_version"              : java_version,
+                "fabric_loader_min"         : fabric_loader_min,
+                "fabric_range_min_inclusive": fabric_range_min_inclusive,
+                "fabric_range_max_exclusive": fabric_range_max_exclusive,
+                "forge_loader_range"        : forge_loader_range
+        ]
+        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
+            expand expandProps
+        }
+        inputs.properties(expandProps)
+
+        //minify json files
         doLast {
             fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
                 File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))

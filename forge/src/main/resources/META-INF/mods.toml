@@ -1,28 +1,28 @@
-modLoader="javafml"
-loaderVersion="[41,)"
-license="CC BY-NC-ND 4.0"
-showAsResourcePack=false
+modLoader = "javafml"
+loaderVersion = "${forge_loader_range}"
+license = "CC BY-NC-ND 4.0"
+showAsResourcePack = false
 
 [[mods]]
-modId="explorations"
-version="${version}"
-displayName="Explorations+"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/explorations"
-#logoFile="examplemod.png"
-credits="Thanks to TelepathicGrunt for his StructureTutorialMod"
-authors="Buecher_wurm"
-description='''adds more vanilla style structures to the game'''
+    modId = "explorations"
+    version = "${version}"
+    displayName = "Explorations+"
+    displayURL = "https://www.curseforge.com/minecraft/mc-mods/explorations"
+    #logoFile="examplemod.png"
+    credits = "Thanks to TelepathicGrunt for his StructureTutorialMod"
+    authors = "Buecher_wurm"
+    description = '''adds more vanilla style structures to the game'''
 
 [[dependencies.explorations]]
-    modId="forge"
-    mandatory=true
-    versionRange="[41.1.0,)"
-    ordering="NONE"
-    side="BOTH"
-	
+    modId = "forge"
+    mandatory = true
+    versionRange = "${forge_loader_range}"
+    ordering = "NONE"
+    side = "BOTH"
+
 [[dependencies.explorations]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.19,1.19.3)"
-    ordering="NONE"
-    side="BOTH"
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "${version_range}"
+    ordering = "NONE"
+    side = "BOTH"
