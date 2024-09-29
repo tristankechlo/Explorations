@@ -33,7 +33,7 @@ public final class UndergroundTempleStructure extends JigsawStructure {
 
     @Override
     protected boolean isFeatureChunk(GenerationContext context) {
-        return context.random().nextDouble() < 0.6;
+        return true;
     }
 
     @Override

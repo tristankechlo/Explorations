@@ -4,6 +4,7 @@
         "#minecraft:is_forest",
         "minecraft:forest",
         "minecraft:flower_forest",
-        "minecraft:wooded_badlands"
+        "minecraft:wooded_badlands",
+        "minecraft:plains"
     ]
 }

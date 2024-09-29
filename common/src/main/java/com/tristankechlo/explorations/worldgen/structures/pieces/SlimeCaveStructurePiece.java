@@ -77,8 +77,8 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
             Slime slime = EntityType.SLIME.create(level.getLevel());
             if (slime != null) {
                 slime.moveTo(pos, 0.0F, 0.0F);
-                slime.setSize(random.nextInt(3) + 1, true);
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null, null);
+                slime.setSize(random.nextInt(3) + 1, true);
                 level.addFreshEntity(slime);
             }
         }
