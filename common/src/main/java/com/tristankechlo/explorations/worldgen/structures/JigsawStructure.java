@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

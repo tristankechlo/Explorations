@@ -1,7 +1,7 @@
-package com.tristankechlo.explorations.worlgen.features;
+package com.tristankechlo.explorations.worldgen.features;
 
 import com.mojang.serialization.Codec;
-import com.tristankechlo.explorations.worlgen.features.config.ScarecrowFeatureConfig;
+import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;

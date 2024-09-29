@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.treedecorators;
+package com.tristankechlo.explorations.worldgen.treedecorators;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

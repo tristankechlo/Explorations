@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.structures.processors;
+package com.tristankechlo.explorations.worldgen.structures.processors;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

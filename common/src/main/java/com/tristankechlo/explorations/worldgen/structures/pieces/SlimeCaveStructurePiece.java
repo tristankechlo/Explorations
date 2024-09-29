@@ -1,7 +1,7 @@
-package com.tristankechlo.explorations.worlgen.structures.pieces;
+package com.tristankechlo.explorations.worldgen.structures.pieces;
 
 import com.tristankechlo.explorations.init.ModRegistry;
-import com.tristankechlo.explorations.worlgen.structures.processors.DeepslateProcessor;
+import com.tristankechlo.explorations.worldgen.structures.processors.DeepslateProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;

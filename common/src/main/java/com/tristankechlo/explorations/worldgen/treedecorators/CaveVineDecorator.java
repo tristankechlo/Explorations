@@ -1,4 +1,4 @@
-package com.tristankechlo.explorations.worlgen.treedecorators;
+package com.tristankechlo.explorations.worldgen.treedecorators;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;

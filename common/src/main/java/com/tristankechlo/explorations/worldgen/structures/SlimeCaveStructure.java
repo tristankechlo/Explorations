@@ -1,9 +1,9 @@
-package com.tristankechlo.explorations.worlgen.structures;
+package com.tristankechlo.explorations.worldgen.structures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
-import com.tristankechlo.explorations.worlgen.structures.pieces.SlimeCaveStructurePiece;
+import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
