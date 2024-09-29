@@ -11,6 +11,7 @@ import com.tristankechlo.explorations.worldgen.structures.UndergroundTempleStruc
 import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import com.tristankechlo.explorations.worldgen.structures.processors.DeepslateProcessor;
 import com.tristankechlo.explorations.worldgen.structures.processors.StoneBrickAgingProcessor;
+import com.tristankechlo.explorations.worldgen.structures.processors.WoolReplacingProcessor;
 import com.tristankechlo.explorations.worldgen.treedecorators.CaveVineDecorator;
 import com.tristankechlo.explorations.worldgen.treedecorators.LanternDecorator;
 import net.minecraft.core.Registry;
@@ -46,5 +47,6 @@ public final class ModRegistry {
     public static final RegistrationProvider<StructureProcessorType<?>> STRUCTURE_PROCESSORS = RegistrationProvider.get(Registry.STRUCTURE_PROCESSOR, Explorations.MOD_ID);
     public static final RegistryObject<StructureProcessorType<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate", () -> () -> DeepslateProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<StoneBrickAgingProcessor>> STONE_BRICK_AGING_PROCESSOR = STRUCTURE_PROCESSORS.register("stone_brick_aging", () -> () -> StoneBrickAgingProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<WoolReplacingProcessor>> WOOL_REPLACING_PROCESSOR = STRUCTURE_PROCESSORS.register("wool_replacing", () -> () -> WoolReplacingProcessor.CODEC);
 
 }

@@ -20,3 +20,4 @@ with [https://www.calculator.net/](https://www.calculator.net/random-number-gene
 | scarecrow_spruce   | 1531328273 | no longer used |
 | desert_ruin        | 1487218662 |                |
 | slime_cave         | 1345250691 |                |
+| campsite           | 1656992980 |                |
