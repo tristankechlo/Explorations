@@ -11,6 +11,7 @@
 - decreased generation rate of underground temples
 - split large oak trees into two nbt's
     - adjusts better to terrain adaptions
+- add statues that can generate in villages
 
 ### Version 1.19.2 - 1.5.2
 
