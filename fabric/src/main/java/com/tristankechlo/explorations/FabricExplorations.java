@@ -2,9 +2,11 @@ package com.tristankechlo.explorations;
 
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.init.ModTags;
+import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -27,7 +29,7 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(ModRegistry.SCARECROW_OAK_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_OAK);
         addFeature(ModRegistry.SCARECROW_SPRUCE_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_SPRUCE);
 
-        ServerLifecycleEvents.SERVER_STARTING.register(WorldGenHelper::addStatuesToVillage);
+        ServerLifecycleEvents.SERVER_STARTING.register(WorldGenHelper::addStatuesToVillages);
     }
 
     private static void addFeature(PlacedFeature feature, TagKey<Biome> tag) {

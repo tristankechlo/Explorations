@@ -2,6 +2,7 @@ package com.tristankechlo.explorations;
 
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.registration.RegistryObject;
+import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -9,6 +10,8 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,7 +33,7 @@ public final class ForgeExplorations {
 
     public ForgeExplorations() {
         ModRegistry.loadClass(); // load ModRegistry to register everything
-        MinecraftForge.EVENT_BUS.addListener(this::onServerStart);
+        MinecraftForge.EVENT_BUS.addListener(this::addStatuesToVillage);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -56,8 +59,8 @@ public final class ForgeExplorations {
         }
     }
 
-    private void onServerStart(final ServerAboutToStartEvent event) {
-        WorldGenHelper.addStatuesToVillage(event.getServer());
+    private void addStatuesToVillage(final ServerAboutToStartEvent event) {
+        WorldGenHelper.addStatuesToVillages(event.getServer());
     }
 
 }
