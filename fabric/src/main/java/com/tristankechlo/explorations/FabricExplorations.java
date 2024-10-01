@@ -26,6 +26,8 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(ModRegistry.SCARECROW_JUNGLE_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_JUNGLE);
         addFeature(ModRegistry.SCARECROW_OAK_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_OAK);
         addFeature(ModRegistry.SCARECROW_SPRUCE_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_SPRUCE);
+
+        ServerLifecycleEvents.SERVER_STARTING.register(WorldGenHelper::addStatuesToVillage);
     }
 
     private static void addFeature(PlacedFeature feature, TagKey<Biome> tag) {

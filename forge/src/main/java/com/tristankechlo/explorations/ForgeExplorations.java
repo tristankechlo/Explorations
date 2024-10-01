@@ -30,6 +30,7 @@ public final class ForgeExplorations {
 
     public ForgeExplorations() {
         ModRegistry.loadClass(); // load ModRegistry to register everything
+        MinecraftForge.EVENT_BUS.addListener(this::onServerStart);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -53,6 +54,10 @@ public final class ForgeExplorations {
             GenerationStep.Decoration step = GenerationStep.Decoration.VEGETAL_DECORATION;
             event.getGeneration().addFeature(step, feature.asHolder());
         }
+    }
+
+    private void onServerStart(final ServerAboutToStartEvent event) {
+        WorldGenHelper.addStatuesToVillage(event.getServer());
     }
 
 }

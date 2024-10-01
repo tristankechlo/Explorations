@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.18.2 - 1.6.1
+
+- fix an error in the logs that was caused by adding statues to villages
+
 ### Version 1.18.2 - 1.6.0
 
 - fix scarecrows spawning in water
