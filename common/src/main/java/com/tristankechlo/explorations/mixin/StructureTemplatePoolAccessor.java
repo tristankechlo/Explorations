@@ -13,7 +13,7 @@ import java.util.List;
 
 @Debug(export = true)
 @Mixin(StructureTemplatePool.class)
-public interface StructureTemplatePoolMixin  {
+public interface StructureTemplatePoolAccessor {
 
     @Accessor("templates")
     ObjectArrayList<StructurePoolElement> getTemplates();

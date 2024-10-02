@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.tristankechlo.explorations.config.ConfigManager;
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +16,7 @@ public final class ForgeExplorations {
     }
 
     public void addStatuesToVillages(final ServerAboutToStartEvent event) {
+        ConfigManager.loadAndVerifyConfig();
         WorldGenHelper.addStatuesToVillages(event.getServer());
     }
 
