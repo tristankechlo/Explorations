@@ -2,7 +2,7 @@ package com.tristankechlo.explorations.eventhandler;
 
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.init.ModStructures;
-import com.tristankechlo.explorations.mixin_util.ChunkGeneratorAddon;
+import com.tristankechlo.explorations.mixin.ChunkGeneratorInvoker;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -56,10 +56,10 @@ public class WorldLoadingHandler {
     private boolean isTerraForged(ServerWorld world) {
         try {
             ChunkGenerator generator = world.getChunkSource().generator;
-            if (!(generator instanceof ChunkGeneratorAddon)) {
+            if (!(generator instanceof ChunkGeneratorInvoker)) {
                 return false;
             }
-            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAddon) generator).explorations$getCodec());
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorInvoker) generator).getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) {
                 return true;
             }
