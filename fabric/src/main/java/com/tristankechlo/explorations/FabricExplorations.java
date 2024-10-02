@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.tristankechlo.explorations.config.ConfigManager;
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.init.ModTags;
 import com.tristankechlo.explorations.worldgen.WorldGenHelper;
@@ -29,7 +30,10 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(ModRegistry.SCARECROW_OAK_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_OAK);
         addFeature(ModRegistry.SCARECROW_SPRUCE_PLACED.get(), ModTags.HAS_FEATURE_SCARECROW_SPRUCE);
 
-        ServerLifecycleEvents.SERVER_STARTING.register(WorldGenHelper::addStatuesToVillages);
+        ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
+            ConfigManager.loadAndVerifyConfig();
+            WorldGenHelper.addStatuesToVillages(server);
+        });
     }
 
     private static void addFeature(PlacedFeature feature, TagKey<Biome> tag) {

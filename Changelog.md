@@ -3,6 +3,7 @@
 ### Version 1.18.2 - 1.6.1
 
 - fix an error in the logs that was caused by adding statues to villages
+- statue weights are now configurable
 
 ### Version 1.18.2 - 1.6.0
 

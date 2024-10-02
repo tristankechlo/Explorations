@@ -2,6 +2,8 @@ package com.tristankechlo.explorations.worldgen;
 
 import com.mojang.datafixers.util.Pair;
 import com.tristankechlo.explorations.Explorations;
+import com.tristankechlo.explorations.config.ExplorationsConfig;
+import com.tristankechlo.explorations.config.types.VillageType;
 import com.tristankechlo.explorations.mixin.StructureTemplatePoolAccessor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -27,20 +29,19 @@ public final class WorldGenHelper {
         Registry<StructureTemplatePool> templatePoolReg = event.registryAccess().registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
         Registry<StructureProcessorList> processorListReg = event.registryAccess().registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
 
-        for (int i = 1; i <= 4; i++) {
-            addBuildingToPool(templatePoolReg, processorListReg, getHouse("plains"), statue(i), 3);
-            addBuildingToPool(templatePoolReg, processorListReg, getHouse("savanna"), statue(i), 2);
-            addBuildingToPool(templatePoolReg, processorListReg, getHouse("snowy"), statue(i), 3);
-            addBuildingToPool(templatePoolReg, processorListReg, getHouse("taiga"), statue(i), 4);
-        }
+        ExplorationsConfig.get().statues().forEach((type, list) -> {
+            list.forEach((e) -> {
+                addBuildingToPool(templatePoolReg, processorListReg, type, e.nbtLoc(), e.weight());
+            });
+        });
         Explorations.LOGGER.info("Added statues to vanilla villages");
     }
 
     private static void addBuildingToPool(Registry<StructureTemplatePool> templatePoolReg, Registry<StructureProcessorList> processorListReg,
-                                          ResourceLocation poolRL, String nbtPieceRL, int weight) {
+                                          VillageType type, String nbtPieceRL, int weight) {
 
         Holder<StructureProcessorList> emptyProcessorList = processorListReg.getHolderOrThrow(EMPTY_PROCESSOR_LIST_KEY);
-        StructureTemplatePool pool = templatePoolReg.get(poolRL);
+        StructureTemplatePool pool = templatePoolReg.get(type.getLocation());
         if (!(pool instanceof StructureTemplatePoolAccessor poolAccessor)) {
             return;
         }
@@ -55,14 +56,6 @@ public final class WorldGenHelper {
         listOfPieceEntries.addAll(poolAccessor.getRawTemplates());
         listOfPieceEntries.add(new Pair<>(piece, weight));
         poolAccessor.setRawTemplates(listOfPieceEntries);
-    }
-
-    private static ResourceLocation getHouse(String type) {
-        return new ResourceLocation("minecraft:village/" + type + "/houses");
-    }
-
-    private static String statue(int i) {
-        return "explorations:statues/statue_" + i;
     }
 
 }
