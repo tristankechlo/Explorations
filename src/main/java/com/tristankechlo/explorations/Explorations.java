@@ -1,12 +1,18 @@
 package com.tristankechlo.explorations;
 
+import com.tristankechlo.explorations.config.ConfigManager;
 import com.tristankechlo.explorations.eventhandler.BiomeLoadingHandler;
 import com.tristankechlo.explorations.eventhandler.WorldLoadingHandler;
-import com.tristankechlo.explorations.init.*;
+import com.tristankechlo.explorations.init.ConfiguredFeatures;
+import com.tristankechlo.explorations.init.ConfiguredStructures;
+import com.tristankechlo.explorations.init.ModRegistry;
+import com.tristankechlo.explorations.init.ModStructures;
+import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,7 +32,7 @@ public class Explorations {
 
         MinecraftForge.EVENT_BUS.register(new BiomeLoadingHandler());
         MinecraftForge.EVENT_BUS.register(new WorldLoadingHandler());
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.addListener(this::onServerStart);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -37,6 +43,11 @@ public class Explorations {
             ConfiguredStructures.registerConfiguredStructures();
             ConfiguredFeatures.registerConfiguredFeatures();
         });
+    }
+
+    private void onServerStart(final FMLServerAboutToStartEvent event) {
+        ConfigManager.loadAndVerifyConfig();
+        WorldGenHelper.addStatuesToVillages(event.getServer());
     }
 
 }
