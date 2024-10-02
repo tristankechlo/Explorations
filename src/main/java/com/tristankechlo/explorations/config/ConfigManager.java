@@ -31,7 +31,9 @@ public final class ConfigManager {
             ConfigManager.loadConfigFromFile();
             Explorations.LOGGER.info("Config '{}' was successfully loaded.", FILE_NAME);
         } catch (Exception e) {
-            Explorations.LOGGER.error(e.getMessage());
+            if (e.getMessage() != null) {
+                Explorations.LOGGER.error(e.getMessage());
+            }
             Explorations.LOGGER.error("Error loading config '{}', config hasn't been loaded. Using default config.", FILE_NAME);
             ExplorationsConfig.setToDefault();
         }

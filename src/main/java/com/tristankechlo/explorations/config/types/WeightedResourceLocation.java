@@ -9,7 +9,7 @@ public class WeightedResourceLocation {
     public static final Codec<WeightedResourceLocation> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
                     ResourceLocation.CODEC.fieldOf("location").forGetter(WeightedResourceLocation::location),
-                    Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight").forGetter(WeightedResourceLocation::weight)
+                    Codec.intRange(1, 150).fieldOf("weight").forGetter(WeightedResourceLocation::weight)
             ).apply(instance, WeightedResourceLocation::new)
     );
 
