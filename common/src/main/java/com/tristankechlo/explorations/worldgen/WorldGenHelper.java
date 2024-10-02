@@ -25,9 +25,9 @@ public final class WorldGenHelper {
 
     private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSOR_LIST_KEY = ResourceKey.create(Registry.PROCESSOR_LIST_REGISTRY, new ResourceLocation("minecraft:empty"));
 
-    public static void addStatuesToVillages(final MinecraftServer event) {
-        Registry<StructureTemplatePool> templatePoolReg = event.registryAccess().registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
-        Registry<StructureProcessorList> processorListReg = event.registryAccess().registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
+    public static void addStatuesToVillages(final MinecraftServer server) {
+        Registry<StructureTemplatePool> templatePoolReg = server.registryAccess().registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
+        Registry<StructureProcessorList> processorListReg = server.registryAccess().registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
 
         ExplorationsConfig.get().statues().forEach((type, list) -> {
             list.forEach((e) -> {
