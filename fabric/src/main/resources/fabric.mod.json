@@ -21,7 +21,8 @@
         ]
     },
     "mixins": [
-        "explorations.mixins.json"
+        "explorations.mixins.json",
+        "explorations.fabric.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_min}",

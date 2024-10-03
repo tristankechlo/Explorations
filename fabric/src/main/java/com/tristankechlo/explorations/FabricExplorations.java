@@ -1,11 +1,13 @@
 package com.tristankechlo.explorations;
 
+import com.tristankechlo.explorations.config.ConfigManager;
 import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.init.ModTags;
+import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.core.Registry;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -28,6 +30,11 @@ public final class FabricExplorations implements ModInitializer {
     @Override
     public void onInitialize() {
         ModRegistry.loadClass(); // load ModRegistry to register everything
+
+        ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
+            ConfigManager.loadAndVerifyConfig();
+            WorldGenHelper.addStatuesToVillages(server);
+        });
 
         // add features to biomes
         addFeature(LARGE_MUSHROOM, ModTags.HAS_FEATURE_LARGE_MUSHROOM);
