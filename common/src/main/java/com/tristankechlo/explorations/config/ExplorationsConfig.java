@@ -36,18 +36,14 @@ public record ExplorationsConfig(Map<VillageType, List<WeightedResourceLocation>
 
     public static JsonElement toJson() {
         DataResult<JsonElement> result = ExplorationsConfig.CODEC.encodeStart(JsonOps.INSTANCE, INSTANCE);
-        return result.resultOrPartial((string) -> {
-            Explorations.LOGGER.error("An error occurred while attempting to serialize the config.");
-            Explorations.LOGGER.error("==> {}", string);
-        }).orElseThrow();
+        result.error().ifPresent((partial) -> Explorations.LOGGER.error(partial.message()));
+        return result.result().orElseThrow();
     }
 
     public static void fromJson(JsonElement json) {
         DataResult<ExplorationsConfig> result = ExplorationsConfig.CODEC.parse(JsonOps.INSTANCE, json);
-        INSTANCE = result.resultOrPartial((string) -> {
-            Explorations.LOGGER.error("An error occurred while attempting to deserialize the config.");
-            Explorations.LOGGER.error("==> {}", string);
-        }).orElseThrow();
+        result.error().ifPresent((partial) -> Explorations.LOGGER.error(partial.message()));
+        INSTANCE = result.result().orElseThrow();
     }
 
     private static Map<VillageType, List<WeightedResourceLocation>> makeStatues() {
