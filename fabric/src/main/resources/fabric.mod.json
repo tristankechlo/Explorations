@@ -21,6 +21,7 @@
         ]
     },
     "mixins": [
+        "explorations.mixins.json",
         "explorations.fabric.mixins.json"
     ],
     "depends": {
