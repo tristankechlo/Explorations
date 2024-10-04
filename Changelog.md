@@ -13,6 +13,7 @@
     - adjusts better to terrain adaptions
 - add statues that can generate in villages
 - add new structure campsite
+- add cherry and bamboo scarecrows
 
 ### Version 1.20.1 - 1.5.2
 

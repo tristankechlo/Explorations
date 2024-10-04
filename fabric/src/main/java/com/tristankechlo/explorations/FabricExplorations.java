@@ -26,6 +26,8 @@ public final class FabricExplorations implements ModInitializer {
     private static final ResourceLocation SCARECROW_OAK = new ResourceLocation(Explorations.MOD_ID, "scarecrow_oak");
     private static final ResourceLocation SCARECROW_SPRUCE = new ResourceLocation(Explorations.MOD_ID, "scarecrow_spruce");
     private static final ResourceLocation SCARECROW_MANGROVE = new ResourceLocation(Explorations.MOD_ID, "scarecrow_mangrove");
+    private static final ResourceLocation SCARECROW_CHERRY = new ResourceLocation(Explorations.MOD_ID, "scarecrow_cherry");
+    private static final ResourceLocation SCARECROW_BAMBOO = new ResourceLocation(Explorations.MOD_ID, "scarecrow_bamboo");
 
     @Override
     public void onInitialize() {
@@ -45,6 +47,8 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(SCARECROW_OAK, ModTags.HAS_FEATURE_SCARECROW_OAK);
         addFeature(SCARECROW_SPRUCE, ModTags.HAS_FEATURE_SCARECROW_SPRUCE);
         addFeature(SCARECROW_MANGROVE, ModTags.HAS_FEATURE_SCARECROW_MANGROVE);
+        addFeature(SCARECROW_CHERRY, ModTags.HAS_FEATURE_SCARECROW_CHERRY);
+        addFeature(SCARECROW_BAMBOO, ModTags.HAS_FEATURE_SCARECROW_BAMBOO);
     }
 
     private static void addFeature(ResourceLocation location, TagKey<Biome> tag) {

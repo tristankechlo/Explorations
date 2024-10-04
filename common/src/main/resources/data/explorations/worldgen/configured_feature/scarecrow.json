@@ -29,6 +29,14 @@
             {
                 "feature": "explorations:scarecrow_spruce",
                 "placement": []
+            },
+            {
+                "feature": "explorations:scarecrow_cherry",
+                "placement": []
+            },
+            {
+                "feature": "explorations:scarecrow_bamboo",
+                "placement": []
             }
         ]
     }
