@@ -1,6 +1,5 @@
 plugins {
-    id 'idea'
-    id 'fabric-loom'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
 }
 
 base {
@@ -21,6 +20,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     implementation project(":common")
+
+    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
 }
 
 loom {
@@ -46,19 +48,6 @@ loom {
 
 processResources {
     from project(":common").sourceSets.main.resources
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-    source(project(":common").sourceSets.main.allJava)
 }
 
 tasks.withType(JavaCompile) {

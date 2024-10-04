@@ -1,7 +1,6 @@
 plugins {
-    id 'idea'
-    id 'net.minecraftforge.gradle'
-    id 'org.spongepowered.mixin'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
 base {
@@ -9,13 +8,13 @@ base {
     archivesBaseName = "${mod_id}-forge"
 }
 
+/*mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+    config "${mod_id}.mixins.json"
+}*/
+
 minecraft {
     mappings channel: 'official', version: minecraft_version
-
-    if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-        project.logger.debug('Forge Access Transformers are enabled for this project.')
-    }
 
     runs {
         client {
@@ -48,28 +47,21 @@ minecraft {
     }
 }
 
-//sourceSets.main.resources.srcDir 'src/generated/resources'
-
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":common")
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+
+    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
 }
 
-tasks.withType(JavaCompile).configureEach {
+tasks.withType(JavaCompile) {
     source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-    source(project(":common").sourceSets.main.allJava)
 }
 
 processResources {
     from project(":common").sourceSets.main.resources
-    inputs.property "version", project.version
-
-    filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
-    }
 }
 
 jar.finalizedBy('reobfJar')
