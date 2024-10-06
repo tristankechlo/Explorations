@@ -13,6 +13,9 @@ showAsResourcePack = false
     authors = "Buecher_wurm"
     description = '''adds more vanilla style structures to the game'''
 
+[[mixins]]
+    config = "explorations.mixins.json"
+
 [[dependencies.explorations]]
     modId = "neoforge"
     type = "required"

@@ -1,0 +1,6 @@
+{
+    "type": "neoforge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/bamboo",
+    "features": "explorations:scarecrow_bamboo",
+    "step": "vegetal_decoration"
+}
