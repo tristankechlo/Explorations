@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.google.auto.service.AutoService;
 import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.mixin.TreeDecoratorTypeAccessor;
 import com.tristankechlo.explorations.platform.IPlatformHelper;
@@ -9,6 +10,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 
 import java.nio.file.Path;
 
+@AutoService(IPlatformHelper.class)
 public final class FabricPlatformHelper implements IPlatformHelper {
 
     @Override

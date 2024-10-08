@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.google.auto.service.AutoService;
 import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.mixin.TreeDecoratorTypeAccessor;
 import com.tristankechlo.explorations.platform.IPlatformHelper;
@@ -11,6 +12,7 @@ import net.neoforged.fml.loading.FMLPaths;
 
 import java.nio.file.Path;
 
+@AutoService(IPlatformHelper.class)
 public final class NeoforgePlatformHelper implements IPlatformHelper {
 
     @Override

@@ -1,5 +1,5 @@
 plugins {
-    id 'loader'
+    id 'multiloader-loader'
     id 'net.neoforged.gradle.userdev' version '7.0.107'
 }
 
@@ -16,8 +16,9 @@ runs {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
+
+    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
 }
