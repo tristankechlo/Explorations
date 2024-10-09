@@ -1,5 +1,20 @@
 # Changelog
 
+### Version 1.20.6 - 1.6.1
+
+- fix scarecrows spawning in water
+- decreased shrine generation rate (similar to ruined portals now)
+- improved loot_table for shrine (more/better loot to be found)
+- adjusted scarecrow generation rate
+    - generally spawns less often
+    - can now generate in plain-biomes
+- decreased generation rate of underground temples
+- split large oak trees into two nbt's
+    - adjusts better to terrain adaptions
+- add statues that can generate in villages
+- add new structure campsite
+- add cherry and bamboo scarecrows
+
 ### Version 1.20.6 - 1.5.3
 
 - port to 1.20.6

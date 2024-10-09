@@ -1,0 +1,14 @@
+{
+    "structures": [
+        {
+            "structure": "explorations:campsite",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1656992980,
+        "spacing": 30,
+        "separation": 15,
+        "type": "minecraft:random_spread"
+    }
+}

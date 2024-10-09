@@ -1,6 +1,6 @@
 {
     "type": "minecraft:jigsaw",
-    "start_pool": "explorations:large_oak_tree_start",
+    "start_pool": "explorations:large_oak_tree/start",
     "size": 1,
     "max_distance_from_center": 80,
     "biomes": "#explorations:has_structure/large_oak_tree",

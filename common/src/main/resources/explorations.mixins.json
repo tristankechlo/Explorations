@@ -2,9 +2,9 @@
     "required": true,
     "minVersion": "0.8",
     "package": "com.tristankechlo.explorations.mixin",
-    "refmap": "explorations.refmap.json",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
+        "StructureTemplatePoolAccessor",
         "TreeDecoratorTypeAccessor"
     ],
     "client": [
@@ -13,6 +13,7 @@
     ],
     "injectors": {
         "defaultRequire": 1
-    }
+    },
+    "refmap": "explorations.refmap.json"
 }
 

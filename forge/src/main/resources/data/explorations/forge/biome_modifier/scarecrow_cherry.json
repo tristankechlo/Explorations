@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": "#explorations:has_feature/scarecrow/cherry",
+    "features": "explorations:scarecrow_cherry",
+    "step": "vegetal_decoration"
+}
