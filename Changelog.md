@@ -1,6 +1,6 @@
 # Changelog
 
-### Version 1.20.6 - 1.6.1
+### Version 1.20.4 - 1.6.1
 
 - fix scarecrows spawning in water
 - decreased shrine generation rate (similar to ruined portals now)
