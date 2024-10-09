@@ -1,6 +1,6 @@
 package com.tristankechlo.explorations.worldgen.structures.processors;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,7 +22,7 @@ public class WoolReplacingProcessor extends StructureProcessor {
 
     private static final List<String> ALL_COLORS = Arrays.stream(DyeColor.values()).map(DyeColor::getName).toList();
     private static final Pattern PATTERN = Pattern.compile("minecraft:[a-z_]+_wool", Pattern.CASE_INSENSITIVE);
-    public static final Codec<WoolReplacingProcessor> CODEC = Codec.unit(WoolReplacingProcessor::new);
+    public static final MapCodec<WoolReplacingProcessor> CODEC = MapCodec.unit(WoolReplacingProcessor::new);
 
     private String color = null;
 
