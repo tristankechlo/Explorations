@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.google.auto.service.AutoService;
 import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.platform.IPlatformHelper;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
@@ -10,6 +11,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 
 import java.nio.file.Path;
 
+@AutoService(IPlatformHelper.class)
 public final class ForgePlatformHelper implements IPlatformHelper {
 
     @Override

@@ -4,6 +4,7 @@
     "package": "com.tristankechlo.explorations.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
+        "StructureTemplatePoolAccessor",
         "TreeDecoratorTypeAccessor"
     ],
     "client": [

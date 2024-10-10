@@ -1,5 +1,6 @@
 package com.tristankechlo.explorations;
 
+import com.google.auto.service.AutoService;
 import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
 import net.minecraft.core.Holder;
@@ -15,6 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
+@AutoService(RegistrationProvider.Factory.class)
 public final class FabricRegistrationFactory implements RegistrationProvider.Factory {
 
     @Override

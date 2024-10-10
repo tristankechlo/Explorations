@@ -16,6 +16,8 @@ public final class ModTags {
     public static final TagKey<Biome> HAS_FEATURE_SCARECROW_OAK = getTagKey("has_feature/scarecrow/oak");
     public static final TagKey<Biome> HAS_FEATURE_SCARECROW_SPRUCE = getTagKey("has_feature/scarecrow/spruce");
     public static final TagKey<Biome> HAS_FEATURE_SCARECROW_MANGROVE = getTagKey("has_feature/scarecrow/mangrove");
+    public static final TagKey<Biome> HAS_FEATURE_SCARECROW_CHERRY = getTagKey("has_feature/scarecrow/cherry");
+    public static final TagKey<Biome> HAS_FEATURE_SCARECROW_BAMBOO = getTagKey("has_feature/scarecrow/bamboo");
 
     private static TagKey<Biome> getTagKey(String id) {
         return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, id));
