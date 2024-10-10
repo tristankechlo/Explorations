@@ -9,8 +9,8 @@
                 "color": "green"
             }
         ],
-        "pack_format": 9,
-        "forge:resource_pack_format": 9,
-        "forge:data_pack_format": 10
+        "pack_format": 48,
+        "forge:resource_pack_format": 34,
+        "forge:data_pack_format": 48
     }
 }
