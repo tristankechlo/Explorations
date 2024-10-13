@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.20.6 - 1.6.2
+
+- fix game crashing on startup
+
 ### Version 1.20.6 - 1.6.1
 
 - fix scarecrows spawning in water
