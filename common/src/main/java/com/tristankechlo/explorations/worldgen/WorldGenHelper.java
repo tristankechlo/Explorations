@@ -27,8 +27,8 @@ public final class WorldGenHelper {
     private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSOR_LIST_KEY = ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.withDefaultNamespace("empty"));
 
     public static void addStatuesToVillages(final MinecraftServer server) {
-        Registry<StructureTemplatePool> templatePoolReg = server.registryAccess().registry(Registries.TEMPLATE_POOL).orElseThrow();
-        Registry<StructureProcessorList> processorListReg = server.registryAccess().registry(Registries.PROCESSOR_LIST).orElseThrow();
+        Registry<StructureTemplatePool> templatePoolReg = server.registryAccess().lookupOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureProcessorList> processorListReg = server.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST);
 
         ExplorationsConfig.get().statues().forEach((type, list) -> {
             list.forEach((e) -> {
@@ -41,8 +41,8 @@ public final class WorldGenHelper {
     private static void addBuildingToPool(Registry<StructureTemplatePool> templatePoolReg, Registry<StructureProcessorList> processorListReg,
                                           VillageType type, String nbtPieceRL, int weight) {
 
-        Holder<StructureProcessorList> emptyProcessorList = processorListReg.getHolderOrThrow(EMPTY_PROCESSOR_LIST_KEY);
-        StructureTemplatePool pool = templatePoolReg.get(type.getLocation());
+        Holder<StructureProcessorList> emptyProcessorList = processorListReg.getOrThrow(EMPTY_PROCESSOR_LIST_KEY);
+        StructureTemplatePool pool = templatePoolReg.getValue(type.getLocation());
         if (!(pool instanceof StructureTemplatePoolAccessor poolAccessor)) {
             return;
         }

@@ -45,7 +45,7 @@ public class WoolReplacingProcessor extends StructureProcessor {
     private BlockState getNewWool(String color) {
         ResourceLocation location = ResourceLocation.withDefaultNamespace(color + "_wool");
         if (BuiltInRegistries.BLOCK.containsKey(location)) {
-            return BuiltInRegistries.BLOCK.get(location).defaultBlockState();
+            return BuiltInRegistries.BLOCK.getValue(location).defaultBlockState();
         }
         return null;
     }

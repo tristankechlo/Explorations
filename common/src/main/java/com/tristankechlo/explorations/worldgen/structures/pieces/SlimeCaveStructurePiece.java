@@ -9,8 +9,8 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.SpawnData;
@@ -74,10 +74,10 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
                 blockEntity.setChanged();
             }
         } else if (marker.equals("slime")) {
-            Slime slime = EntityType.SLIME.create(level.getLevel());
+            Slime slime = EntityType.SLIME.create(level.getLevel(), EntitySpawnReason.STRUCTURE);
             if (slime != null) {
                 slime.moveTo(pos, 0.0F, 0.0F);
-                slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null);
+                slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.STRUCTURE, null);
                 slime.setSize(random.nextInt(3) + 1, true);
                 level.addFreshEntity(slime);
             }

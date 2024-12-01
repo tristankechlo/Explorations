@@ -38,7 +38,7 @@ public final class FabricRegistrationFactory implements RegistrationProvider.Fac
 
         private Provider(String modId, ResourceKey<? extends Registry<T>> key) {
             this.modId = modId;
-            registry = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY).registryOrThrow(key);
+            registry = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY).lookupOrThrow(key);
         }
 
         private Provider(String modId, Registry<T> registry) {
@@ -71,7 +71,7 @@ public final class FabricRegistrationFactory implements RegistrationProvider.Fac
 
                 @Override
                 public Holder<I> asHolder() {
-                    return (Holder<I>) registry.getHolderOrThrow((ResourceKey<T>) this.key);
+                    return (Holder<I>) registry.wrapAsHolder(obj);
                 }
             };
             entries.add((RegistryObject<T>) ro);
