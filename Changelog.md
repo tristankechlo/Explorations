@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.21.1 - 1.6.2
+
+- port to 1.21.1
+- fix broken enchanted books found in underground temple
+
 ### Version 1.21 - 1.6.1
 
 - fix scarecrows spawning in water
