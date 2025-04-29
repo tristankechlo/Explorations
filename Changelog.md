@@ -4,6 +4,7 @@
 
 - port to 1.21.1
 - fix broken enchanted books found in underground temple
+- use vanilla enchantment tags for loot in chests ([#21](https://github.com/tristankechlo/Explorations/issues/21))
 
 ### Version 1.21 - 1.6.1
 

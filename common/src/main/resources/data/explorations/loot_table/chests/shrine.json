@@ -131,7 +131,8 @@
                     "weight": 20,
                     "functions": [
                         {
-                            "function": "minecraft:enchant_randomly"
+                            "function": "minecraft:enchant_randomly",
+                            "options": "#minecraft:on_random_loot"
                         }
                     ]
                 },
@@ -220,7 +221,8 @@
                     "name": "minecraft:golden_sword",
                     "functions": [
                         {
-                            "function": "minecraft:enchant_randomly"
+                            "function": "minecraft:enchant_randomly",
+                            "options": "#minecraft:on_random_loot"
                         },
                         {
                             "function": "minecraft:set_damage",
@@ -236,7 +238,8 @@
                     "name": "minecraft:iron_sword",
                     "functions": [
                         {
-                            "function": "minecraft:enchant_randomly"
+                            "function": "minecraft:enchant_randomly",
+                            "options": "#minecraft:on_random_loot"
                         },
                         {
                             "function": "minecraft:set_damage",
