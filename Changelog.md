@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.21.4 - 1.6.2
+
+- fix incorrectly enchanted inside the underground temple
+
 ### Version 1.21.4 - 1.6.1
 
 - port to 1.21.4
