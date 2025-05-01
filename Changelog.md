@@ -2,7 +2,8 @@
 
 ### Version 1.21.4 - 1.6.2
 
-- fix incorrectly enchanted inside the underground temple
+- fix incorrectly enchanted books inside the underground temple
+- using enchantment tag `minecraft:on_random_loot` for loot in chests ([#21](https://github.com/tristankechlo/Explorations/issues/21))
 
 ### Version 1.21.4 - 1.6.1
 
