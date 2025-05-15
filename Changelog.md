@@ -3,6 +3,7 @@
 ### Version 1.21.5 - 1.6.2
 
 - port to 1.21.5
+- fix game crashing for SlimeCaves
 
 ### Version 1.21.4 - 1.6.2
 

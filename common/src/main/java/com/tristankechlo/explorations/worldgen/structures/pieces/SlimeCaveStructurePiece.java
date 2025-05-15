@@ -36,17 +36,24 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
         createSpawnData();
     }
 
-    public SlimeCaveStructurePiece(StructureTemplateManager manager, CompoundTag tag) {
-        super(ModRegistry.SLIME_CAVE_PIECE.get(), tag, manager, ($$1x) -> makeSettings(Rotation.valueOf(tag.getString("Rot"))));
+    public SlimeCaveStructurePiece(StructureTemplateManager manager, CompoundTag nbt) {
+        super(ModRegistry.SLIME_CAVE_PIECE.get(), nbt, manager, (id) -> makeSettings(nbt));
         createSpawnData();
     }
 
-    public SlimeCaveStructurePiece(StructurePieceSerializationContext context, CompoundTag compoundTag) {
-        this(context.structureTemplateManager(), compoundTag);
+    public SlimeCaveStructurePiece(StructurePieceSerializationContext context, CompoundTag nbt) {
+        this(context.structureTemplateManager(), nbt);
+    }
+
+    private static StructurePlaceSettings makeSettings(CompoundTag nbt) {
+        Optional<String> rotation = nbt.getString("Rot");
+        return new StructurePlaceSettings()
+                .setRotation(rotation.map(Rotation::valueOf).orElse(Rotation.NONE))
+                .addProcessor(DeepslateProcessor.INSTANCE);
     }
 
     private static StructurePlaceSettings makeSettings(Rotation rotation) {
-        return (new StructurePlaceSettings()).setRotation(rotation).addProcessor(DeepslateProcessor.INSTANCE);
+        return new StructurePlaceSettings().setRotation(rotation).addProcessor(DeepslateProcessor.INSTANCE);
     }
 
     private static void createSpawnData() {
@@ -76,7 +83,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
         } else if (marker.equals("slime")) {
             Slime slime = EntityType.SLIME.create(level.getLevel(), EntitySpawnReason.STRUCTURE);
             if (slime != null) {
-                slime.moveTo(pos, 0.0F, 0.0F);
+                slime.snapTo(pos, 0.0F, 0.0F);
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.STRUCTURE, null);
                 slime.setSize(random.nextInt(3) + 1, true);
                 level.addFreshEntity(slime);
