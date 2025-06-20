@@ -8,6 +8,7 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.InclusiveRange;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -23,6 +24,8 @@ import net.minecraft.world.level.levelgen.structure.TemplateStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import net.minecraft.world.level.storage.TagValueInput;
+import net.minecraft.world.level.storage.TagValueOutput;
 
 import java.util.Optional;
 
@@ -74,9 +77,11 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
             level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof SpawnerBlockEntity spawner) {
-                CompoundTag oldData = spawner.getSpawner().save(new CompoundTag());
+                TagValueOutput valueOutput = TagValueOutput.createWithoutContext(ProblemReporter.DISCARDING);
+                spawner.getSpawner().save(valueOutput);
+                CompoundTag oldData = valueOutput.buildResult();
                 oldData.put("SpawnData", spawnDataTag);
-                spawner.getSpawner().load(null, pos, oldData);
+                spawner.getSpawner().load(null, pos, TagValueInput.create(ProblemReporter.DISCARDING, level.registryAccess(), oldData));
                 spawner.setChanged();
                 blockEntity.setChanged();
             }
