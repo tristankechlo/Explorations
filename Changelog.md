@@ -1,8 +1,9 @@
 # Changelog
 
-## Version 1.21.10 - 1.6.2
+## Version 1.21.10 - 1.6.3
 
 - port to 1.21.10
+- slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
 
 ## Version 1.21.8 - 1.6.2
 
