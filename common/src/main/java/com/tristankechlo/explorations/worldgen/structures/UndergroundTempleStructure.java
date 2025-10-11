@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
-public final class UndergroundTempleStructure extends JigsawStructure {
+public final class UndergroundTempleStructure extends ImprovedJigsawStructure {
 
     public static final MapCodec<UndergroundTempleStructure> CODEC = RecordCodecBuilder.mapCodec(
             (instance) -> instance.group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))

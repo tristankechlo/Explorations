@@ -30,7 +30,7 @@ public class LanternDecorator extends TreeDecorator {
         ).apply(builder, LanternDecorator::new);
     });
 
-    private final BlockState chain = Blocks.CHAIN.defaultBlockState().setValue(ChainBlock.AXIS, Axis.Y);
+    private final BlockState chain = Blocks.IRON_CHAIN.defaultBlockState().setValue(ChainBlock.AXIS, Axis.Y);
     private final BlockState lantern = Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, Boolean.TRUE);
     private final float probability; // chance for the tree to have lanterns
     private final IntProvider count; // number of lanterns per tree

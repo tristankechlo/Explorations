@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
+import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,22 +19,22 @@ import java.util.function.BiFunction;
 import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_DIMENSION_PADDING;
 import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_LIQUID_SETTINGS;
 
-public abstract class JigsawStructure extends Structure {
+public abstract class ImprovedJigsawStructure extends Structure {
 
     protected final JigsawStructureSettings settings;
 
-    public JigsawStructure(StructureSettings config, JigsawStructureSettings settings) {
+    public ImprovedJigsawStructure(StructureSettings config, JigsawStructureSettings settings) {
         super(config);
         this.settings = settings;
     }
 
-    public static <S extends JigsawStructure> Codec<S> createCodec(BiFunction<StructureSettings, JigsawStructureSettings, S> factory) {
+    public static <S extends ImprovedJigsawStructure> Codec<S> createCodec(BiFunction<StructureSettings, JigsawStructureSettings, S> factory) {
         return RecordCodecBuilder.<S>mapCodec(instance -> instance
                 .group(Structure.settingsCodec(instance), jigsawSettingsCodec(instance))
                 .apply(instance, factory)).codec();
     }
 
-    public static <S extends JigsawStructure> RecordCodecBuilder<S, JigsawStructureSettings> jigsawSettingsCodec(RecordCodecBuilder.Instance<S> instance) {
+    public static <S extends ImprovedJigsawStructure> RecordCodecBuilder<S, JigsawStructureSettings> jigsawSettingsCodec(RecordCodecBuilder.Instance<S> instance) {
         return JigsawStructureSettings.CODEC.forGetter((s) -> s.settings);
     }
 
@@ -57,12 +58,17 @@ public abstract class JigsawStructure extends Structure {
 
     protected abstract boolean isFeatureChunk(GenerationContext context);
 
-    public record JigsawStructureSettings(Holder<StructureTemplatePool> startPool, Optional<ResourceLocation> startJigsawName, int size, int maxDistanceFromCenter) {
+    public record JigsawStructureSettings(
+            Holder<StructureTemplatePool> startPool,
+            Optional<ResourceLocation> startJigsawName,
+            int size,
+            JigsawStructure.MaxDistance maxDistanceFromCenter
+    ) {
         public static final MapCodec<JigsawStructureSettings> CODEC = RecordCodecBuilder.mapCodec(instance -> instance
                 .group(StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(JigsawStructureSettings::startPool),
                         ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(JigsawStructureSettings::startJigsawName),
                         Codec.intRange(0, 30).fieldOf("size").orElse(5).forGetter(JigsawStructureSettings::size),
-                        Codec.intRange(0, 30).fieldOf("max_distance_from_center").orElse(50).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
+                        JigsawStructure.MaxDistance.CODEC.fieldOf("max_distance_from_center").orElse(new JigsawStructure.MaxDistance(50)).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
                 .apply(instance, JigsawStructureSettings::new));
     }
 
