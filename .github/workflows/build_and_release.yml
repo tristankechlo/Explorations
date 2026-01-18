@@ -6,15 +6,6 @@ on:
 
 env:
   MODID: "explorations"
-  CURSEFORGE_ID: 550247
-  CURSEFORGE_LINK: "https://www.curseforge.com/minecraft/mc-mods/explorations"
-  MODRINTH_ID: "pcGnjJ39"
-  MODRINTH_LINK: "https://modrinth.com/mod/explorations"
-  MODRINTH_FEATURED: true # if this version should be featured on modrinth
-  DISCORD_COLOR: 16766046
-  DISCORD_MENTION: "<@&918847089981681715>"
-  DISCORD_TITLE: "New version for Explorations+ just released :exclamation:"
-  DISCORD_THUMBNAIL: "https://cdn.modrinth.com/data/pcGnjJ39/icon.png"
 
 jobs:
   prepare:
@@ -84,8 +75,8 @@ jobs:
         with:
           mc-version: ${{ needs.prepare.outputs.mc-version }}
           mod-version: ${{ needs.prepare.outputs.mod-version }}
-          curseforge-id: ${{ env.CURSEFORGE_ID }}
-          modrinth-id: ${{ env.MODRINTH_ID }}
+          curseforge-id: 550247
+          modrinth-id: "pcGnjJ39"
           changelog: ${{ github.event.release.body }}
           loaders: forge,fabric,neoforge
           version-range: ${{ needs.prepare.outputs.version-range }}
@@ -97,19 +88,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make embed
-        uses: tristankechlo/create-discord-embed@v1.0.2
+        uses: tristankechlo/create-discord-embed@v1.1
         with:
           released: ${{ contains(github.event.release.name, '[RELEASE]') }}
           changelog: "${{ github.event.release.body }}"
           version: "${{ needs.prepare.outputs.mc-version }} - ${{ needs.prepare.outputs.mod-version }}"
-          color: ${{ env.DISCORD_COLOR }}
-          content: "${{ contains(github.event.release.name, '[RELEASE]') && env.DISCORD_MENTION || ''}}"
-          title: ${{ env.DISCORD_TITLE }}
-          description: "${{ contains(github.event.release.name, '[RELEASE]') && 'The update is available for *Forge*, *Fabric* and *NeoForge*' || 'The update will *not* be released to Curseforge or Modrinth'}}"
-          curseforge: ${{ env.CURSEFORGE_LINK }}
-          modrinth: ${{ env.MODRINTH_LINK }}
+          color: 16766046
+          mod-name: "Explorations+"
+          mention: "<@&918847089981681715>"
+          loaders: "Forge,Fabric,NeoForge"
+          curseforge: "https://www.curseforge.com/minecraft/mc-mods/explorations"
+          modrinth: "https://modrinth.com/mod/explorations"
           github: ${{ github.event.release.html_url }}
-          thumbnail: ${{ env.DISCORD_THUMBNAIL }}
+          thumbnail: "https://cdn.modrinth.com/data/pcGnjJ39/icon.png"
 
       - name: Send Discord Message
         uses: tsickert/discord-webhook@v6.0.0
