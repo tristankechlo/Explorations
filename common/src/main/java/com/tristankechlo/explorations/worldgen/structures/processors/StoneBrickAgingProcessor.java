@@ -4,9 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.init.ModRegistry;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -86,7 +86,7 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
         return ModRegistry.STONE_BRICK_AGING_PROCESSOR.get();
     }
 
-    private record Chances(float bricks, float walls, float stairs, float slabs) {
+    public record Chances(float bricks, float walls, float stairs, float slabs) {
         public static final Codec<Chances> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.floatRange(0.0F, 1.0F).fieldOf("bricks").orElse(0.25F).forGetter(Chances::bricks),
                 Codec.floatRange(0.0F, 1.0F).fieldOf("walls").orElse(0.15F).forGetter(Chances::walls),

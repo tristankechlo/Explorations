@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
@@ -28,7 +28,7 @@ public final class SlimeCaveStructure extends Structure {
     public static final MapCodec<SlimeCaveStructure> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(RegistryCodecs.homogeneousList(Registries.BIOME).fieldOf("biomes").forGetter(s -> s.biomes))
                     .apply(instance, SlimeCaveStructure::new));
-    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "slime_cave");
+    private static final Identifier ID = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "slime_cave");
     private final HolderSet<Biome> biomes;
 
     public SlimeCaveStructure(HolderSet<Biome> biomes) {

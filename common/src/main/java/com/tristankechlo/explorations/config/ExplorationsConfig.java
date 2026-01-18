@@ -8,7 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.config.types.VillageType;
 import com.tristankechlo.explorations.config.types.WeightedResourceLocation;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,8 +58,8 @@ public record ExplorationsConfig(Map<VillageType, List<WeightedResourceLocation>
         return m;
     }
 
-    private static ResourceLocation statue(int i) {
-        return ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "statues/statue_" + i);
+    private static Identifier statue(int i) {
+        return Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "statues/statue_" + i);
     }
 
 }

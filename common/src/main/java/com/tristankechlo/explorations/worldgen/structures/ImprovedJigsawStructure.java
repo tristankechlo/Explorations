@@ -5,7 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -60,13 +60,13 @@ public abstract class ImprovedJigsawStructure extends Structure {
 
     public record JigsawStructureSettings(
             Holder<StructureTemplatePool> startPool,
-            Optional<ResourceLocation> startJigsawName,
+            Optional<Identifier> startJigsawName,
             int size,
             JigsawStructure.MaxDistance maxDistanceFromCenter
     ) {
         public static final MapCodec<JigsawStructureSettings> CODEC = RecordCodecBuilder.mapCodec(instance -> instance
                 .group(StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(JigsawStructureSettings::startPool),
-                        ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(JigsawStructureSettings::startJigsawName),
+                        Identifier.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(JigsawStructureSettings::startJigsawName),
                         Codec.intRange(0, 30).fieldOf("size").orElse(5).forGetter(JigsawStructureSettings::size),
                         JigsawStructure.MaxDistance.CODEC.fieldOf("max_distance_from_center").orElse(new JigsawStructure.MaxDistance(50)).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
                 .apply(instance, JigsawStructureSettings::new));

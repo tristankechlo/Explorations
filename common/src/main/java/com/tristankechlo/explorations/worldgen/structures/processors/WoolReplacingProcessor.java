@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.LevelReader;
@@ -43,7 +43,7 @@ public class WoolReplacingProcessor extends StructureProcessor {
     }
 
     private BlockState getNewWool(String color) {
-        ResourceLocation location = ResourceLocation.withDefaultNamespace(color + "_wool");
+        Identifier location = Identifier.withDefaultNamespace(color + "_wool");
         if (BuiltInRegistries.BLOCK.containsKey(location)) {
             return BuiltInRegistries.BLOCK.getValue(location).defaultBlockState();
         }

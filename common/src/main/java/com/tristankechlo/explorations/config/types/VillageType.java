@@ -1,7 +1,7 @@
 package com.tristankechlo.explorations.config.types;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.StringRepresentable;
 
 public enum VillageType implements StringRepresentable {
@@ -14,17 +14,17 @@ public enum VillageType implements StringRepresentable {
 
     private final String name;
     private final int defaultWeight;
-    private final ResourceLocation location;
+    private final Identifier location;
     public static final Codec<VillageType> CODEC = StringRepresentable.fromEnum(VillageType::values);
     public static final VillageType[] NO_DESERT = new VillageType[]{PLAINS, SAVANNA, SNOWY, TAIGA};
 
     VillageType(String name, int defaultWeight) {
         this.name = name;
         this.defaultWeight = defaultWeight;
-        this.location = ResourceLocation.withDefaultNamespace("village/" + name + "/houses");
+        this.location = Identifier.withDefaultNamespace("village/" + name + "/houses");
     }
 
-    public ResourceLocation getLocation() {
+    public Identifier getLocation() {
         return this.location;
     }
 

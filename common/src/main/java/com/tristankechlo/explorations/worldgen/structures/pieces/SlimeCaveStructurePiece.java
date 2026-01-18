@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.util.RandomSource;
@@ -34,7 +34,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
     private static final InclusiveRange<Integer> RANGE = new InclusiveRange<>(0, 7);
     private static Tag spawnDataTag = null;
 
-    public SlimeCaveStructurePiece(StructureTemplateManager manager, ResourceLocation location, BlockPos pos, Rotation rotation) {
+    public SlimeCaveStructurePiece(StructureTemplateManager manager, Identifier location, BlockPos pos, Rotation rotation) {
         super(ModRegistry.SLIME_CAVE_PIECE.get(), 0, manager, location, location.toString(), makeSettings(rotation), pos);
         createSpawnData();
     }

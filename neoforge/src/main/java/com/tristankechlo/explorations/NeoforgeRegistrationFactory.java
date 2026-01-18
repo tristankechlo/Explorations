@@ -6,7 +6,7 @@ import com.tristankechlo.explorations.registration.RegistryObject;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.javafmlmod.FMLModContainer;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -54,7 +54,7 @@ public final class NeoforgeRegistrationFactory implements RegistrationProvider.F
         @Override
         @SuppressWarnings("unchecked")
         public <I extends T> RegistryObject<I> register(String name, Supplier<? extends I> supplier) {
-            final var rl = ResourceLocation.fromNamespaceAndPath(modId, name);
+            final var rl = Identifier.fromNamespaceAndPath(modId, name);
             final var obj = registry.<I>register(name, supplier);
             final var ro = new RegistryObject<I>() {
                 final ResourceKey<I> key = ResourceKey.create((ResourceKey<? extends Registry<I>>) registry.getRegistryKey(), rl);
@@ -65,7 +65,7 @@ public final class NeoforgeRegistrationFactory implements RegistrationProvider.F
                 }
 
                 @Override
-                public ResourceLocation getId() {
+                public Identifier getId() {
                     return obj.getId();
                 }
 

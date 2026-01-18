@@ -11,7 +11,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -19,16 +19,16 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public final class FabricExplorations implements ModInitializer {
 
-    private static final ResourceLocation LARGE_MUSHROOM = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "large_mushroom");
-    private static final ResourceLocation SCARECROW_ACACIA = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_acacia");
-    private static final ResourceLocation SCARECROW_BIRCH = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_birch");
-    private static final ResourceLocation SCARECROW_DARK_OAK = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_dark_oak");
-    private static final ResourceLocation SCARECROW_JUNGLE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_jungle");
-    private static final ResourceLocation SCARECROW_OAK = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_oak");
-    private static final ResourceLocation SCARECROW_SPRUCE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_spruce");
-    private static final ResourceLocation SCARECROW_MANGROVE = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_mangrove");
-    private static final ResourceLocation SCARECROW_CHERRY = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_cherry");
-    private static final ResourceLocation SCARECROW_BAMBOO = ResourceLocation.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_bamboo");
+    private static final Identifier LARGE_MUSHROOM = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "large_mushroom");
+    private static final Identifier SCARECROW_ACACIA = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_acacia");
+    private static final Identifier SCARECROW_BIRCH = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_birch");
+    private static final Identifier SCARECROW_DARK_OAK = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_dark_oak");
+    private static final Identifier SCARECROW_JUNGLE = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_jungle");
+    private static final Identifier SCARECROW_OAK = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_oak");
+    private static final Identifier SCARECROW_SPRUCE = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_spruce");
+    private static final Identifier SCARECROW_MANGROVE = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_mangrove");
+    private static final Identifier SCARECROW_CHERRY = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_cherry");
+    private static final Identifier SCARECROW_BAMBOO = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "scarecrow_bamboo");
 
     @Override
     public void onInitialize() {
@@ -52,7 +52,7 @@ public final class FabricExplorations implements ModInitializer {
         addFeature(SCARECROW_BAMBOO, ModTags.HAS_FEATURE_SCARECROW_BAMBOO);
     }
 
-    private static void addFeature(ResourceLocation location, TagKey<Biome> tag) {
+    private static void addFeature(Identifier location, TagKey<Biome> tag) {
         GenerationStep.Decoration step = GenerationStep.Decoration.VEGETAL_DECORATION;
         ResourceKey<PlacedFeature> featureKey = ResourceKey.create(Registries.PLACED_FEATURE, location);
         BiomeModifications.create(location).add(ModificationPhase.ADDITIONS,
