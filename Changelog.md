@@ -1,8 +1,8 @@
 # Changelog
 
-## Version 26.1.2 - 1.6.3
+## Version 26.2 - 1.6.3
 
-- port to 26.1.2
+- port to 26.2
 
 ## Version 1.21.11 - 1.6.3
 
