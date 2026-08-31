@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 26.1.2 - 1.6.4
+
+- fix spawning of large mushrooms
+- update pack.mcmeta
+
 ## Version 26.1.2 - 1.6.3
 
 - port to 26.1.2

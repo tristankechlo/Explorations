@@ -6,16 +6,14 @@ import com.tristankechlo.explorations.init.ModTags;
 import com.tristankechlo.explorations.worldgen.WorldGenHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public final class FabricExplorations implements ModInitializer {
 
@@ -53,11 +51,11 @@ public final class FabricExplorations implements ModInitializer {
     }
 
     private static void addFeature(Identifier location, TagKey<Biome> tag) {
-        GenerationStep.Decoration step = GenerationStep.Decoration.VEGETAL_DECORATION;
-        ResourceKey<PlacedFeature> featureKey = ResourceKey.create(Registries.PLACED_FEATURE, location);
-        BiomeModifications.create(location).add(ModificationPhase.ADDITIONS,
-                (context) -> context.hasTag(tag),
-                (context) -> context.getGenerationSettings().addFeature(step, featureKey));
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(tag),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ResourceKey.create(Registries.PLACED_FEATURE, location)
+        );
     }
 
 }
