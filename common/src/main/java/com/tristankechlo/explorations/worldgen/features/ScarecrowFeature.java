@@ -39,11 +39,11 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
             return false;
         }
 
-        BlockState stateHead = createHead(context.config().head().getState(random, posHead), facingHead);
-        BlockState stateBody = context.config().body().getState(random, posBody);
-        BlockState stateLegs = context.config().legs().getState(random, posLeg);
-        BlockState stateArmLeft = createArm(context.config().arms().getState(random, posLeftArm), facingArmLeft);
-        BlockState stateArmRight = createArm(context.config().arms().getState(random, posRightArm), facingArmRight);
+        BlockState stateHead = createHead(context.config().head().getState(level, random, posHead), facingHead);
+        BlockState stateBody = context.config().body().getState(level, random, posBody);
+        BlockState stateLegs = context.config().legs().getState(level, random, posLeg);
+        BlockState stateArmLeft = createArm(context.config().arms().getState(level, random, posLeftArm), facingArmLeft);
+        BlockState stateArmRight = createArm(context.config().arms().getState(level, random, posRightArm), facingArmRight);
 
         level.setBlock(posLeg, stateLegs, 3);
         level.setBlock(posBody, stateBody, 3);

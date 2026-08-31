@@ -9,6 +9,7 @@ import net.minecraft.core.Direction.Axis;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.LanternBlock;
@@ -25,8 +26,8 @@ public class LanternDecorator extends TreeDecorator {
     public static final MapCodec<LanternDecorator> CODEC = RecordCodecBuilder.mapCodec((builder) -> {
         return builder.group(
                 Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> decorator.probability),
-                IntProvider.codec(0, 10).fieldOf("lantern_count").orElse(ConstantInt.of(3)).forGetter((decorator) -> decorator.count),
-                IntProvider.codec(0, 10).fieldOf("chain_length").orElse(ConstantInt.of(1)).forGetter((decorator) -> decorator.chainLength)
+                IntProviders.codec(0, 10).fieldOf("lantern_count").orElse(ConstantInt.of(3)).forGetter((decorator) -> decorator.count),
+                IntProviders.codec(0, 10).fieldOf("chain_length").orElse(ConstantInt.of(1)).forGetter((decorator) -> decorator.chainLength)
         ).apply(builder, LanternDecorator::new);
     });
 
