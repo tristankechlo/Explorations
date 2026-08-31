@@ -33,4 +33,4 @@ plugins {
 
 rootProject.name = 'Explorations'
 includeBuild('build-logic')
-include("common", "fabric", "neoforge")
+include("common", "fabric", "forge", "neoforge")
