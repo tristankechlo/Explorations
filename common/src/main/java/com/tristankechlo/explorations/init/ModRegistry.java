@@ -1,15 +1,16 @@
 package com.tristankechlo.explorations.init;
 
+import com.mojang.serialization.MapCodec;
 import com.tristankechlo.explorations.Explorations;
 import com.tristankechlo.explorations.platform.Services;
 import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
 import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
 import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
-import com.tristankechlo.explorations.worldgen.structures.processors.DeepslateProcessor;
 import com.tristankechlo.explorations.worldgen.structures.SlimeCaveStructure;
-import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import com.tristankechlo.explorations.worldgen.structures.UndergroundTempleStructure;
+import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
+import com.tristankechlo.explorations.worldgen.structures.processors.DeepslateProcessor;
 import com.tristankechlo.explorations.worldgen.structures.processors.StoneBrickAgingProcessor;
 import com.tristankechlo.explorations.worldgen.structures.processors.WoolReplacingProcessor;
 import com.tristankechlo.explorations.worldgen.treedecorators.CaveVineDecorator;
@@ -19,7 +20,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 
 public final class ModRegistry {
 
@@ -44,9 +45,9 @@ public final class ModRegistry {
     public static final RegistryObject<StructurePieceType> SLIME_CAVE_PIECE = STRUCTURE_PIECE_TYPES.register("slime_cave_piece", () -> SlimeCaveStructurePiece::new);
 
     /* STRUCTURE PROCESSOR */
-    public static final RegistrationProvider<StructureProcessorType<?>> STRUCTURE_PROCESSORS = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_PROCESSOR, Explorations.MOD_ID);
-    public static final RegistryObject<StructureProcessorType<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate", () -> () -> DeepslateProcessor.CODEC);
-    public static final RegistryObject<StructureProcessorType<StoneBrickAgingProcessor>> STONE_BRICK_AGING_PROCESSOR = STRUCTURE_PROCESSORS.register("stone_brick_aging", () -> () -> StoneBrickAgingProcessor.CODEC);
-    public static final RegistryObject<StructureProcessorType<WoolReplacingProcessor>> WOOL_REPLACING_PROCESSOR = STRUCTURE_PROCESSORS.register("wool_replacing", () -> () -> WoolReplacingProcessor.CODEC);
+    public static final RegistrationProvider<MapCodec<? extends StructureProcessor>> STRUCTURE_PROCESSORS = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_PROCESSOR, Explorations.MOD_ID);
+    public static final RegistryObject<MapCodec<DeepslateProcessor>> DEEPSLATE_PROCESSOR = STRUCTURE_PROCESSORS.register("deepslate", () -> DeepslateProcessor.CODEC);
+    public static final RegistryObject<MapCodec<StoneBrickAgingProcessor>> STONE_BRICK_AGING_PROCESSOR = STRUCTURE_PROCESSORS.register("stone_brick_aging", () -> StoneBrickAgingProcessor.CODEC);
+    public static final RegistryObject<MapCodec<WoolReplacingProcessor>> WOOL_REPLACING_PROCESSOR = STRUCTURE_PROCESSORS.register("wool_replacing", () -> WoolReplacingProcessor.CODEC);
 
 }

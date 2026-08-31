@@ -3,7 +3,6 @@ package com.tristankechlo.explorations.worldgen.structures.processors;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Util;
@@ -14,13 +13,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
 
 import java.util.List;
 import java.util.Map;
 
-public class StoneBrickAgingProcessor extends StructureProcessor {
+public class StoneBrickAgingProcessor implements StructureProcessor {
 
     public static final MapCodec<StoneBrickAgingProcessor> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
@@ -39,7 +37,7 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, StructureBlockInfo var4, StructureBlockInfo var5, StructurePlaceSettings var6) {
+    public StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, BlockPos var4, StructureBlockInfo var5, StructurePlaceSettings var6) {
         BlockState old = var5.state();
         BlockState replacement = null;
         RandomSource random = var6.getRandom(var5.pos());
@@ -82,8 +80,8 @@ public class StoneBrickAgingProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
-        return ModRegistry.STONE_BRICK_AGING_PROCESSOR.get();
+    public MapCodec<? extends StructureProcessor> codec() {
+        return CODEC;
     }
 
     public record Chances(float bricks, float walls, float stairs, float slabs) {

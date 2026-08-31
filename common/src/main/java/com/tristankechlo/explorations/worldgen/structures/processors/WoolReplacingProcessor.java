@@ -1,7 +1,6 @@
 package com.tristankechlo.explorations.worldgen.structures.processors;
 
 import com.mojang.serialization.MapCodec;
-import com.tristankechlo.explorations.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -11,14 +10,13 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class WoolReplacingProcessor extends StructureProcessor {
+public class WoolReplacingProcessor implements StructureProcessor {
 
     private static final List<String> ALL_COLORS = Arrays.stream(DyeColor.values()).map(DyeColor::getName).toList();
     private static final Pattern PATTERN = Pattern.compile("minecraft:[a-z_]+_wool", Pattern.CASE_INSENSITIVE);
@@ -27,7 +25,7 @@ public class WoolReplacingProcessor extends StructureProcessor {
     private String color = null;
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, StructureTemplate.StructureBlockInfo var4, StructureTemplate.StructureBlockInfo var5, StructurePlaceSettings settings) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos var2, BlockPos var3, BlockPos var4, StructureTemplate.StructureBlockInfo var5, StructurePlaceSettings settings) {
         RandomSource random = settings.getRandom(var5.pos());
         this.ensureColor(random);
         if (!isWoolBlock(var5.state())) {
@@ -62,8 +60,8 @@ public class WoolReplacingProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
-        return ModRegistry.WOOL_REPLACING_PROCESSOR.get();
+    public MapCodec<? extends StructureProcessor> codec() {
+        return CODEC;
     }
 
 }

@@ -11,8 +11,8 @@ import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.monster.cubemob.Slime;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.block.Blocks;
@@ -86,7 +86,7 @@ public class SlimeCaveStructurePiece extends TemplateStructurePiece {
                 blockEntity.setChanged();
             }
         } else if (marker.equals("slime")) {
-            Slime slime = EntityType.SLIME.create(level.getLevel(), EntitySpawnReason.STRUCTURE);
+            Slime slime = EntityTypes.SLIME.create(level.getLevel(), EntitySpawnReason.STRUCTURE);
             if (slime != null) {
                 slime.snapTo(pos, 0.0F, 0.0F);
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.STRUCTURE, null);
