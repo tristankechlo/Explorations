@@ -3,6 +3,10 @@
 ## Version 26.1.2 - 1.6.4
 
 - fix spawning of large mushrooms
+- fix spawning of scarecrows
+    - removed the block-tag `explorations:scarecrow_spawnable_on`
+    - valid spawns are now determined based on the biome related sapling (acacia-scarecrow can only spawn where acacia
+      saplings can spawn, ...)
 - update pack.mcmeta
 
 ## Version 26.1.2 - 1.6.3
