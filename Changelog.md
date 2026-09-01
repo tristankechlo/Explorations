@@ -8,6 +8,8 @@
     - valid spawns are now determined based on the biome related sapling (acacia-scarecrow can only spawn where acacia
       saplings can spawn, ...)
 - update pack.mcmeta
+- underground temple now generate without waterlogged blocks, if spawned in water
+  (see [#19](https://github.com/tristankechlo/Explorations/issues/19))
 
 ## Version 26.1.2 - 1.6.3
 
