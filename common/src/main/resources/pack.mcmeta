@@ -14,7 +14,10 @@
                 ]
             }
         ],
-        "min_format": 88,
+        "min_format": [
+            101,
+            1
+        ],
         "max_format": 1000
     }
 }

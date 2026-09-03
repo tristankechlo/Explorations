@@ -1,8 +1,16 @@
 # Changelog
 
-## Version 26.2 - 1.6.3
+## Version 26.2 - 1.6.4
 
 - port to 26.2
+- fix spawning of large mushrooms
+- fix spawning of scarecrows
+    - removed the block-tag `explorations:scarecrow_spawnable_on`
+    - valid spawns are now determined based on the biome related sapling (acacia-scarecrow can only spawn where acacia
+      saplings can spawn, ...)
+- update pack.mcmeta
+- underground temple now generate without waterlogged blocks, if spawned in water
+  (see [#19](https://github.com/tristankechlo/Explorations/issues/19))
 
 ## Version 1.21.11 - 1.6.3
 
