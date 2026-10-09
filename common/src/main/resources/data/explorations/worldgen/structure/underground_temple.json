@@ -12,20 +12,29 @@
                 {
                     "type": "minecraft:illusioner",
                     "weight": 100,
-                    "minCount": 4,
-                    "maxCount": 9
+                    "count": {
+                        "type": "minecraft:uniform",
+                        "min_inclusive": 4,
+                        "max_inclusive": 9
+                    }
                 },
                 {
                     "type": "minecraft:pillager",
                     "weight": 100,
-                    "minCount": 4,
-                    "maxCount": 9
+                    "count": {
+                        "type": "minecraft:uniform",
+                        "min_inclusive": 4,
+                        "max_inclusive": 9
+                    }
                 },
                 {
                     "type": "minecraft:vindicator",
                     "weight": 100,
-                    "minCount": 4,
-                    "maxCount": 9
+                    "count": {
+                        "type": "minecraft:uniform",
+                        "min_inclusive": 4,
+                        "max_inclusive": 9
+                    }
                 }
             ]
         }
