@@ -3,6 +3,8 @@
 ### Version 1.21.1 - 1.6.4
 
 - slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
+- underground temple now generate without waterlogged blocks, if spawned in water
+  (see [#19](https://github.com/tristankechlo/Explorations/issues/19))
 
 ### Version 1.21.1 - 1.6.2
 
