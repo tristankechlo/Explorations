@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.21.1 - 1.6.4
+
+- slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
+
 ### Version 1.21.1 - 1.6.2
 
 - port to 1.21.1
@@ -12,11 +16,11 @@
 - decreased shrine generation rate (similar to ruined portals now)
 - improved loot_table for shrine (more/better loot to be found)
 - adjusted scarecrow generation rate
-  - generally spawns less often
-  - can now generate in plain-biomes
+    - generally spawns less often
+    - can now generate in plain-biomes
 - decreased generation rate of underground temples
 - split large oak trees into two nbt's
-  - adjusts better to terrain adaptions
+    - adjusts better to terrain adaptions
 - add statues that can generate in villages
 - add new structure campsite
 - add cherry and bamboo scarecrows
