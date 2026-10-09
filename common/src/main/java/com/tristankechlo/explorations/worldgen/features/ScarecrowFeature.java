@@ -1,49 +1,73 @@
 package com.tristankechlo.explorations.worldgen.features;
 
 import com.mojang.serialization.Codec;
-import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Direction.Axis;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
+public class ScarecrowFeature implements Feature {
 
-    public ScarecrowFeature(Codec<ScarecrowFeatureConfig> codec) {
-        super(codec);
+    public static final MapCodec<ScarecrowFeature> CODEC = RecordCodecBuilder.mapCodec(
+            instance -> instance.group(
+                    // the blocks to use for the arms
+                    BlockStateProvider.CODEC.fieldOf("arm_provider").forGetter(f -> f.arms),
+                    // the block to use for the legs
+                    BlockStateProvider.CODEC.fieldOf("leg_provider").forGetter(f -> f.legs),
+                    // the block to use for the middle part
+                    BlockStateProvider.CODEC.fieldOf("body_provider").orElse(BlockStateProvider.holderOf(Blocks.HAY_BLOCK)).forGetter(f -> f.body),
+                    // the block to use for the head
+                    BlockStateProvider.CODEC.fieldOf("head_provider").orElse(BlockStateProvider.holderOf(Blocks.CARVED_PUMPKIN)).forGetter(f -> f.head),
+                    // whether or not the scarecrow can replace other blocks
+                    Codec.BOOL.optionalFieldOf("force_place", Boolean.FALSE).forGetter(f -> f.forcePlace)
+            ).apply(instance, ScarecrowFeature::new)
+    );
+
+    private final Holder<BlockStateProvider> arms;
+    private final Holder<BlockStateProvider> legs;
+    private final Holder<BlockStateProvider> body;
+    private final Holder<BlockStateProvider> head;
+    private final boolean forcePlace;
+
+    public ScarecrowFeature(Holder<BlockStateProvider> arms, Holder<BlockStateProvider> legs, Holder<BlockStateProvider> body, Holder<BlockStateProvider> head, boolean forcePlace) {
+        this.arms = arms;
+        this.legs = legs;
+        this.body = body;
+        this.head = head;
+        this.forcePlace = forcePlace;
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<ScarecrowFeatureConfig> context) {
-        WorldGenLevel level = context.level();
-        RandomSource random = context.random();
-
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource random, BlockPos posLeg) {
         Direction facingHead = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-        Direction facingArmLeft = facingHead.getClockWise(Axis.Y);
-        Direction facingArmRight = facingHead.getCounterClockWise(Axis.Y);
+        Direction facingArmLeft = facingHead.getClockWise(Direction.Axis.Y);
+        Direction facingArmRight = facingHead.getCounterClockWise(Direction.Axis.Y);
 
-        BlockPos posLeg = context.origin();
         BlockPos posBody = posLeg.above(1);
         BlockPos posHead = posLeg.above(2);
         BlockPos posLeftArm = posLeg.above().relative(facingArmLeft);
         BlockPos posRightArm = posLeg.above().relative(facingArmRight);
 
         // check if allowed to place scarecrow here
-        if (!canBePlaced(level, context.config().forcePlace(), posLeg, posBody, posHead, posLeftArm, posRightArm)) {
+        if (!canBePlaced(level, this.forcePlace, posLeg, posBody, posHead, posLeftArm, posRightArm)) {
             return false;
         }
 
-        BlockState stateHead = createHead(context.config().head().getState(level, random, posHead), facingHead);
-        BlockState stateBody = context.config().body().getState(level, random, posBody);
-        BlockState stateLegs = context.config().legs().getState(level, random, posLeg);
-        BlockState stateArmLeft = createArm(context.config().arms().getState(level, random, posLeftArm), facingArmLeft);
-        BlockState stateArmRight = createArm(context.config().arms().getState(level, random, posRightArm), facingArmRight);
+        BlockState stateHead = createHead(this.head.value().getState(level, random, posHead), facingHead);
+        BlockState stateBody = this.body.value().getState(level, random, posBody);
+        BlockState stateLegs = this.legs.value().getState(level, random, posLeg);
+        BlockState stateArmLeft = createArm(this.arms.value().getState(level, random, posLeftArm), facingArmLeft);
+        BlockState stateArmRight = createArm(this.arms.value().getState(level, random, posRightArm), facingArmRight);
 
         level.setBlock(posLeg, stateLegs, 3);
         level.setBlock(posBody, stateBody, 3);
@@ -99,4 +123,8 @@ public class ScarecrowFeature extends Feature<ScarecrowFeatureConfig> {
         return true;
     }
 
+    @Override
+    public MapCodec<ScarecrowFeature> codec() {
+        return CODEC;
+    }
 }

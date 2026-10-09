@@ -7,8 +7,8 @@ import com.tristankechlo.explorations.init.ModRegistry;
 import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.codec.RegistryCodecs;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Rotation;
@@ -26,7 +26,7 @@ import java.util.Optional;
 public final class SlimeCaveStructure extends Structure {
 
     public static final MapCodec<SlimeCaveStructure> CODEC = RecordCodecBuilder.mapCodec(instance ->
-            instance.group(RegistryCodecs.homogeneousList(Registries.BIOME).fieldOf("biomes").forGetter(s -> s.biomes))
+            instance.group(RegistryCodecs.holderSet(Registries.BIOME).fieldOf("biomes").forGetter(s -> s.biomes))
                     .apply(instance, SlimeCaveStructure::new));
     private static final Identifier ID = Identifier.fromNamespaceAndPath(Explorations.MOD_ID, "slime_cave");
     private final HolderSet<Biome> biomes;

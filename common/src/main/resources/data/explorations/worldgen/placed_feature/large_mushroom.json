@@ -24,7 +24,7 @@
             "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                    "Name": "minecraft:dark_oak_sapling"
+                    "id": "minecraft:dark_oak_sapling"
                 }
             }
         }

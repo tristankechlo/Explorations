@@ -6,7 +6,6 @@ import com.tristankechlo.explorations.platform.Services;
 import com.tristankechlo.explorations.registration.RegistrationProvider;
 import com.tristankechlo.explorations.registration.RegistryObject;
 import com.tristankechlo.explorations.worldgen.features.ScarecrowFeature;
-import com.tristankechlo.explorations.worldgen.features.config.ScarecrowFeatureConfig;
 import com.tristankechlo.explorations.worldgen.structures.SlimeCaveStructure;
 import com.tristankechlo.explorations.worldgen.structures.UndergroundTempleStructure;
 import com.tristankechlo.explorations.worldgen.structures.pieces.SlimeCaveStructurePiece;
@@ -27,8 +26,8 @@ public final class ModRegistry {
     public static void loadClass() {} //this is just to load the class
 
     /* FEATURES */
-    public static final RegistrationProvider<Feature<?>> FEATURES = RegistrationProvider.get(BuiltInRegistries.FEATURE, Explorations.MOD_ID);
-    public static final RegistryObject<Feature<ScarecrowFeatureConfig>> SCARECROW = FEATURES.register("scarecrow", () -> new ScarecrowFeature(ScarecrowFeatureConfig.CODEC));
+    public static final RegistrationProvider<MapCodec<? extends Feature>> FEATURES = RegistrationProvider.get(BuiltInRegistries.FEATURE_TYPE, Explorations.MOD_ID);
+    public static final RegistryObject<MapCodec<ScarecrowFeature>> SCARECROW = FEATURES.register("scarecrow", () -> ScarecrowFeature.CODEC);
 
     /* STRUCTURES */
     public static final RegistrationProvider<StructureType<?>> STRUCTURES = RegistrationProvider.get(BuiltInRegistries.STRUCTURE_TYPE, Explorations.MOD_ID);

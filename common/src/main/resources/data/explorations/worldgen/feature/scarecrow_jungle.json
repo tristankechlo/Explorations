@@ -1,0 +1,32 @@
+{
+    "type": "explorations:scarecrow",
+    "arm_provider": {
+        "type": "minecraft:simple",
+        "state": {
+            "id": "minecraft:jungle_fence"
+        }
+    },
+    "leg_provider": {
+        "type": "minecraft:simple",
+        "state": {
+            "id": "minecraft:jungle_fence"
+        }
+    },
+    "head_provider": {
+        "type": "minecraft:weighted",
+        "entries": [
+            {
+                "weight": 4,
+                "data": {
+                    "id": "minecraft:carved_pumpkin"
+                }
+            },
+            {
+                "weight": 1,
+                "data": {
+                    "id": "minecraft:jack_o_lantern"
+                }
+            }
+        ]
+    }
+}
