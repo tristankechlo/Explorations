@@ -12,9 +12,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:coal_ore"
-                    }
+                    "output_state": "minecraft:coal_ore"
                 },
                 {
                     "input_predicate": {
@@ -25,9 +23,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:iron_ore"
-                    }
+                    "output_state": "minecraft:iron_ore"
                 },
                 {
                     "input_predicate": {
@@ -38,9 +34,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:copper_ore"
-                    }
+                    "output_state": "minecraft:copper_ore"
                 },
                 {
                     "input_predicate": {
@@ -51,9 +45,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:redstone_ore"
-                    }
+                    "output_state": "minecraft:redstone_ore"
                 },
                 {
                     "input_predicate": {
@@ -64,9 +56,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:lapis_ore"
-                    }
+                    "output_state": "minecraft:lapis_ore"
                 },
                 {
                     "input_predicate": {
@@ -77,9 +67,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:gold_ore"
-                    }
+                    "output_state": "minecraft:gold_ore"
                 },
                 {
                     "input_predicate": {
@@ -90,9 +78,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:diamond_ore"
-                    }
+                    "output_state": "minecraft:diamond_ore"
                 },
                 {
                     "input_predicate": {
@@ -103,9 +89,7 @@
                     "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                     },
-                    "output_state": {
-                        "Name": "minecraft:emerald_ore"
-                    }
+                    "output_state": "minecraft:emerald_ore"
                 }
             ]
         }
