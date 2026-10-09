@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,7 +52,7 @@ public abstract class ImprovedJigsawStructure extends Structure {
 
         return JigsawPlacement.addPieces(context, this.settings.startPool(), this.settings.startJigsawName(),
                 this.settings.size(), blockpos, false, Optional.empty(), this.settings.maxDistanceFromCenter(),
-                PoolAliasLookup.create(List.of(), blockpos, context.seed()), DEFAULT_DIMENSION_PADDING, DEFAULT_LIQUID_SETTINGS);
+                PoolAliasLookup.create(List.of(), blockpos, context.seed()), DEFAULT_DIMENSION_PADDING, this.settings.liquidSettings());
     }
 
     protected abstract BlockPos generateStartPos(GenerationContext context);
@@ -62,13 +63,17 @@ public abstract class ImprovedJigsawStructure extends Structure {
             Holder<StructureTemplatePool> startPool,
             Optional<Identifier> startJigsawName,
             int size,
-            JigsawStructure.MaxDistance maxDistanceFromCenter
+            JigsawStructure.MaxDistance maxDistanceFromCenter,
+            LiquidSettings liquidSettings
     ) {
         public static final MapCodec<JigsawStructureSettings> CODEC = RecordCodecBuilder.mapCodec(instance -> instance
-                .group(StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(JigsawStructureSettings::startPool),
+                .group(
+                        StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(JigsawStructureSettings::startPool),
                         Identifier.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(JigsawStructureSettings::startJigsawName),
                         Codec.intRange(0, 30).fieldOf("size").orElse(5).forGetter(JigsawStructureSettings::size),
-                        JigsawStructure.MaxDistance.CODEC.fieldOf("max_distance_from_center").orElse(new JigsawStructure.MaxDistance(50)).forGetter(JigsawStructureSettings::maxDistanceFromCenter))
+                        JigsawStructure.MaxDistance.CODEC.fieldOf("max_distance_from_center").orElse(new JigsawStructure.MaxDistance(50)).forGetter(JigsawStructureSettings::maxDistanceFromCenter),
+                        LiquidSettings.CODEC.fieldOf("liquid_settings").orElse(DEFAULT_LIQUID_SETTINGS).forGetter(JigsawStructureSettings::liquidSettings)
+                )
                 .apply(instance, JigsawStructureSettings::new));
     }
 

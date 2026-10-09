@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.21.11 - 1.6.4
+
+- underground temple now generate without waterlogged blocks, if spawned in water
+  (see [#19](https://github.com/tristankechlo/Explorations/issues/19))
+
 ## Version 1.21.11 - 1.6.3
 
 - port to 1.21.11
