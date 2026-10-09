@@ -7,10 +7,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:diamond",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 0,
                                 "max": 5
                             }
@@ -21,6 +22,7 @@
         },
         {
             "rolls": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 3
             },
@@ -28,10 +30,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:rotten_flesh",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 15
                             }
@@ -47,9 +50,9 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:book",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": [
                                 "minecraft:protection",
                                 "minecraft:sharpness",
@@ -58,7 +61,7 @@
                             ]
                         },
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": 1
                         }
                     ]
@@ -67,9 +70,9 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:golden_apple",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": 1
                         }
                     ]
@@ -82,10 +85,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:gold_ingot",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 5
                             }
@@ -100,9 +104,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:golden_apple",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:binomial",
                                 "n": 0,

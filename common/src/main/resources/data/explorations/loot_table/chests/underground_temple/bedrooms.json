@@ -12,9 +12,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:diamond",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -28,9 +28,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_ingot",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -43,9 +43,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:gold_ingot",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -59,9 +59,9 @@
                     "type": "minecraft:item",
                     "weight": 15,
                     "name": "minecraft:bread",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -79,9 +79,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:coal",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -95,9 +95,9 @@
                     "type": "minecraft:item",
                     "weight": 20,
                     "name": "minecraft:stick",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:uniform",
                                 "min": 1,
@@ -116,9 +116,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_sword",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -127,9 +127,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_chestplate",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -138,9 +138,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_helmet",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -149,9 +149,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_leggings",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -160,9 +160,9 @@
                     "type": "minecraft:item",
                     "weight": 5,
                     "name": "minecraft:iron_boots",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]

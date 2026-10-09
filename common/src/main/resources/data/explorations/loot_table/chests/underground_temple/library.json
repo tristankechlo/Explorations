@@ -7,10 +7,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:book",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 10,
                                 "max": 20
                             }
@@ -25,10 +26,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:rotten_flesh",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 6,
                                 "max": 26
                             }
@@ -44,10 +46,11 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:paper",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 10,
                                 "max": 30
                             }
@@ -58,10 +61,11 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:string",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 10,
                                 "max": 30
                             }
@@ -76,9 +80,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:book",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": [
                                 "minecraft:protection",
                                 "minecraft:aqua_affinity",
@@ -97,9 +101,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:book",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_with_levels",
+                            "type": "minecraft:enchant_with_levels",
                             "options": "#minecraft:treasure",
                             "levels": {
                                 "type": "minecraft:uniform",

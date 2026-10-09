@@ -7,16 +7,17 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:potion",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 2
                             }
                         },
                         {
-                            "function": "minecraft:set_potion",
+                            "type": "minecraft:set_potion",
                             "id": "minecraft:long_slow_falling"
                         }
                     ]
@@ -24,9 +25,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:book",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -35,6 +36,7 @@
         },
         {
             "rolls": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 5
             },
@@ -42,10 +44,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:flower_pot",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 10
                             }
@@ -55,10 +58,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:dandelion",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 10
                             }
@@ -68,10 +72,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:poppy",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 10
                             }
@@ -81,10 +86,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:bone_meal",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 2,
                                 "max": 10
                             }

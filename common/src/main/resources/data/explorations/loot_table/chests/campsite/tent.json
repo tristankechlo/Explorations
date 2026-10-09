@@ -3,6 +3,7 @@
     "pools": [
         {
             "rolls": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 2
             },
@@ -10,10 +11,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:white_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -23,10 +25,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:light_gray_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -36,10 +39,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:gray_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -49,10 +53,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:black_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -62,10 +67,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:brown_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -75,10 +81,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:red_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -88,10 +95,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:orange_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -101,10 +109,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:yellow_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -114,10 +123,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:lime_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -127,10 +137,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:green_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -140,10 +151,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:cyan_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -153,10 +165,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:light_blue_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -166,10 +179,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:blue_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -179,10 +193,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:purple_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -192,10 +207,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:magenta_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -205,10 +221,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:pink_wool",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 20
                             }
@@ -219,6 +236,7 @@
         },
         {
             "rolls": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 4
             },
@@ -230,10 +248,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:hay_block",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 5
                             }
@@ -243,10 +262,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:iron_nugget",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 3
                             }
@@ -256,10 +276,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:potato",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 3
                             }
@@ -269,10 +290,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:carrot",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 3
                             }
@@ -282,13 +304,13 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:diamond_pickaxe",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         },
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
                                 "type": "minecraft:binomial",
                                 "n": 1,
@@ -300,10 +322,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:paper",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 5
                             }
@@ -325,9 +348,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:iron_axe",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -335,9 +358,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:iron_pickaxe",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:enchant_randomly",
+                            "type": "minecraft:enchant_randomly",
                             "options": "#minecraft:on_random_loot"
                         }
                     ]
@@ -345,10 +368,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:bread",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 10
                             }
@@ -366,10 +390,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:apple",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 5,
                                 "max": 10
                             }
@@ -388,10 +413,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:experience_bottle",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 3,
                                 "max": 10
                             }

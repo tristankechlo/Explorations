@@ -7,9 +7,9 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:stone_pickaxe",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": 1
                         }
                     ]
@@ -22,10 +22,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:cobblestone",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 32,
                                 "max": 128
                             }
@@ -40,10 +41,11 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:stone",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 16,
                                 "max": 64
                             }
@@ -59,10 +61,11 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:bread",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 8
                             }
@@ -73,10 +76,11 @@
                     "type": "minecraft:item",
                     "weight": 1,
                     "name": "minecraft:apple",
-                    "functions": [
+                    "modifier": [
                         {
-                            "function": "minecraft:set_count",
+                            "type": "minecraft:set_count",
                             "count": {
+                                "type": "minecraft:uniform",
                                 "min": 1,
                                 "max": 8
                             }
