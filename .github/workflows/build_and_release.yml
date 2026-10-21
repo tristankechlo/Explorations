@@ -76,6 +76,7 @@ jobs:
           modrinth-id: "pcGnjJ39"
           changelog: ${{ github.event.release.body }}
           loaders: forge
+          forge-glob: "./build/libs/${{ env.MODID }}-*.jar"
           version-range: ${{ needs.prepare.outputs.version-range }}
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
