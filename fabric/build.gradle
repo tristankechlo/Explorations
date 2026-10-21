@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'fabric-loom' version '1.10-SNAPSHOT'
     id 'idea'
 }
 
@@ -20,8 +20,9 @@ dependencies {
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     implementation project(":common")
 
-    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
-    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    implementation 'org.codehaus.groovy:groovy-json:3.0.16'
+    compileOnly "com.google.auto.service:auto-service:$auto_service_version"
+    annotationProcessor "com.google.auto.service:auto-service:$auto_service_version"
 }
 
 loom {

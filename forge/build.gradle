@@ -67,8 +67,8 @@ dependencies {
     compileOnly project(":common")
     annotationProcessor 'org.spongepowered:mixin:0.8.4-SNAPSHOT:processor'
 
-    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
-    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    compileOnly "com.google.auto.service:auto-service:$auto_service_version"
+    annotationProcessor "com.google.auto.service:auto-service:$auto_service_version"
 }
 
 tasks.withType(JavaCompile) {
