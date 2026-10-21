@@ -1,11 +1,15 @@
 # Changelog
 
-### Version 1.18.2 - 1.6.1
+## Version 1.18.2 - 1.6.5
+
+- slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
+
+## Version 1.18.2 - 1.6.1
 
 - fix an error in the logs that was caused by adding statues to villages
 - statue weights are now configurable
 
-### Version 1.18.2 - 1.6.0
+## Version 1.18.2 - 1.6.0
 
 - fix scarecrows spawning in water
 - decreased shrine generation rate (similar to ruined portals now)
@@ -19,15 +23,15 @@
 - add statues that can generate in villages
 - add new structure campsite
 
-### Version 1.18.2 - 1.5.2
+## Version 1.18.2 - 1.5.2
 
 - fix broken enchantment books that could be found in the `underground_temple` and `floating_island`
 
-### Version 1.18.2 - 1.5.1
+## Version 1.18.2 - 1.5.1
 
 - fix game crashing in other dimensions
 
-### Version 1.18.2 - 1.5.0
+## Version 1.18.2 - 1.5.0
 
 - changes to the underground temple
     - now also generates at y-levels lower than 0
@@ -41,7 +45,7 @@
     - contains loot
 - add custom processor to randomize stone_bricks
 
-### Version 1.18.2 - 1.4.0
+## Version 1.18.2 - 1.4.0
 
 - decreased spawnrate of the underground temple
 - increased spawnrate of large oak trees
@@ -66,11 +70,11 @@
     - can generate in desert biomes
     - might contain loot
 
-### Version 1.18.2 - 1.1.1
+## Version 1.18.2 - 1.1.1
 
 - fix game crashing in the end (again)
 
-### Version 1.18.2 - 1.1.0
+## Version 1.18.2 - 1.1.0
 
 - update to 1.18.2
 - fix existing structure spawning
@@ -81,12 +85,12 @@
     - large oak tree
     - shrine
 
-### Version 1.18.1 - 1.0.1
+## Version 1.18.1 - 1.0.1
 
 - fix game crashing in the end
 - fix game crashing in modded dimensions
 
-### Version 1.18.1 - 1.0.0
+## Version 1.18.1 - 1.0.0
 
 - add forgotten well structure
 - add jungle temple structure
