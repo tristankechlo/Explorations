@@ -23,11 +23,11 @@ public class JigsawConfig {
 
     public static final JigsawConfig FORGOTTEN_WELL = new JigsawConfig.Builder().setStartPool("forgotten_well_start")
             .addSpawnBiome(Biomes.FOREST).addSpawnBiome(Biomes.BIRCH_FOREST).addSpawnBiome(Biomes.BIRCH_FOREST_HILLS).addSpawnBiome(Biomes.DARK_FOREST).addSpawnBiome(Biomes.DARK_FOREST_HILLS).addSpawnBiome(Biomes.TALL_BIRCH_FOREST).addSpawnBiome(Biomes.FLOWER_FOREST)
-            .setSeparationSettings(10, 5, 2147413647).setSize(1).build();
+            .setSeparationSettings(20, 15, 2147413647).setSize(1).build();
 
     public static final JigsawConfig JUNGLE_TEMPLE = new JigsawConfig.Builder().setStartPool("jungle_temple/jungle_temple_start")
             .addSpawnBiome(Biomes.JUNGLE).addSpawnBiome(Biomes.JUNGLE_EDGE).addSpawnBiome(Biomes.JUNGLE_HILLS).addSpawnBiome(Biomes.MODIFIED_JUNGLE).addSpawnBiome(Biomes.MODIFIED_JUNGLE_EDGE).addSpawnBiome(Biomes.BAMBOO_JUNGLE).addSpawnBiome(Biomes.BAMBOO_JUNGLE_HILLS)
-            .setSeparationSettings(17, 6, 2147413646).setTransformSurroundingLand(false).setSize(3).build();
+            .setSeparationSettings(17, 10, 2147413646).setTransformSurroundingLand(false).setSize(3).build();
 
     public static final JigsawConfig UNDERGROUND_TEMPLE = new JigsawConfig.Builder().setStartPool("underground_temple/start")
             .setSeparationSettings(20, 8, 2147413645).setTransformSurroundingLand(false).setSize(6).setPlaceAtHeightmap(false)
@@ -37,7 +37,7 @@ public class JigsawConfig {
             .setStep(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).build();
 
     public static final JigsawConfig FLOATING_ISLAND = new JigsawConfig.Builder().setStartPool("floating_island_start")
-            .setSeparationSettings(16, 8, 1701811218).setSize(1).setTransformSurroundingLand(false).setYOffset(60)
+            .setSeparationSettings(20, 15, 1701811218).setSize(1).setTransformSurroundingLand(false).setYOffset(60)
             .addSpawnBiome(Biomes.OCEAN).addSpawnBiome(Biomes.DEEP_COLD_OCEAN)
             .addSpawnBiome(Biomes.COLD_OCEAN).addSpawnBiome(Biomes.DEEP_COLD_OCEAN)
             .addSpawnBiome(Biomes.FROZEN_OCEAN).addSpawnBiome(Biomes.DEEP_FROZEN_OCEAN)

@@ -1,11 +1,15 @@
 # Changelog
 
-### Version 1.16.5 - 1.6.1
+## Version 1.16.5 - 1.6.5
+
+- slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
+
+## Version 1.16.5 - 1.6.1
 
 - fix an error in the logs that was caused by adding statues to villages
 - statue weights are now configurable
 
-### Version 1.16.5 - 1.6.0
+## Version 1.16.5 - 1.6.0
 
 - fix scarecrows spawning in water
 - prevent structures from generating in modded dimensions
@@ -20,14 +24,14 @@
 - add statues that can generate in villages
 - add new structure campsite
 
-### Version 1.16.5 - 1.5.3
+## Version 1.16.5 - 1.5.3
 
 - backport all newer features
     - deepslate has been replaced with blackstone for the underground temple
     - candles have been replaced with lanterns for the underground temple
     - moss blocks have been replace with dirt for slime caves
 
-### Version 1.16.5 - 1.0.0
+## Version 1.16.5 - 1.0.0
 
 - add forgotten well structure
 - add jungle temple structure
