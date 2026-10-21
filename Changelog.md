@@ -3,6 +3,7 @@
 ## Version 1.19.5 - 1.6.5
 
 - slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
+- removed `persistent` property from structures with leaves (prevented some leaves from despawning)
 
 ## Version 1.19.2 - 1.6.1
 
