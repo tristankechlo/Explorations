@@ -2,7 +2,8 @@
     "pack": {
         "description": [
             {
-                "text": "Exploration Ressources\nAuthor: "
+                "text": "Exploration\nAuthor:",
+                "color": "aqua"
             },
             {
                 "text": "Buecher_wurm",
