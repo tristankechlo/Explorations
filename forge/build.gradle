@@ -8,7 +8,6 @@ mixin {
     add(sourceSets.main, "${mod_id}.refmap.json")
     config("${mod_id}.mixins.json")
 }
-jar.manifest.attributes.put("MixinConfigs", "${mod_id}.mixins.json")
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
@@ -45,13 +44,15 @@ minecraft {
     }
 }
 
+jar.manifest.attributes.put("MixinConfigs", "${mod_id}.mixins.json")
+
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
-    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
-    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    compileOnly "com.google.auto.service:auto-service:$auto_service_version"
+    annotationProcessor "com.google.auto.service:auto-service:$auto_service_version"
 }
 
 sourceSets.each {

@@ -1,15 +1,6 @@
 {
     "pack": {
-        "description": [
-            {
-                "text": "Exploration\nAuthor:",
-                "color": "aqua"
-            },
-            {
-                "text": "Buecher_wurm",
-                "color": "green"
-            }
-        ],
+        "description": "Explorations",
         "pack_format": 41,
         "forge:resource_pack_format": 32,
         "forge:data_pack_format": 41
