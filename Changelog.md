@@ -1,18 +1,22 @@
 # Changelog
 
-### Version 1.21.1 - 1.6.4
+## Version 1.21.1 - 1.6.5
+
+- removed `persistent` property from structures with leaves (prevented some leaves from despawning)
+
+## Version 1.21.1 - 1.6.4
 
 - slightly decreased spawn rate for: `forgotten_well`, `floating_island` and `jungle_temple`
 - underground temple now generate without waterlogged blocks, if spawned in water
   (see [#19](https://github.com/tristankechlo/Explorations/issues/19))
 
-### Version 1.21.1 - 1.6.2
+## Version 1.21.1 - 1.6.2
 
 - port to 1.21.1
 - fix broken enchanted books found in underground temple
 - use vanilla enchantment tags for loot in chests (see [#21](https://github.com/tristankechlo/Explorations/issues/21))
 
-### Version 1.21 - 1.6.1
+## Version 1.21 - 1.6.1
 
 - fix scarecrows spawning in water
 - decreased shrine generation rate (similar to ruined portals now)
@@ -27,32 +31,32 @@
 - add new structure campsite
 - add cherry and bamboo scarecrows
 
-### Version 1.21 - 1.5.3
+## Version 1.21 - 1.5.3
 
 - port to 1.21
 
-### Version 1.20.6 - 1.5.3
+## Version 1.20.6 - 1.5.3
 
 - port to 1.20.6
 
-### Version 1.20.4 - 1.5.3
+## Version 1.20.4 - 1.5.3
 
 - port to 1.20.4
 - add neoforge support
 
-### Version 1.20.1 - 1.5.2
+## Version 1.20.1 - 1.5.2
 
 - fix broken enchantment books that could be found in the `underground_temple` and `floating_island`
 
-### Version 1.20.1 - 1.5.1
+## Version 1.20.1 - 1.5.1
 
 - port to 1.20.1
 
-### Version 1.19.4 - 1.5.1
+## Version 1.19.4 - 1.5.1
 
 - fix game crashing in other dimensions
 
-### Version 1.19.4 - 1.5.0
+## Version 1.19.4 - 1.5.0
 
 - changes to the underground temple
     - now also generates at y-levels lower than 0
@@ -66,27 +70,27 @@
     - contains loot
 - add custom processor to randomize stone_bricks
 
-### Version 1.19.3 - 1.4.0
+## Version 1.19.3 - 1.4.0
 
 - added new structure `explorations:desert_ruin`
     - has eight different variants
     - can generate in desert biomes
     - might contain loot
 
-### Version 1.19.3 - 1.3.1
+## Version 1.19.3 - 1.3.1
 
 - reduced spawn chance of the scarecrows
 
-### Version 1.19.3 - 1.3
+## Version 1.19.3 - 1.3
 
 - port to 1.19.3
 
-### Version 1.19.2 - 1.3
+## Version 1.19.2 - 1.3
 
 - port to 1.19.2
 - port to fabric
 
-### Version 1.19 - 1.2
+## Version 1.19 - 1.2
 
 - add new custom tree decorator `explorations:cave_vines`
     - can be used for tree features to add hanging cave vines to the tree
@@ -98,7 +102,7 @@
     - can now generate more frequently
     - mods/datapacks can add custom scarecrows with modded blocks
 
-### Version 1.19 - 1.1.2
+## Version 1.19 - 1.1.2
 
 - port to 1.19
 - decreased spawnrate of the underground temple
@@ -110,11 +114,11 @@
 - add new scarecrow variant `mangrove`
 - scarecrows now generate only in their respective biome
 
-### Version 1.18.2 - 1.1.1
+## Version 1.18.2 - 1.1.1
 
 - fix game crashing in the end (again)
 
-### Version 1.18.2 - 1.1.0
+## Version 1.18.2 - 1.1.0
 
 - update to 1.18.2
 - fix existing structure spawning
@@ -125,12 +129,12 @@
     - large oak tree
     - shrine
 
-### Version 1.18.1 - 1.0.1
+## Version 1.18.1 - 1.0.1
 
 - fix game crashing in the end
 - fix game crashing in modded dimensions
 
-### Version 1.18.1 - 1.0.0
+## Version 1.18.1 - 1.0.0
 
 - add forgotten well structure
 - add jungle temple structure
