@@ -71,7 +71,7 @@ jobs:
 
       - name: publish mod files
         uses: tristankechlo/publish-mc-mod@v2.0.0
-        if: ${{ contains(github.event.release.name, '[RELEASE]') }}
+        if: ${{ !contains(github.event.release.name, '[NOCI]') }}
         with:
           mc-version: ${{ needs.prepare.outputs.mc-version }}
           mod-version: ${{ needs.prepare.outputs.mod-version }}
@@ -90,7 +90,7 @@ jobs:
       - name: Make embed
         uses: tristankechlo/create-discord-embed@v1.1.2
         with:
-          released: ${{ contains(github.event.release.name, '[RELEASE]') }}
+          released: ${{ !contains(github.event.release.name, '[NOCI]') }}
           changelog: "${{ github.event.release.body }}"
           version: "${{ needs.prepare.outputs.mc-version }} - ${{ needs.prepare.outputs.mod-version }}"
           color: 16766046
