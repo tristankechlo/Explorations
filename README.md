@@ -1,4 +1,7 @@
-# Explorations [![Curseforge](http://cf.way2muchnoise.eu/full_550247_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/explorations) [![Discord](https://img.shields.io/discord/639540436524072970?color=0a48c4&label=%20&logo=discord&logoColor=FFF)](https://discord.gg/bhUaWhq)
+# Explorations
+[![Curseforge](https://img.shields.io/curseforge/dt/550247?style=for-the-badge&logo=curseforge&color=e05d44)](https://www.curseforge.com/minecraft/mc-mods/explorations)&nbsp;
+[![Modrinth](https://img.shields.io/modrinth/dt/pcGnjJ39?style=for-the-badge&logo=modrinth&color=e05d44)](https://modrinth.com/mod/explorations)&nbsp;
+[![Discord](https://img.shields.io/discord/639540436524072970?style=for-the-badge&logo=discord&logoColor=fff&label=%20&color=0a48c4)](https://discord.gg/bhUaWhq)
 
 ### adds more vanilla style structures to the game
 
@@ -58,13 +61,12 @@
 
 there is currently 1 pre-made datapack available for this mod:
 
-| Name                  | Description                                | MC-Version | Downloads                                                                                                                                                       |
-|-----------------------|--------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NoMoreFloatingIslands | will stop Floating Islands from generating |   1.19.X   | [Curseforge](https://www.curseforge.com/minecraft/texture-packs/no-more-floating-islands) or [Modrinth](https://modrinth.com/datapack/no-more-floating-islands) |
+| Name                  | Description                                | Downloads                                                                                                                                                       |
+|-----------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NoMoreFloatingIslands | will stop Floating Islands from generating | [Curseforge](https://www.curseforge.com/minecraft/texture-packs/no-more-floating-islands) or [Modrinth](https://modrinth.com/datapack/no-more-floating-islands) |
 
 <hr>
 
 ### Project setup
 
-This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from
-jaredlll08
+This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from jaredlll08
