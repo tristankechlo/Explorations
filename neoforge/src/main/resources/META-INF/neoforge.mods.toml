@@ -8,6 +8,7 @@ showAsResourcePack = false
     version = "${version}"
     displayName = "Explorations+"
     displayURL = "https://www.curseforge.com/minecraft/mc-mods/explorations"
+    issueTrackerURL = "https://github.com/tristankechlo/Explorations/issues"
     iconFile = "pack.png"
     credits = "Thanks to TelepathicGrunt for the StructureTutorialMod"
     authors = "Buecher_wurm"
