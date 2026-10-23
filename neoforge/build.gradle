@@ -15,10 +15,13 @@ neoForge {
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
         }
         client {
+            gameDirectory = project.file('run')
             client()
         }
         server {
+            gameDirectory = project.file('run')
             server()
+            programArgument("--nogui")
         }
     }
     mods {
@@ -29,6 +32,8 @@ neoForge {
 }
 
 dependencies {
-    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
-    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    compileOnly "com.google.auto.service:auto-service:$auto_service_version"
+    annotationProcessor "com.google.auto.service:auto-service:$auto_service_version"
 }
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }

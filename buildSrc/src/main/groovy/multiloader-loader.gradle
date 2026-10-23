@@ -1,12 +1,15 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
     id 'multiloader-common'
 }
 
 configurations {
-    commonJava{
+    commonJava {
         canBeResolved = true
     }
-    commonResources{
+    commonResources {
         canBeResolved = true
     }
 }
@@ -29,4 +32,11 @@ tasks.named('compileJava', JavaCompile) {
 processResources {
     dependsOn(configurations.commonResources)
     from(configurations.commonResources)
+
+    // minify json files
+    doLast {
+        fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
+            File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+        }
+    }
 }
