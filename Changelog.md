@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 26.1.2 - 1.6.5
+
+- removed `persistent` property from structures with leaves (prevented some leaves from despawning)
+
 ## Version 26.1.2 - 1.6.4
 
 - fix spawning of large mushrooms
