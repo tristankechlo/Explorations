@@ -5,8 +5,8 @@ plugins {
 }
 
 mixin {
-    add(sourceSets.main, "${mod_id}.refmap.json")
-    config("${mod_id}.mixins.json")
+    add sourceSets.main, "${mod_id}.refmap.json"
+    config "${mod_id}.mixins.json"
 }
 jar.manifest.attributes.put("MixinConfigs", "${mod_id}.mixins.json")
 
@@ -16,7 +16,7 @@ minecraft {
 
     runs {
         client {
-            workingDirectory file('runs/client')
+            workingDirectory file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
             property 'mixin.env.remapRefMap', 'true'
@@ -25,12 +25,12 @@ minecraft {
         }
 
         server {
-            workingDirectory file('runs/server')
+            workingDirectory file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Server'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            mods { modClientRun { source sourceSets.main } }
+            mods { modServerRun { source sourceSets.main } }
         }
     }
 }
@@ -39,8 +39,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    compileOnly group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
-    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: auto_service_version
+    compileOnly "com.google.auto.service:auto-service:$auto_service_version"
+    annotationProcessor "com.google.auto.service:auto-service:$auto_service_version"
 }
 
 jar.finalizedBy('reobfJar')
