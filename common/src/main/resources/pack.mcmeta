@@ -1,19 +1,6 @@
 {
     "pack": {
-        "description": [
-            {
-                "text": "Exploration Ressources  "
-            },
-            {
-                "text": "Author: ",
-                "extra": [
-                    {
-                        "text": "Buecher_wurm",
-                        "color": "green"
-                    }
-                ]
-            }
-        ],
+        "description": "Explorations",
         "min_format": 88,
         "max_format": 1000
     }
