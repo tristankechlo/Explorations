@@ -61,13 +61,12 @@
 
 there is currently 1 pre-made datapack available for this mod:
 
-| Name                  | Description                                | MC-Version | Downloads                                                                                                                                                       |
-|-----------------------|--------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NoMoreFloatingIslands | will stop Floating Islands from generating |   1.19.X   | [Curseforge](https://www.curseforge.com/minecraft/texture-packs/no-more-floating-islands) or [Modrinth](https://modrinth.com/datapack/no-more-floating-islands) |
+| Name                  | Description                                | Downloads                                                                                                                                                       |
+|-----------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NoMoreFloatingIslands | will stop Floating Islands from generating | [Curseforge](https://www.curseforge.com/minecraft/texture-packs/no-more-floating-islands) or [Modrinth](https://modrinth.com/datapack/no-more-floating-islands) |
 
 <hr>
 
 ### Project setup
 
-This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from
-jaredlll08
+This project is developed using the [MultiLoader-Template](https://github.com/jaredlll08/MultiLoader-Template) from jaredlll08
